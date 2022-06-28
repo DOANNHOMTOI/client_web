@@ -1,4 +1,4 @@
-import {axiosClientAPI} from "../../helpers/axiosInstance"
+import {axiosClientAPI,axiosInstance} from "../../helpers/axiosInstance"
 import router from '@/router'
 export default {
   async register({commit, dispatch}, data) {
@@ -113,6 +113,48 @@ export default {
         return true
       }else return false;
     } catch (error) {
+      return false;
+    }
+  },
+  async getListProductCategory({commit, state}, currPage) {
+    try {
+      const headers = {Authorization: 'Bearer ' + localStorage.getItem('ACCESS_TOKEN')};
+      commit('SHOW_LOADING', true);
+      console.log('currPage', currPage)
+      return await axiosInstance.get(`/api/web/product-category?page=${currPage}`,{headers : headers}).then(r => {
+        commit('SHOW_LOADING', false);
+        return r
+      })
+        .catch(e => {
+          commit('SHOW_LOADING', false);
+          console.log(e)
+        });
+
+    } catch (error) {
+      console.log(error);
+      return false;
+    }
+  },
+  async filterProduct({commit, state}, data) {
+    try {
+      const headers = {Authorization: 'Bearer ' + localStorage.getItem('ACCESS_TOKEN')};
+      // commit('SHOW_LOADING', true);
+      console.log('data filterProduct', data)
+      let endPoint = '/api/web/productFilter';
+      if(data.category_id != null){
+        endPoint += '?category_id=' + parseInt(data.category_id);
+      }
+      return await axiosInstance.get(endPoint,{headers : headers}).then(r => {
+        commit('SHOW_LOADING', false);
+        return r
+      })
+        .catch(e => {
+          commit('SHOW_LOADING', false);
+          console.log(e)
+        });
+
+    } catch (error) {
+      console.log(error);
       return false;
     }
   },
