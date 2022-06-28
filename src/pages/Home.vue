@@ -337,8 +337,9 @@
                     class="vc_general vc_tta vc_tta-tabs vc_tta-color-grey vc_tta-style-classic vc_tta-shape-rounded vc_tta-spacing-1 vc_tta-tabs-position-left vc_tta-controls-align-left ">
                     <div class="vc_tta-tabs-container">
                       <ul class="vc_tta-tabs-list">
-                        <li class="vc_tta-tab vc_active" v-for="(cate,i) in listCate" :key="i" data-vc-tab>
-                          <a href="#1450790267996-59361fa5-cf71"
+                        <li class="vc_tta-tab" :class="{ vc_active: cateIndex === cate.id}" v-for="(cate,i) in listCate" :key="i" data-vc-tab>
+                          <a @click="setProduct(cate.id)"
+                             style="cursor: pointer"
                             data-vc-tabs
                             data-vc-container=".vc_tta">
                           <span class="vc_tta-title-text">{{ cate.name }}</span>
@@ -2338,6 +2339,7 @@ export default {
       cateID: 0,
       listCate:[],
       listProduct:[],
+      cateIndex: 0
     }
   },
  created() {
@@ -2345,9 +2347,11 @@ export default {
      console.log('res getProductCategory', r)
      this.listCate = r.data.data.data
      this.cateID = r.data.data.data[0].id
+     this.cateIndex = r.data.data.data[0].id
      this.filterProduct({category_id:r.data.data.data[0].id}).then(res=>{
        console.log('res filterProduct',res)
        this.listProduct = res.data.data.products
+
      })
    }).catch(e=>{
      console.log(e)
@@ -2359,6 +2363,7 @@ export default {
 
   },
 
+
   methods: {
     /**
      * When the location found
@@ -2367,6 +2372,13 @@ export default {
      * @param {String} id Input container ID
      */
     ...mapActions(['getListProductCategory','filterProduct']),
+    setProduct(category_id){
+      this.cateIndex = category_id
+      this.filterProduct({category_id: category_id}).then(res=>{
+        console.log('res filterProduct',res)
+        this.listProduct = res.data.data.products
+      })
+    },
     getPathFile(path){
       return config.url_api_back_end_real + path
     }
