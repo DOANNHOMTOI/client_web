@@ -141,9 +141,18 @@ export default {
       // commit('SHOW_LOADING', true);
       console.log('data filterProduct', data)
       let endPoint = '/api/web/productFilter';
-      if(data.category_id != null){
+      if(data.category_id !== undefined && data.category_id != null){
         endPoint += '?category_id=' + parseInt(data.category_id);
+        if(data.minPrice !== undefined && data.minPrice != null){
+          endPoint += `&minPrice=${data.minPrice}&maxPrice=${data.maxPrice}`;
+        }
       }
+      else {
+        if(data.minPrice !== undefined && data.minPrice != null){
+          endPoint += `?minPrice=${data.minPrice}&maxPrice=${data.maxPrice}`;
+        }
+      }
+
       return await axiosInstance.get(endPoint,{headers : headers}).then(r => {
         commit('SHOW_LOADING', false);
         return r
