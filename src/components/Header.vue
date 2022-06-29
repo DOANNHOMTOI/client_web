@@ -141,15 +141,23 @@
                           </li>
                           <li id="menu-item-4017"
                               class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4017 multicolumn_dropdown default_style drop_to_right submenu_full_width columns3">
-                            <a href="http://demo.roadthemes.com/james/shop/" class="item_link  disable_icon"
-                               tabindex="4">
-                                <i class=""></i>
-                                <span class="link_content">
+<!--                            <a href="http://demo.roadthemes.com/james/shop/" class="item_link  disable_icon"-->
+<!--                               tabindex="4">-->
+<!--                                <i class=""></i>-->
+<!--                                <span class="link_content">-->
+<!--                                <span class="link_text">-->
+<!--                                  Shop-->
+<!--                                </span>-->
+<!--                              </span>-->
+<!--                            </a>-->
+                            <router-link to="/shop" tabindex="4" class="item_link  disable_icon">
+                              <i class=""></i>
+                              <span class="link_content">
                                 <span class="link_text">
                                   Shop
                                 </span>
                               </span>
-                            </a>
+                            </router-link>
                           </li>
                           <li id="menu-item-4014"
                               class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4014 multicolumn_dropdown default_style drop_to_right submenu_default_width columns3">
