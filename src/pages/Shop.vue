@@ -58,11 +58,11 @@
             <ul class="product_list_widget">
               <li v-for="(item,i) in listNew">
                 <div class="product-image">
-                  <a href="http://demo.roadthemes.com/james/shop/footwear/ornare-sed-consequat/"
-                     title="Ornare sed consequat">
+                  <router-link :to="'/product/' + item.id" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
                     <img width="200" height="200"
                          :src="getPathFile(item.image)"
-                         class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="5"/> </a>
+                         class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="5"/>
+                  </router-link>
                 </div>
                 <div class="product-info">
                   <a href="http://demo.roadthemes.com/james/shop/footwear/ornare-sed-consequat/"
@@ -90,19 +90,19 @@
 
                   <div class="list-col4 ">
                     <div class="product-image">
-                      <a href="http://demo.roadthemes.com/james/shop/health-beauty/aenean-eu-tristique/"
-                         class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+                      <router-link :to="'/product/' + item.id" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
                         <img width="500"
-                           height="500"
-                           :src="getPathFile(item.image)"
-                           class="primary_image wp-post-image"
-                           alt="15"/><img
-                          width="500" height="500"
-                          :src="getPathFile(item.image)"
-                          class="secondary_image" alt="17"
-                          :srcset="getPathFile(item.image)"
-                          sizes="(max-width: 500px) 100vw, 500px"/>
-                      </a>
+                             height="500"
+                             :src="getPathFile(item.image)"
+                             class="primary_image wp-post-image"
+                             alt="15"/>
+                        <img
+                        width="500" height="500"
+                        :src="getPathFile(item.image)"
+                        class="secondary_image" alt="17"
+                        :srcset="getPathFile(item.image)"
+                        sizes="(max-width: 500px) 100vw, 500px"/>
+                      </router-link>
                     </div>
                   </div>
                   <div class="list-col8 ">

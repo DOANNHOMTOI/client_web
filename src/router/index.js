@@ -45,7 +45,7 @@ export default new Router({
       component: ListShopNew
     },
     {
-      path: '/shop-detail',
+      path: '/product/:id',
       name: 'ShoDetailShopp',
       component: DetailShop
     },

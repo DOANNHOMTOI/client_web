@@ -363,21 +363,20 @@
                                   <div class="product-wrapper">
                                     <div class="list-col4">
                                       <div class="product-image">
-                                        <a
-                                          href="http://demo.roadthemes.com/james/shop/footwear/aenean-sagittis/"
-                                          class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+                                        <router-link :to="'/shop/' + product.id" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
                                           <img width="500" height="500"
                                                :src="getPathFile(product.image)"
                                                class="primary_image wp-post-image" alt="7"
                                                :srcset="getPathFile(product.image)"
                                                sizes="(max-width: 500px) 100vw, 500px"/>
-                                        </a>
+                                        </router-link>
                                         <div class="list-col2">
                                           <div class="list-col8 ">
                                             <div class="gridview">
                                               <h2 class="product-name">
-                                                <a
-                                                  href="http://demo.roadthemes.com/james/shop/footwear/aenean-sagittis/">{{ product.name }}</a>
+                                                <router-link :to="'/shop/' + product.id">
+                                                  {{ product.name }}
+                                                </router-link>
                                               </h2>
                                               <div class="ratings">
                                                 <div class="star-rating"><span style="width:80%">Rated <strong
@@ -397,12 +396,10 @@
                                     <div class="list-col8 ">
                                       <div class="gridview">
                                         <h2 class="product-name">
-                                          <a
-                                            href="http://demo.roadthemes.com/james/shop/footwear/aenean-sagittis/">{{ product.name }}</a>
+                                          <router-link :to="'/shop/' + product.id">
+                                            {{ product.name }}
+                                          </router-link>
                                         </h2>
-                                        <div class="ratings">
-                                          <h5>Xem thêm</h5>
-                                        </div>
                                         <div class="price-box"><span
                                           class="woocommerce-Price-amount amount"><span
                                           class="woocommerce-Price-currencySymbol"></span>{{ product.price }} đ</span>
@@ -440,103 +437,29 @@
                 <div class="woocommerce columns-1">
 
                   <div class="shop-products row grid-view">
-
-
                     <div
+                      v-for="(item,i) in listProductNew"
                       class=" item-col col-xs-12 col-sm-12 post-2309 product type-product status-publish has-post-thumbnail product_cat-fashion product_cat-footwear product_cat-handbags product_cat-health-beauty product_cat-jewellery product_cat-shoes first instock featured shipping-taxable purchasable product-type-simple">
                       <div class="product-wrapper">
 
                         <div class="list-col4 ">
                           <div class="product-image">
-                            <a href="http://demo.roadthemes.com/james/shop/footwear/ornare-sed-consequat/"
-                               class="woocommerce-LoopProduct-link woocommerce-loop-product__link"> <img
-                              width="500" height="500"
-                              src="//demo.roadthemes.com/james/wp-content/uploads/2014/10/5-500x500.jpg"
-                              class="primary_image wp-post-image" alt="5"
-                              srcset="//demo.roadthemes.com/james/wp-content/uploads/2014/10/5-500x500.jpg 500w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/5-150x150.jpg 150w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/5-300x300.jpg 300w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/5-768x768.jpg 768w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/5-600x600.jpg 600w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/5-200x200.jpg 200w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/5.jpg 800w"
-                              sizes="(max-width: 500px) 100vw, 500px"/><img width="500" height="500"
-                                                                            src="http://demo.roadthemes.com/james/wp-content/uploads/2014/10/6-500x500.jpg"
-                                                                            class="secondary_image" alt="6"
-                                                                            srcset="http://demo.roadthemes.com/james/wp-content/uploads/2014/10/6-500x500.jpg 500w, http://demo.roadthemes.com/james/wp-content/uploads/2014/10/6-150x150.jpg 150w, http://demo.roadthemes.com/james/wp-content/uploads/2014/10/6-300x300.jpg 300w, http://demo.roadthemes.com/james/wp-content/uploads/2014/10/6-768x768.jpg 768w, http://demo.roadthemes.com/james/wp-content/uploads/2014/10/6-600x600.jpg 600w, http://demo.roadthemes.com/james/wp-content/uploads/2014/10/6-200x200.jpg 200w, http://demo.roadthemes.com/james/wp-content/uploads/2014/10/6.jpg 800w"
-                                                                            sizes="(max-width: 500px) 100vw, 500px"/>
-                            </a>
-                            <div class="actions">
-                              <ul class="add-to-links clearfix">
-                                <li>
-                                  <p class="product woocommerce add_to_cart_inline "
-                                     style="border:4px solid #ccc; padding: 12px;">
-
-                                          <span class="woocommerce-Price-amount amount"><span
-                                            class="woocommerce-Price-currencySymbol">&pound;</span>515.00</span>
-                                    <a rel="nofollow" href="/james/?add-to-cart=2309" data-quantity="1"
-                                       data-product_id="2309" data-product_sku=""
-                                       class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add
-                                      to cart</a>
-                                  </p></li>
-
-                                <li class="quickviewbtn">
-                                  <a class="detail-link quickview" data-quick-id="2309"
-                                     href="http://demo.roadthemes.com/james/shop/footwear/ornare-sed-consequat/"
-                                     title="Ornare sed consequat">Quick View</a>
-                                </li>
-
-                                <li>
-
-                                  <div class="yith-wcwl-add-to-wishlist add-to-wishlist-2309">
-                                    <div class="yith-wcwl-add-button show" style="display:block">
-
-
-                                      <a href="/james/?add_to_wishlist=2309" rel="nofollow"
-                                         data-product-id="2309"
-                                         data-product-type="simple" class="add_to_wishlist">
-                                        Add to Wishlist</a>
-
-                                    </div>
-
-                                    <div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
-                                      <span class="feedback">Product added!</span>
-                                      <a href="http://demo.roadthemes.com/james/wishlist/?wishlist-action"
-                                         rel="nofollow">
-                                        Browse Wishlist </a>
-                                    </div>
-
-                                    <div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
-                                      <span class="feedback">The product is already in the wishlist!</span>
-                                      <a href="http://demo.roadthemes.com/james/wishlist/?wishlist-action"
-                                         rel="nofollow">
-                                        Browse Wishlist </a>
-                                    </div>
-
-                                    <div style="clear:both"></div>
-                                    <div class="yith-wcwl-wishlistaddresponse"></div>
-
-                                  </div>
-
-                                  <div class="clear"></div>
-                                </li>
-                                <li>
-                                  <div class="woocommerce product compare-button"><a
-                                    href="http://demo.roadthemes.com/james?action=yith-woocompare-add-product&id=2309&lang=en"
-                                    class="compare button" data-product_id="2309" rel="nofollow">Compare</a>
-                                  </div>
-                                </li>
-                              </ul>
-
-                            </div>
+                            <router-link :to="'product/' + item.id" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+                              <img
+                                width="500" height="500"
+                                :src="getPathFile(item.image)"
+                                class="primary_image wp-post-image" alt="5"
+                                :srcset="getPathFile(item.image)"
+                                sizes="(max-width: 500px) 100vw, 500px"/>
+                              <img width="500" height="500"
+                                   :src="getPathFile(item.image)"
+                                   class="secondary_image" alt="6"
+                                   sizes="(max-width: 500px) 100vw, 500px"/>
+                            </router-link>
                             <div class="list-col2">
                               <div class="list-col8 ">
                                 <div class="gridview">
-                                  <h2 class="product-name">
-                                    <a
-                                      href="http://demo.roadthemes.com/james/shop/footwear/ornare-sed-consequat/">Ornare
-                                      sed consequat</a>
-                                  </h2>
-                                  <div class="ratings">
-                                    <div class="star-rating"><span style="width:100%">Rated <strong
-                                      class="rating">5.00</strong> out of 5</span></div>
-                                  </div>
-                                  <div class="price-box"><span class="woocommerce-Price-amount amount"><span
-                                    class="woocommerce-Price-currencySymbol">&pound;</span>515.00</span></div>
+                                  <div class="price-box"><span class="woocommerce-Price-amount amount">{{item.price}}</span></div>
 
                                 </div>
                               </div>
@@ -547,15 +470,12 @@
                         <div class="list-col8 ">
                           <div class="gridview">
                             <h2 class="product-name">
-                              <a href="http://demo.roadthemes.com/james/shop/footwear/ornare-sed-consequat/">Ornare
-                                sed consequat</a>
+                              <router-link :to="'product/' + item.id">
+                                {{ item.name }}
+                              </router-link>
                             </h2>
-                            <div class="ratings">
-                              <div class="star-rating"><span style="width:100%">Rated <strong
-                                class="rating">5.00</strong> out of 5</span></div>
-                            </div>
-                            <div class="price-box"><span class="woocommerce-Price-amount amount"><span
-                              class="woocommerce-Price-currencySymbol">&pound;</span>515.00</span></div>
+                            <div class="price-box"><span class="woocommerce-Price-amount amount">
+                              {{ item.price}} đ</span></div>
 
                           </div>
                         </div>
@@ -563,639 +483,6 @@
 
                       </div>
                     </div>
-
-
-                    <div
-                      class=" item-col col-xs-12 col-sm-12 post-2304 product type-product status-publish has-post-thumbnail product_cat-fashion product_cat-footwear product_cat-shoes first instock featured shipping-taxable purchasable product-type-simple">
-                      <div class="product-wrapper">
-
-                        <div class="list-col4 ">
-                          <div class="product-image">
-                            <a href="http://demo.roadthemes.com/james/shop/footwear/etiam-molestie/"
-                               class="woocommerce-LoopProduct-link woocommerce-loop-product__link"> <img
-                              width="500" height="500"
-                              src="//demo.roadthemes.com/james/wp-content/uploads/2014/10/6-500x500.jpg"
-                              class="primary_image wp-post-image" alt="6"
-                              srcset="//demo.roadthemes.com/james/wp-content/uploads/2014/10/6-500x500.jpg 500w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/6-150x150.jpg 150w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/6-300x300.jpg 300w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/6-768x768.jpg 768w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/6-600x600.jpg 600w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/6-200x200.jpg 200w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/6.jpg 800w"
-                              sizes="(max-width: 500px) 100vw, 500px"/><img width="500" height="500"
-                                                                            src="http://demo.roadthemes.com/james/wp-content/uploads/2014/10/7-500x500.jpg"
-                                                                            class="secondary_image" alt="7"
-                                                                            srcset="http://demo.roadthemes.com/james/wp-content/uploads/2014/10/7-500x500.jpg 500w, http://demo.roadthemes.com/james/wp-content/uploads/2014/10/7-150x150.jpg 150w, http://demo.roadthemes.com/james/wp-content/uploads/2014/10/7-300x300.jpg 300w, http://demo.roadthemes.com/james/wp-content/uploads/2014/10/7-768x768.jpg 768w, http://demo.roadthemes.com/james/wp-content/uploads/2014/10/7-600x600.jpg 600w, http://demo.roadthemes.com/james/wp-content/uploads/2014/10/7-200x200.jpg 200w, http://demo.roadthemes.com/james/wp-content/uploads/2014/10/7.jpg 800w"
-                                                                            sizes="(max-width: 500px) 100vw, 500px"/>
-                            </a>
-                            <div class="actions">
-                              <ul class="add-to-links clearfix">
-                                <li>
-                                  <p class="product woocommerce add_to_cart_inline "
-                                     style="border:4px solid #ccc; padding: 12px;">
-
-                                          <span class="woocommerce-Price-amount amount"><span
-                                            class="woocommerce-Price-currencySymbol">&pound;</span>95.00</span>
-                                    <a rel="nofollow" href="/james/?add-to-cart=2304" data-quantity="1"
-                                       data-product_id="2304" data-product_sku=""
-                                       class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add
-                                      to cart</a>
-                                  </p></li>
-
-                                <li class="quickviewbtn">
-                                  <a class="detail-link quickview" data-quick-id="2304"
-                                     href="http://demo.roadthemes.com/james/shop/footwear/etiam-molestie/"
-                                     title="Etiam molestie">Quick View</a>
-                                </li>
-
-                                <li>
-
-                                  <div class="yith-wcwl-add-to-wishlist add-to-wishlist-2304">
-                                    <div class="yith-wcwl-add-button show" style="display:block">
-
-
-                                      <a href="/james/?add_to_wishlist=2304" rel="nofollow"
-                                         data-product-id="2304"
-                                         data-product-type="simple" class="add_to_wishlist">
-                                        Add to Wishlist</a>
-
-                                    </div>
-
-                                    <div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
-                                      <span class="feedback">Product added!</span>
-                                      <a href="http://demo.roadthemes.com/james/wishlist/?wishlist-action"
-                                         rel="nofollow">
-                                        Browse Wishlist </a>
-                                    </div>
-
-                                    <div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
-                                      <span class="feedback">The product is already in the wishlist!</span>
-                                      <a href="http://demo.roadthemes.com/james/wishlist/?wishlist-action"
-                                         rel="nofollow">
-                                        Browse Wishlist </a>
-                                    </div>
-
-                                    <div style="clear:both"></div>
-                                    <div class="yith-wcwl-wishlistaddresponse"></div>
-
-                                  </div>
-
-                                  <div class="clear"></div>
-                                </li>
-                                <li>
-                                  <div class="woocommerce product compare-button"><a
-                                    href="http://demo.roadthemes.com/james?action=yith-woocompare-add-product&id=2304&lang=en"
-                                    class="compare button" data-product_id="2304" rel="nofollow">Compare</a>
-                                  </div>
-                                </li>
-                              </ul>
-
-                            </div>
-                            <div class="list-col2">
-                              <div class="list-col8 ">
-                                <div class="gridview">
-                                  <h2 class="product-name">
-                                    <a href="http://demo.roadthemes.com/james/shop/footwear/etiam-molestie/">Etiam
-                                      molestie</a>
-                                  </h2>
-                                  <div class="ratings">
-                                    <div class="star-rating"><span style="width:80%">Rated <strong
-                                      class="rating">4.00</strong> out of 5</span>
-                                    </div>
-                                  </div>
-                                  <div class="price-box"><span class="woocommerce-Price-amount amount"><span
-                                    class="woocommerce-Price-currencySymbol">&pound;</span>95.00</span></div>
-
-                                </div>
-                              </div>
-                            </div>
-
-                          </div>
-                        </div>
-                        <div class="list-col8 ">
-                          <div class="gridview">
-                            <h2 class="product-name">
-                              <a href="http://demo.roadthemes.com/james/shop/footwear/etiam-molestie/">Etiam
-                                molestie</a>
-                            </h2>
-                            <div class="ratings">
-                              <div class="star-rating"><span style="width:80%">Rated <strong
-                                class="rating">4.00</strong> out of 5</span></div>
-                            </div>
-                            <div class="price-box"><span class="woocommerce-Price-amount amount"><span
-                              class="woocommerce-Price-currencySymbol">&pound;</span>95.00</span></div>
-
-                          </div>
-                        </div>
-                        <div class="clearfix"></div>
-
-                      </div>
-                    </div>
-
-
-                    <div
-                      class=" item-col col-xs-12 col-sm-12 post-2299 product type-product status-publish has-post-thumbnail product_cat-fashion product_cat-footwear first instock featured shipping-taxable purchasable product-type-simple">
-                      <div class="product-wrapper">
-
-                        <div class="list-col4 ">
-                          <div class="product-image">
-                            <a href="http://demo.roadthemes.com/james/shop/footwear/aenean-sagittis/"
-                               class="woocommerce-LoopProduct-link woocommerce-loop-product__link"> <img
-                              width="500" height="500"
-                              src="//demo.roadthemes.com/james/wp-content/uploads/2014/10/7-500x500.jpg"
-                              class="primary_image wp-post-image" alt="7"
-                              srcset="//demo.roadthemes.com/james/wp-content/uploads/2014/10/7-500x500.jpg 500w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/7-150x150.jpg 150w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/7-300x300.jpg 300w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/7-768x768.jpg 768w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/7-600x600.jpg 600w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/7-200x200.jpg 200w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/7.jpg 800w"
-                              sizes="(max-width: 500px) 100vw, 500px"/><img width="500" height="500"
-                                                                            src="http://demo.roadthemes.com/james/wp-content/uploads/2014/10/8-500x500.jpg"
-                                                                            class="secondary_image" alt="8"
-                                                                            srcset="http://demo.roadthemes.com/james/wp-content/uploads/2014/10/8-500x500.jpg 500w, http://demo.roadthemes.com/james/wp-content/uploads/2014/10/8-150x150.jpg 150w, http://demo.roadthemes.com/james/wp-content/uploads/2014/10/8-300x300.jpg 300w, http://demo.roadthemes.com/james/wp-content/uploads/2014/10/8-768x768.jpg 768w, http://demo.roadthemes.com/james/wp-content/uploads/2014/10/8-600x600.jpg 600w, http://demo.roadthemes.com/james/wp-content/uploads/2014/10/8-200x200.jpg 200w, http://demo.roadthemes.com/james/wp-content/uploads/2014/10/8.jpg 800w"
-                                                                            sizes="(max-width: 500px) 100vw, 500px"/>
-                            </a>
-                            <div class="actions">
-                              <ul class="add-to-links clearfix">
-                                <li>
-                                  <p class="product woocommerce add_to_cart_inline "
-                                     style="border:4px solid #ccc; padding: 12px;">
-
-                                          <span class="woocommerce-Price-amount amount"><span
-                                            class="woocommerce-Price-currencySymbol">&pound;</span>75.00</span>
-                                    <a rel="nofollow" href="/james/?add-to-cart=2299" data-quantity="1"
-                                       data-product_id="2299" data-product_sku=""
-                                       class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add
-                                      to cart</a>
-                                  </p></li>
-
-                                <li class="quickviewbtn">
-                                  <a class="detail-link quickview" data-quick-id="2299"
-                                     href="http://demo.roadthemes.com/james/shop/footwear/aenean-sagittis/"
-                                     title="Aenean sagittis">Quick View</a>
-                                </li>
-
-                                <li>
-
-                                  <div class="yith-wcwl-add-to-wishlist add-to-wishlist-2299">
-                                    <div class="yith-wcwl-add-button show" style="display:block">
-
-
-                                      <a href="/james/?add_to_wishlist=2299" rel="nofollow"
-                                         data-product-id="2299"
-                                         data-product-type="simple" class="add_to_wishlist">
-                                        Add to Wishlist</a>
-
-                                    </div>
-
-                                    <div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
-                                      <span class="feedback">Product added!</span>
-                                      <a href="http://demo.roadthemes.com/james/wishlist/?wishlist-action"
-                                         rel="nofollow">
-                                        Browse Wishlist </a>
-                                    </div>
-
-                                    <div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
-                                      <span class="feedback">The product is already in the wishlist!</span>
-                                      <a href="http://demo.roadthemes.com/james/wishlist/?wishlist-action"
-                                         rel="nofollow">
-                                        Browse Wishlist </a>
-                                    </div>
-
-                                    <div style="clear:both"></div>
-                                    <div class="yith-wcwl-wishlistaddresponse"></div>
-
-                                  </div>
-
-                                  <div class="clear"></div>
-                                </li>
-                                <li>
-                                  <div class="woocommerce product compare-button"><a
-                                    href="http://demo.roadthemes.com/james?action=yith-woocompare-add-product&id=2299&lang=en"
-                                    class="compare button" data-product_id="2299" rel="nofollow">Compare</a>
-                                  </div>
-                                </li>
-                              </ul>
-
-                            </div>
-                            <div class="list-col2">
-                              <div class="list-col8 ">
-                                <div class="gridview">
-                                  <h2 class="product-name">
-                                    <a href="http://demo.roadthemes.com/james/shop/footwear/aenean-sagittis/">Aenean
-                                      sagittis</a>
-                                  </h2>
-                                  <div class="ratings">
-                                    <div class="star-rating"><span style="width:80%">Rated <strong
-                                      class="rating">4.00</strong> out of 5</span>
-                                    </div>
-                                  </div>
-                                  <div class="price-box"><span class="woocommerce-Price-amount amount"><span
-                                    class="woocommerce-Price-currencySymbol">&pound;</span>75.00</span></div>
-
-                                </div>
-                              </div>
-                            </div>
-
-                          </div>
-                        </div>
-                        <div class="list-col8 ">
-                          <div class="gridview">
-                            <h2 class="product-name">
-                              <a href="http://demo.roadthemes.com/james/shop/footwear/aenean-sagittis/">Aenean
-                                sagittis</a>
-                            </h2>
-                            <div class="ratings">
-                              <div class="star-rating"><span style="width:80%">Rated <strong
-                                class="rating">4.00</strong> out of 5</span></div>
-                            </div>
-                            <div class="price-box"><span class="woocommerce-Price-amount amount"><span
-                              class="woocommerce-Price-currencySymbol">&pound;</span>75.00</span></div>
-
-                          </div>
-                        </div>
-                        <div class="clearfix"></div>
-
-                      </div>
-                    </div>
-
-
-                    <div
-                      class=" item-col col-xs-12 col-sm-12 post-2229 product type-product status-publish has-post-thumbnail product_cat-health-beauty product_tag-fashion first instock sale featured shipping-taxable purchasable product-type-simple">
-                      <div class="product-wrapper">
-
-                              <span class="onsale"><span class="sale-bg"></span><span
-                                class="sale-text">Sale</span></span>
-                        <div class="list-col4 ">
-                          <div class="product-image">
-                            <a href="http://demo.roadthemes.com/james/shop/health-beauty/congue-lectus/"
-                               class="woocommerce-LoopProduct-link woocommerce-loop-product__link"> <img
-                              width="500" height="500"
-                              src="//demo.roadthemes.com/james/wp-content/uploads/2014/10/21-500x500.jpg"
-                              class="primary_image wp-post-image" alt="21"
-                              srcset="//demo.roadthemes.com/james/wp-content/uploads/2014/10/21-500x500.jpg 500w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/21-150x150.jpg 150w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/21-300x300.jpg 300w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/21-768x768.jpg 768w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/21-600x600.jpg 600w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/21-200x200.jpg 200w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/21.jpg 800w"
-                              sizes="(max-width: 500px) 100vw, 500px"/><img width="500" height="500"
-                                                                            src="http://demo.roadthemes.com/james/wp-content/uploads/2014/10/22-500x500.jpg"
-                                                                            class="secondary_image" alt="22"
-                                                                            srcset="http://demo.roadthemes.com/james/wp-content/uploads/2014/10/22-500x500.jpg 500w, http://demo.roadthemes.com/james/wp-content/uploads/2014/10/22-150x150.jpg 150w, http://demo.roadthemes.com/james/wp-content/uploads/2014/10/22-300x300.jpg 300w, http://demo.roadthemes.com/james/wp-content/uploads/2014/10/22-768x768.jpg 768w, http://demo.roadthemes.com/james/wp-content/uploads/2014/10/22-600x600.jpg 600w, http://demo.roadthemes.com/james/wp-content/uploads/2014/10/22-200x200.jpg 200w, http://demo.roadthemes.com/james/wp-content/uploads/2014/10/22.jpg 800w"
-                                                                            sizes="(max-width: 500px) 100vw, 500px"/>
-                            </a>
-                            <div class="actions">
-                              <ul class="add-to-links clearfix">
-                                <li>
-                                  <p class="product woocommerce add_to_cart_inline "
-                                     style="border:4px solid #ccc; padding: 12px;">
-
-                                    <del><span class="woocommerce-Price-amount amount"><span
-                                      class="woocommerce-Price-currencySymbol">&pound;</span>115.00</span>
-                                    </del>
-                                    <ins><span class="woocommerce-Price-amount amount"><span
-                                      class="woocommerce-Price-currencySymbol">&pound;</span>105.00</span>
-                                    </ins>
-                                    <a rel="nofollow" href="/james/?add-to-cart=2229" data-quantity="1"
-                                       data-product_id="2229" data-product_sku=""
-                                       class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add
-                                      to cart</a>
-                                  </p>
-                                </li>
-
-                                <li class="quickviewbtn">
-                                  <a class="detail-link quickview" data-quick-id="2229"
-                                     href="http://demo.roadthemes.com/james/shop/health-beauty/congue-lectus/"
-                                     title="Congue lectus">Quick View</a>
-                                </li>
-
-                                <li>
-
-                                  <div class="yith-wcwl-add-to-wishlist add-to-wishlist-2229">
-                                    <div class="yith-wcwl-add-button show" style="display:block">
-
-
-                                      <a href="/james/?add_to_wishlist=2229" rel="nofollow"
-                                         data-product-id="2229"
-                                         data-product-type="simple" class="add_to_wishlist">
-                                        Add to Wishlist</a>
-
-                                    </div>
-
-                                    <div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
-                                      <span class="feedback">Product added!</span>
-                                      <a href="http://demo.roadthemes.com/james/wishlist/?wishlist-action"
-                                         rel="nofollow">
-                                        Browse Wishlist </a>
-                                    </div>
-
-                                    <div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
-                                      <span class="feedback">The product is already in the wishlist!</span>
-                                      <a href="http://demo.roadthemes.com/james/wishlist/?wishlist-action"
-                                         rel="nofollow">
-                                        Browse Wishlist </a>
-                                    </div>
-
-                                    <div style="clear:both"></div>
-                                    <div class="yith-wcwl-wishlistaddresponse"></div>
-
-                                  </div>
-
-                                  <div class="clear"></div>
-                                </li>
-                                <li>
-                                  <div class="woocommerce product compare-button"><a
-                                    href="http://demo.roadthemes.com/james?action=yith-woocompare-add-product&id=2229&lang=en"
-                                    class="compare button" data-product_id="2229" rel="nofollow">Compare</a>
-                                  </div>
-                                </li>
-                              </ul>
-
-                            </div>
-                            <div class="list-col2">
-                              <div class="list-col8 ">
-                                <div class="gridview">
-                                  <h2 class="product-name">
-                                    <a
-                                      href="http://demo.roadthemes.com/james/shop/health-beauty/congue-lectus/">Congue
-                                      lectus</a>
-                                  </h2>
-                                  <div class="ratings">
-                                    <div class="star-rating"><span style="width:100%">Rated <strong
-                                      class="rating">5.00</strong> out of 5</span></div>
-                                  </div>
-                                  <div class="price-box">
-                                    <del><span class="woocommerce-Price-amount amount"><span
-                                      class="woocommerce-Price-currencySymbol">&pound;</span>115.00</span>
-                                    </del>
-                                    <ins><span class="woocommerce-Price-amount amount"><span
-                                      class="woocommerce-Price-currencySymbol">&pound;</span>105.00</span>
-                                    </ins>
-                                  </div>
-
-                                </div>
-                              </div>
-                            </div>
-
-                          </div>
-                        </div>
-                        <div class="list-col8 ">
-                          <div class="gridview">
-                            <h2 class="product-name">
-                              <a href="http://demo.roadthemes.com/james/shop/health-beauty/congue-lectus/">Congue
-                                lectus</a>
-                            </h2>
-                            <div class="ratings">
-                              <div class="star-rating"><span style="width:100%">Rated <strong
-                                class="rating">5.00</strong> out of 5</span></div>
-                            </div>
-                            <div class="price-box">
-                              <del><span class="woocommerce-Price-amount amount"><span
-                                class="woocommerce-Price-currencySymbol">&pound;</span>115.00</span></del>
-                              <ins><span class="woocommerce-Price-amount amount"><span
-                                class="woocommerce-Price-currencySymbol">&pound;</span>105.00</span></ins>
-                            </div>
-
-                          </div>
-                        </div>
-                        <div class="clearfix"></div>
-
-                      </div>
-                    </div>
-
-
-                    <div
-                      class=" item-col col-xs-12 col-sm-12 post-615 product type-product status-publish has-post-thumbnail product_cat-jewellery product_tag-laptop first instock featured shipping-taxable purchasable product-type-simple">
-                      <div class="product-wrapper">
-
-                        <div class="list-col4 ">
-                          <div class="product-image">
-                            <a href="http://demo.roadthemes.com/james/shop/jewellery/condimentum-posuere/"
-                               class="woocommerce-LoopProduct-link woocommerce-loop-product__link"> <img
-                              width="500" height="500"
-                              src="//demo.roadthemes.com/james/wp-content/uploads/2014/10/6-500x500.jpg"
-                              class="primary_image wp-post-image" alt="6"
-                              srcset="//demo.roadthemes.com/james/wp-content/uploads/2014/10/6-500x500.jpg 500w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/6-150x150.jpg 150w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/6-300x300.jpg 300w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/6-768x768.jpg 768w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/6-600x600.jpg 600w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/6-200x200.jpg 200w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/6.jpg 800w"
-                              sizes="(max-width: 500px) 100vw, 500px"/><img width="500" height="500"
-                                                                            src="http://demo.roadthemes.com/james/wp-content/uploads/2014/10/3-500x500.jpg"
-                                                                            class="secondary_image" alt="3"
-                                                                            srcset="http://demo.roadthemes.com/james/wp-content/uploads/2014/10/3-500x500.jpg 500w, http://demo.roadthemes.com/james/wp-content/uploads/2014/10/3-150x150.jpg 150w, http://demo.roadthemes.com/james/wp-content/uploads/2014/10/3-300x300.jpg 300w, http://demo.roadthemes.com/james/wp-content/uploads/2014/10/3-768x768.jpg 768w, http://demo.roadthemes.com/james/wp-content/uploads/2014/10/3-600x600.jpg 600w, http://demo.roadthemes.com/james/wp-content/uploads/2014/10/3-200x200.jpg 200w, http://demo.roadthemes.com/james/wp-content/uploads/2014/10/3.jpg 800w"
-                                                                            sizes="(max-width: 500px) 100vw, 500px"/>
-                            </a>
-                            <div class="actions">
-                              <ul class="add-to-links clearfix">
-                                <li>
-                                  <p class="product woocommerce add_to_cart_inline "
-                                     style="border:4px solid #ccc; padding: 12px;">
-
-                                          <span class="woocommerce-Price-amount amount"><span
-                                            class="woocommerce-Price-currencySymbol">&pound;</span>115.00</span>
-                                    <a rel="nofollow" href="/james/?add-to-cart=615" data-quantity="1"
-                                       data-product_id="615" data-product_sku=""
-                                       class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add
-                                      to cart</a>
-                                  </p></li>
-
-                                <li class="quickviewbtn">
-                                  <a class="detail-link quickview" data-quick-id="615"
-                                     href="http://demo.roadthemes.com/james/shop/jewellery/condimentum-posuere/"
-                                     title="Condimentum posuere">Quick View</a>
-                                </li>
-
-                                <li>
-
-                                  <div class="yith-wcwl-add-to-wishlist add-to-wishlist-615">
-                                    <div class="yith-wcwl-add-button show" style="display:block">
-
-
-                                      <a href="/james/?add_to_wishlist=615" rel="nofollow"
-                                         data-product-id="615"
-                                         data-product-type="simple" class="add_to_wishlist">
-                                        Add to Wishlist</a>
-
-                                    </div>
-
-                                    <div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
-                                      <span class="feedback">Product added!</span>
-                                      <a href="http://demo.roadthemes.com/james/wishlist/?wishlist-action"
-                                         rel="nofollow">
-                                        Browse Wishlist </a>
-                                    </div>
-
-                                    <div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
-                                      <span class="feedback">The product is already in the wishlist!</span>
-                                      <a href="http://demo.roadthemes.com/james/wishlist/?wishlist-action"
-                                         rel="nofollow">
-                                        Browse Wishlist </a>
-                                    </div>
-
-                                    <div style="clear:both"></div>
-                                    <div class="yith-wcwl-wishlistaddresponse"></div>
-
-                                  </div>
-
-                                  <div class="clear"></div>
-                                </li>
-                                <li>
-                                  <div class="woocommerce product compare-button"><a
-                                    href="http://demo.roadthemes.com/james?action=yith-woocompare-add-product&id=615&lang=en"
-                                    class="compare button" data-product_id="615" rel="nofollow">Compare</a>
-                                  </div>
-                                </li>
-                              </ul>
-
-                            </div>
-                            <div class="list-col2">
-                              <div class="list-col8 ">
-                                <div class="gridview">
-                                  <h2 class="product-name">
-                                    <a
-                                      href="http://demo.roadthemes.com/james/shop/jewellery/condimentum-posuere/">Condimentum
-                                      posuere</a>
-                                  </h2>
-                                  <div class="ratings">
-                                    <div class="star-rating"><span style="width:100%">Rated <strong
-                                      class="rating">5.00</strong> out of 5</span></div>
-                                  </div>
-                                  <div class="price-box"><span class="woocommerce-Price-amount amount"><span
-                                    class="woocommerce-Price-currencySymbol">&pound;</span>115.00</span></div>
-
-                                </div>
-                              </div>
-                            </div>
-
-                          </div>
-                        </div>
-                        <div class="list-col8 ">
-                          <div class="gridview">
-                            <h2 class="product-name">
-                              <a href="http://demo.roadthemes.com/james/shop/jewellery/condimentum-posuere/">Condimentum
-                                posuere</a>
-                            </h2>
-                            <div class="ratings">
-                              <div class="star-rating"><span style="width:100%">Rated <strong
-                                class="rating">5.00</strong> out of 5</span></div>
-                            </div>
-                            <div class="price-box"><span class="woocommerce-Price-amount amount"><span
-                              class="woocommerce-Price-currencySymbol">&pound;</span>115.00</span></div>
-
-                          </div>
-                        </div>
-                        <div class="clearfix"></div>
-
-                      </div>
-                    </div>
-
-
-                    <div
-                      class=" item-col col-xs-12 col-sm-12 post-320 product type-product status-publish has-post-thumbnail product_cat-jewellery product_tag-blouse product_tag-fashion first instock featured shipping-taxable purchasable product-type-simple">
-                      <div class="product-wrapper">
-
-                        <div class="list-col4 ">
-                          <div class="product-image">
-                            <a href="http://demo.roadthemes.com/james/shop/jewellery/sport-t-shirt/"
-                               class="woocommerce-LoopProduct-link woocommerce-loop-product__link"> <img
-                              width="500" height="500"
-                              src="//demo.roadthemes.com/james/wp-content/uploads/2014/10/7-500x500.jpg"
-                              class="primary_image wp-post-image" alt="7"
-                              srcset="//demo.roadthemes.com/james/wp-content/uploads/2014/10/7-500x500.jpg 500w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/7-150x150.jpg 150w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/7-300x300.jpg 300w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/7-768x768.jpg 768w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/7-600x600.jpg 600w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/7-200x200.jpg 200w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/7.jpg 800w"
-                              sizes="(max-width: 500px) 100vw, 500px"/><img width="500" height="500"
-                                                                            src="http://demo.roadthemes.com/james/wp-content/uploads/2014/10/8-500x500.jpg"
-                                                                            class="secondary_image" alt="8"
-                                                                            srcset="http://demo.roadthemes.com/james/wp-content/uploads/2014/10/8-500x500.jpg 500w, http://demo.roadthemes.com/james/wp-content/uploads/2014/10/8-150x150.jpg 150w, http://demo.roadthemes.com/james/wp-content/uploads/2014/10/8-300x300.jpg 300w, http://demo.roadthemes.com/james/wp-content/uploads/2014/10/8-768x768.jpg 768w, http://demo.roadthemes.com/james/wp-content/uploads/2014/10/8-600x600.jpg 600w, http://demo.roadthemes.com/james/wp-content/uploads/2014/10/8-200x200.jpg 200w, http://demo.roadthemes.com/james/wp-content/uploads/2014/10/8.jpg 800w"
-                                                                            sizes="(max-width: 500px) 100vw, 500px"/>
-                            </a>
-                            <div class="actions">
-                              <ul class="add-to-links clearfix">
-                                <li>
-                                  <p class="product woocommerce add_to_cart_inline "
-                                     style="border:4px solid #ccc; padding: 12px;">
-
-                                          <span class="woocommerce-Price-amount amount"><span
-                                            class="woocommerce-Price-currencySymbol">&pound;</span>80.00</span>
-                                    <a rel="nofollow" href="/james/?add-to-cart=320" data-quantity="1"
-                                       data-product_id="320" data-product_sku=""
-                                       class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add
-                                      to cart</a>
-                                  </p></li>
-
-                                <li class="quickviewbtn">
-                                  <a class="detail-link quickview" data-quick-id="320"
-                                     href="http://demo.roadthemes.com/james/shop/jewellery/sport-t-shirt/"
-                                     title="Dignissim venenatis">Quick View</a>
-                                </li>
-
-                                <li>
-
-                                  <div class="yith-wcwl-add-to-wishlist add-to-wishlist-320">
-                                    <div class="yith-wcwl-add-button show" style="display:block">
-
-
-                                      <a href="/james/?add_to_wishlist=320" rel="nofollow"
-                                         data-product-id="320"
-                                         data-product-type="simple" class="add_to_wishlist">
-                                        Add to Wishlist</a>
-
-                                    </div>
-
-                                    <div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
-                                      <span class="feedback">Product added!</span>
-                                      <a href="http://demo.roadthemes.com/james/wishlist/?wishlist-action"
-                                         rel="nofollow">
-                                        Browse Wishlist </a>
-                                    </div>
-
-                                    <div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
-                                      <span class="feedback">The product is already in the wishlist!</span>
-                                      <a href="http://demo.roadthemes.com/james/wishlist/?wishlist-action"
-                                         rel="nofollow">
-                                        Browse Wishlist </a>
-                                    </div>
-
-                                    <div style="clear:both"></div>
-                                    <div class="yith-wcwl-wishlistaddresponse"></div>
-
-                                  </div>
-
-                                  <div class="clear"></div>
-                                </li>
-                                <li>
-                                  <div class="woocommerce product compare-button"><a
-                                    href="http://demo.roadthemes.com/james?action=yith-woocompare-add-product&id=320&lang=en"
-                                    class="compare button" data-product_id="320" rel="nofollow">Compare</a>
-                                  </div>
-                                </li>
-                              </ul>
-
-                            </div>
-                            <div class="list-col2">
-                              <div class="list-col8 ">
-                                <div class="gridview">
-                                  <h2 class="product-name">
-                                    <a href="http://demo.roadthemes.com/james/shop/jewellery/sport-t-shirt/">Dignissim
-                                      venenatis</a>
-                                  </h2>
-                                  <div class="ratings">
-                                    <div class="star-rating"><span style="width:100%">Rated <strong
-                                      class="rating">5.00</strong> out of 5</span></div>
-                                  </div>
-                                  <div class="price-box"><span class="woocommerce-Price-amount amount"><span
-                                    class="woocommerce-Price-currencySymbol">&pound;</span>80.00</span></div>
-
-                                </div>
-                              </div>
-                            </div>
-
-                          </div>
-                        </div>
-                        <div class="list-col8 ">
-                          <div class="gridview">
-                            <h2 class="product-name">
-                              <a href="http://demo.roadthemes.com/james/shop/jewellery/sport-t-shirt/">Dignissim
-                                venenatis</a>
-                            </h2>
-                            <div class="ratings">
-                              <div class="star-rating"><span style="width:100%">Rated <strong
-                                class="rating">5.00</strong> out of 5</span></div>
-                            </div>
-                            <div class="price-box"><span class="woocommerce-Price-amount amount"><span
-                              class="woocommerce-Price-currencySymbol">&pound;</span>80.00</span></div>
-
-                          </div>
-                        </div>
-                        <div class="clearfix"></div>
-
-                      </div>
-                    </div>
-
-
                   </div>
 
                 </div>
@@ -2339,6 +1626,7 @@ export default {
       cateID: 0,
       listCate:[],
       listProduct:[],
+      listProductNew:[],
       cateIndex: 0
     }
   },
@@ -2353,6 +1641,13 @@ export default {
        this.listProduct = res.data.data.products
 
      })
+   }).catch(e=>{
+     console.log(e)
+   })
+   this.getListProductNew(-1).then(r=>{
+     console.log('res getListProductNew', r)
+     this.listProductNew = r.data.data
+     console.log('this.listProductNew', this.listProductNew)
    }).catch(e=>{
      console.log(e)
    })
@@ -2371,7 +1666,7 @@ export default {
      * @param {Object} placeResultData PlaceResult object
      * @param {String} id Input container ID
      */
-    ...mapActions(['getListProductCategory','filterProduct']),
+    ...mapActions(['getListProductCategory','filterProduct','getListProductNew']),
     setProduct(category_id){
       this.cateIndex = category_id
       this.filterProduct({category_id: category_id}).then(res=>{

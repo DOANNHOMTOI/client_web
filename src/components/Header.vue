@@ -78,8 +78,11 @@
         <div class="container">
           <div class="row">
             <div class="col-xs-12 col-md-3">
-              <div class="logo"><a href="http://demo.roadthemes.com/james/" title="James" rel="home"><img
-                src="http://demo.roadthemes.com/james/wp-content/uploads/2015/12/logo.png" alt=""/></a></div>
+              <div class="logo">
+                <router-link to="/">
+                  <img src="http://demo.roadthemes.com/james/wp-content/uploads/2015/12/logo.png" alt=""/>
+                </router-link>
+              </div>
             </div>
             <div class="col-xs-12 col-md-9">
               <div class="visible-lg visible-md">
