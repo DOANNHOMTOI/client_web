@@ -131,8 +131,6 @@
       <!-- /container -->
 
     </main>
-    <OrderSuccess v-if="this.isOrderSuccess && this.isShowOrderStatus" />
-    <OrderFail v-if="!this.isOrderSuccess && this.isShowOrderStatus" />
     <ModalQrCode />
   </div>
 </template>
@@ -143,13 +141,11 @@ import CartSideBar from "../components/CartSideBar";
 import SearchAddress from "../components/SearchAddress";
 import SearchAddressInCheckout from "../components/SearchAddressInCheckout";
 import {mapActions, mapGetters} from "vuex";
-import OrderSuccess from "../components/OrderSuccess";
-import OrderFail from "../components/OrderFail";
 import ModalQrCode from "../components/ModalQrCode";
 
 export default {
   name: "CheckOutNew",
-  components: {ModalQrCode, OrderFail, OrderSuccess, SearchAddressInCheckout, SearchAddress, CartSideBar, HeaderShop},
+  components: {ModalQrCode, SearchAddressInCheckout, SearchAddress, CartSideBar, HeaderShop},
   data() {
     return {
       name: '',
