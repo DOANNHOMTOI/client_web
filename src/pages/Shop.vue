@@ -25,7 +25,7 @@
             class="widget-title"><span>Danh Mục</span></h3>
             <ul class="product-categories">
               <li class="cat-item cat-item-44" v-for="(cate,i) in listCategory">
-                <a @click="filCate(cate.id)" href="#">{{ cate.name }}</a>
+                <a :class="$route.params.category_id === cate.id ? 'active' : ''" @click="filCate(cate.id)" href="#">{{ cate.name }}</a>
                 <span class="count" style="font-weight: bold">({{ cate.numProduct }})</span>
               </li>
             </ul>
@@ -222,7 +222,7 @@ export default {
       min:null,
       max:null,
       filter:{
-        category_id: null,
+        category_id: this.$route.params.category_id,
         minPrice: null,
         maxPrice: null,
       }
@@ -283,5 +283,7 @@ export default {
 </script>
 
 <style scoped>
-
+.cat-item a.active{
+  color: #f25862;
+}
 </style>

@@ -89,7 +89,7 @@
                       </ul>
                     </div>
                     <div class="vc_tta-panels-container">
-                      <div class="vc_tta-panels">
+                      <div v-if="listProduct.length" class="vc_tta-panels">
                         <div class="vc_tta-panel vc_active" id="1450790267996-59361fa5-cf71"
                              data-vc-content=".vc_tta-panel-body">
                           <div class="vc_tta-panel-heading"><h4 class="vc_tta-panel-title"><a
@@ -155,6 +155,9 @@
                             </div>
                           </div>
                         </div>
+                      </div>
+                      <div v-if="!listProduct.length" class="vc_tta-panels">
+                        <h4 style="padding:20px" class="vc_tta-panel-title">Không có sản phẩm nào</h4>
                       </div>
                     </div>
                   </div>

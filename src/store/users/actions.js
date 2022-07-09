@@ -2,54 +2,18 @@ import {axiosClientAPI,axiosInstance} from "../../helpers/axiosInstance"
 import router from '@/router'
 export default {
   async register({commit, dispatch}, data) {
-    if (data.email === '' || data.password === '' || data.repeatPassword === ''){
-      dispatch('showNotification', {
-        title: 'Error',
-        type: 'error',
-        duration: 5000,
-        text: 'Vui lòng điền Email và mật khẩu để đăng ký !',
-      })
-      return false;
-    }
-    commit('SHOW_LOADING', true)
     try {
       console.log('data get', data)
-      await axiosClientAPI.post('/api/register', data, {})
+      return await axiosInstance.post('/api/web/user/register', data, {})
         .then(async (res) => {
-          if (res.data.status == 201){
-            await dispatch('showNotification', {
-              title: 'Error',
-              type: 'error',
-              duration: 5000,
-              text: res.data.message,
-            })
-          }else {
-            await dispatch('showNotification', {
-              title: 'Success !', type: 'success', duration: 5000, text: 'Thành Công !',
-            })
-            setTimeout(() => {
-              router.push({ name: 'Login', params: { data }})
-            }, 1500)
-          }
-          await commit('SHOW_LOADING', false)
-      })
+          return res
+        })
         .catch(error => {
-          dispatch('showNotification', {
-            title: 'Error',
-            type: 'error',
-            duration: 5000,
-            text: error.response.data.message,
-          })
-          commit('SHOW_LOADING', false)
+          console.log(error)
+          return false;
         })
     } catch (error) {
-      commit('SHOW_LOADING', false)
-      dispatch('showNotification', {
-        title: 'Error',
-        type: 'error',
-        duration: 5000,
-        text: 'Có lỗi xảy ra, vui lòng thử lại !',
-      })
+      console.log(error)
       return false
     }
   },

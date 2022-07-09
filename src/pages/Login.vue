@@ -1,77 +1,59 @@
 <template>
-  <main class="bg_gray pattern">
-    <div class="container margin_60_40">
-      <div class="row justify-content-center content-login">
-        <div class="col-lg-4">
-          <div class="sign_up">
-            <div class="head">
-              <div class="title">
-                <h3>Đăng Nhập</h3>
+  <div class="page-content">
+    <div class="container">
+
+      <article id="post-22" class="post-22 page type-page status-publish hentry">
+
+        <div class="entry-content">
+          <div class="woocommerce">
+
+
+            <div class="u-columns col2-set" id="customer_login">
+
+              <div class="u-column1 col-1" style="float: none;margin: 100px auto;">
+
+
+                <h2>Đăng Nhập</h2>
+
+                <form class="woocomerce-form woocommerce-form-login login" method="post">
+
+
+                  <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                    <label for="username">Số điện thoại<span class="required">*</span></label>
+                    <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username"
+                           id="username" value="">
+                  </p>
+                  <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                    <label for="password">Mật khẩu <span class="required">*</span></label>
+                    <input class="woocommerce-Input woocommerce-Input--text input-text" type="password" name="password"
+                           id="password">
+                  </p>
+
+
+                  <p class="form-row" style="margin-top: 20px">
+                   <input
+                    type="hidden" name="_wp_http_referer" value="/james/my-account/">
+                    <input type="button"
+                                                                                             class="woocommerce-Button button"
+                                                                                             name="login" value="Xác nhận">
+                  </p>
+                  <p class="woocommerce-LostPassword lost_password">
+                    <router-link style="color: #f25862" to="/register">Tạo tài khoản mới ?</router-link>
+                  </p>
+
+
+                </form>
+
+
               </div>
-            </div>
-            <!-- /head -->
-            <div class="main">
-              <form action="" @submit.prevent="submitForm()">
-                <div class="form-group" :class="{ 'form-group--error': $v.email.$error }">
-                  <input v-model="$v.email.$model" class="form-control" :class="{ 'form-control--error': $v.email.$error}"
-                         placeholder="Email">
-                  <i class="icon_mail"></i>
-                </div>
-                <div class="error-form-msg" v-if="$v.email.$error && !$v.email.required">Nhập Email của bạn</div>
 
-                <div class="form-group" :class="{ 'form-group--error': $v.password.$error }">
-                  <div class="hideShowPassword-wrapper"
-                       style="position: relative; display: block; vertical-align: baseline; margin: 0px;">
-                    <input v-model="$v.password.$model"
-                           class="form-control hideShowPassword-hidden hideShowPassword-field"
-                           placeholder="Mật khẩu" id="password_sign"
-                           name="password_sign"
-                           autocapitalize="off" autocomplete="off" spellcheck="true" type="password"
-                           :class="{ 'form-control--error': $v.password.$error}"
-                           style="margin: 0px; padding-right: 51.1094px;">
-                    <button type="button" role="button" aria-label="Show Password"
-                            title="Show Password" tabindex="0"
-                            class="my-toggle hideShowPassword-toggle-show"
-                            aria-pressed="false"
-                            style="position: absolute; right: 0px; top: 50%; margin-top: -15px; display: none;">Hiện
-                    </button>
-                  </div>
-                  <i class="icon_lock"></i>
-                </div>
-                <div class="error-form-msg" v-if="$v.password.$error && !$v.password.required">Nhập mật khẩu</div>
-                <div class="clearfix add_bottom_15">
-                  <div class="checkboxes float-left" style="width: 100%;">
-                    <label class="container_check">Nhớ mật khẩu
-                      <input type="checkbox"> <span class="checkmark"></span>
-                    </label>
-                  </div>
-                  <div class="float-right mt-1">
-<!--                    <a id="forgot" href="javascript:void(0);">Quên mật khẩu?</a>-->
-                  </div>
-                </div>
-                <div class="text-center">
-                  <input
-                    type="submit"
-                    value="Đăng Nhập"
-                    class="btn_1 full-width mb_5">
-                  Bạn chưa có tài khoản?
-                  <router-link to="/register">
-                    Đăng ký tại đây
-                  </router-link>
-                </div>
-              </form>
             </div>
+
           </div>
-          <!-- /box_booking -->
         </div>
-        <!-- /col -->
-
-      </div>
-      <!-- /row -->
+      </article>
     </div>
-    <!-- /container -->
-
-  </main>
+  </div>
 </template>
 
 <script>
@@ -112,7 +94,7 @@ export default {
     },
   },
   created() {
-    if (this.$route.params != null){
+    if (this.$route.params != null) {
       this.email = this.$route.params.data.email;
       this.password = this.$route.params.data.password
     }

@@ -55,6 +55,7 @@
                 </div>
               </div>
             </div>
+            <router-link to="/login" tag="button" class="btn btn-primary mb-2">Đăng nhập</router-link>
           </div>
         </div>
       </div>
@@ -104,7 +105,7 @@
                           <li
                             v-for="cate in listCate"
                               class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4017 multicolumn_dropdown default_style drop_to_right submenu_full_width columns3">
-                            <router-link to="/shop" tabindex="4" class="item_link  disable_icon">
+                            <router-link :to="{ name: 'Shop', params: { category_id: cate.id } }" class="item_link  disable_icon">
                               <i class=""></i>
                               <span class="link_content">
                                 <span class="link_text">
