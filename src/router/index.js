@@ -6,7 +6,6 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Checkout from "../pages/CheckOut";
 import DetailShop from "../pages/DetailShop";
-import CheckOutNew from "../pages/CheckOutNew";
 import Cart from "../components/Cart";
 
 Vue.use(Router)
@@ -40,7 +39,7 @@ export default new Router({
     {
       path: '/checkout',
       name: 'Checkout',
-      component: CheckOutNew
+      component: Checkout
     },
     {
       path: '/cart',

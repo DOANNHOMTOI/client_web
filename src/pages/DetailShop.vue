@@ -214,6 +214,9 @@ export default {
       listOther: []
     }
   },
+  computed:{
+    ...mapGetters(['getterListItemInCart'])
+  },
   methods: {
     ...mapActions(['getDetailProduct']),
     sendimg(a) {
@@ -241,7 +244,7 @@ export default {
         alert('Chọn màu sắc sản phẩm !')
         return false;
       }
-      let carts = localStorage.getItem('carts') != null ? JSON.parse(localStorage.getItem('carts')) : []
+      let carts = this.getterListItemInCart
       console.log('carts', carts)
       let obj = {
         product: this.product.detail,
@@ -260,6 +263,7 @@ export default {
         carts.push(obj)
       }
       localStorage.setItem('carts', JSON.stringify(carts))
+      this.$store.commit('SET_LIST_ITEM_IN_CART',JSON.stringify(carts))
       alert('Đã thêm vào giỏ hàng !')
     }
   },

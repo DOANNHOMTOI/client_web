@@ -14,41 +14,42 @@
               <div class="widget_shopping_cart_content">
                 <div class="cart-toggler">
 	<span class="cart-quantity">
-		{{ carts.length}}	</span>
+		{{ getterListItemInCart.length}}	</span>
                 </div>
                 <div class="mini_cart_content" style="height: 0px;">
                   <div class="mini_cart_inner">
-                    <div class="mini_cart_arrow"></div>
-                    <ul class="cart_list product_list_widget ">
-                      <li id="mcitem-40b5f25a228570053bc64a043c3f1833" v-for="(item,i) in carts">
-                        <a class="product-image" href="http://demo.roadthemes.com/james/shop/footwear/aenean-sagittis/">
-                          <img width="200" height="200"
-                               :src="getPathFile(item.product.image)"
-                               class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="7"
-                               sizes="(max-width: 200px) 100vw, 200px">
-                          <span class="quantity">{{ item.qty }}</span> </a>
-                        <div class="product-details">
-                          <a
-                            href="http://demo.roadthemes.com/james/cart/?remove_item=40b5f25a228570053bc64a043c3f1833&amp;_wpnonce=21bbde7834"></a>
-                          <a
-                            class="product-name">
-                            {{ item.product.name }}
-                          </a>
-                          <span class="quantity"><span class="woocommerce-Price-amount amount">{{ item.attribute.size }} / {{ item.attribute.color }} / {{ item.product.price_sale > 0 ? parseInt(item.product.price_sale) : item.product.price }} đ</span></span></div>
-                      </li>
-                    </ul><!-- end product list -->
-
-
-                    <p class="total">Tổng tiền: <span class="woocommerce-Price-amount amount"><span
-                      class="woocommerce-Price-currencySymbol">£</span>75.00</span></p>
-
-
-                    <p class="buttons">
-                      <a href="http://demo.roadthemes.com/james/cart/" class="button wc-forward">Xem giỏ</a>
-                      <a href="http://demo.roadthemes.com/james/checkout/"
-                         class="button checkout wc-forward">Đặt hàng</a>
-                    </p>
-
+                    <template v-if="getterListItemInCart.length >0">
+                      <div class="mini_cart_arrow"></div>
+                      <ul class="cart_list product_list_widget ">
+                        <li id="mcitem-40b5f25a228570053bc64a043c3f1833" v-for="(item,i) in getterListItemInCart">
+                          <a class="product-image" href="#">
+                            <img width="200" height="200"
+                                 :src="getPathFile(item.product.image)"
+                                 class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="7"
+                                 sizes="(max-width: 200px) 100vw, 200px">
+                            <span class="quantity">{{ item.qty }}</span> </a>
+                          <div class="product-details">
+                            <a
+                              class="product-name">
+                              {{ item.product.name }}
+                            </a>
+                            <span class="quantity"><span class="woocommerce-Price-amount amount">{{ item.attribute.size }} / {{ item.attribute.color }} / {{ item.product.price_sale > 0 ? parseInt(item.product.price_sale) : item.product.price }} đ</span></span></div>
+                        </li>
+                      </ul><!-- end product list -->
+                      <p class="total">Tổng tiền: <span class="woocommerce-Price-amount amount">
+                        {{ totalPriceCart() }}</span></p>
+                      <p class="buttons">
+                        <router-link to="/cart" class="button wc-forward">
+                          Xem giỏ
+                        </router-link>
+                        <router-link to="/checkout" class="button checkout wc-forward">
+                          Đặt hàng
+                        </router-link>
+                      </p>
+                    </template>
+                    <template v-if="getterListItemInCart.length == 0">
+                      <h5 style="font-weight: bold; text-align: center">Chưa có sản phẩm nào trong giỏ</h5>
+                    </template>
                   </div>
                   <div class="loading"></div>
                 </div>
@@ -145,7 +146,7 @@
 </template>
 
 <script>
-import {mapActions} from "vuex";
+import {mapActions, mapGetters} from "vuex";
 import {config} from "../constants/config";
 
 export default {
@@ -153,16 +154,29 @@ export default {
   data(){
     return{
       listCate:[],
-      carts: localStorage.getItem('carts') != null ? JSON.parse(localStorage.getItem('carts')) : []
+      // carts: localStorage.getItem('carts') != null ? JSON.parse(localStorage.getItem('carts')) : []
     }
   },
+
   methods:{
     ...mapActions(['getListProductCategory']),
     getPathFile(path){
       return config.url_api_back_end_real + path
     },
+    convertCurrency(x){
+      return x.toLocaleString('vi-VN') + ' đ'
+    },
+    totalPriceCart(){
+      let totalPrice = 0;
+      this.getterListItemInCart.forEach(function (item) {
+        let price = item.product.price_sale > 0 ? parseInt(item.product.price_sale) : item.product.price
+        totalPrice += price * item.qty
+      })
+      return this.convertCurrency(totalPrice)
+    },
   },
   computed:{
+    ...mapGetters(['getterListItemInCart']),
 
   },
   created() {

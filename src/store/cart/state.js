@@ -1,6 +1,6 @@
 import {isEmptyObject} from "../../helpers";
 
 export default {
-  listItemInCart: !isEmptyObject(sessionStorage.getItem('CARTS')) ? JSON.parse(sessionStorage.getItem('CARTS')) : [],
+  listItemInCart: !isEmptyObject(localStorage.getItem('carts')) ? JSON.parse(localStorage.getItem('carts')) : [],
   addressUser: ''
 }
