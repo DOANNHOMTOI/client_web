@@ -18,51 +18,15 @@ export default {
     }
   },
   async login({commit, dispatch}, data) {
-    if (data.email === '' || data.password === ''){
-      dispatch('showNotification', {
-        title: 'Error',
-        type: 'error',
-        duration: 5000,
-        text: 'Nhập Email và mật khẩu để đăng nhập !',
-      })
-      return false;
-    }
-    commit('SHOW_LOADING', true)
     try {
-      await axiosClientAPI.post('/api/login', data, {})
+      return await axiosInstance.post('/api/web/user/login', data, {})
         .then(async (res) => {
-          if (res.data.status == 201){
-            await dispatch('showNotification', {
-              title: 'Error',
-              type: 'error',
-              duration: 5000,
-              text: 'Đăng nhập không thành công !',
-            })
-          }else {
-            await commit('SET_TOKEN_LOCAL_STORAGE', {res, data});
-            setTimeout(() => {
-              location.href = '/'
-            }, 500)
-          }
-          await commit('SHOW_LOADING', false)
+          return res
         })
         .catch(error => {
-          dispatch('showNotification', {
-            title: 'Error',
-            type: 'error',
-            duration: 5000,
-            text: 'Đăng nhập không thành công !',
-          })
-          commit('SHOW_LOADING', false)
+         return false
         })
     } catch (error) {
-      commit('SHOW_LOADING', false)
-      dispatch('showNotification', {
-        title: 'Error',
-        type: 'error',
-        duration: 5000,
-        text: 'Có lỗi xảy ra, vui lòng thử lại !',
-      })
       return false
     }
   },
@@ -174,20 +138,21 @@ export default {
       const headers = {Authorization: 'Bearer ' + localStorage.getItem('ACCESS_TOKEN')};
       // commit('SHOW_LOADING', true);
       console.log('data filterProduct', data)
+      var bodyFormData = new FormData();
+
       let endPoint = '/api/web/productFilter';
-      if(data.category_id !== undefined && data.category_id != null){
-        endPoint += '?category_id=' + parseInt(data.category_id);
-        if(data.minPrice !== undefined && data.minPrice != null){
-          endPoint += `&minPrice=${data.minPrice}&maxPrice=${data.maxPrice}`;
-        }
+      if(data.name !== undefined && data.name != null){
+        bodyFormData.append('name', data.name);
       }
-      else {
-        if(data.minPrice !== undefined && data.minPrice != null){
-          endPoint += `?minPrice=${data.minPrice}&maxPrice=${data.maxPrice}`;
-        }
+      if(data.category_id !== undefined && data.category_id != null){
+        bodyFormData.append('category_id', data.category_id);
+      }
+      if(data.minPrice !== undefined && data.minPrice != null){
+        bodyFormData.append('minPrice', data.minPrice);
+        bodyFormData.append('maxPrice', data.maxPrice);
       }
 
-      return await axiosInstance.get(endPoint,{headers : headers}).then(r => {
+      return await axiosInstance.post(endPoint,bodyFormData,{headers : headers}).then(r => {
         commit('SHOW_LOADING', false);
         return r
       })

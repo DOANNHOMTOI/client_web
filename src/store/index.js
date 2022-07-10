@@ -29,15 +29,19 @@ const store = new Vuex.Store({
   },
   getters:{
     getStatusLogin: state => {
-      let isLogin = state.isLogin;
+      let isLogin = localStorage.getItem('IS_LOGIN');
       if(isLogin) {
         return true;
       } else {
-        return false;
+        if (state.isLogin) return true
+        else return false
       }
     },
     getInfoLogin: state => {
       return state.currentUser
+    },
+    getInfoUser: state => {
+      return localStorage.getItem('USER_INFO') || state.currentUser
     }
   },
   mutations: {
@@ -47,19 +51,26 @@ const store = new Vuex.Store({
     SHOW_DROPDOWN_CART: (state, flag = false) => {
       state.isShowDropDown = flag
     },
-    SET_TOKEN_LOCAL_STORAGE(state, payload) {
-      console.log('payload', payload)
-      console.log('state', state)
-      localStorage.setItem('ACCESS_TOKEN', payload.res.data.token);
-      localStorage.setItem('USER_INFO', payload.data.email);
-      state.ACCESS_TOKEN = payload.res.data.token;
-      state.currentUser = payload.data.email
-    },
+    // SET_TOKEN_LOCAL_STORAGE(state, payload) {
+    //   console.log('payload', payload)
+    //   console.log('state', state)
+    //   localStorage.setItem('ACCESS_TOKEN', payload.res.data.token);
+    //   localStorage.setItem('USER_INFO', payload.data.email);
+    //   state.ACCESS_TOKEN = payload.res.data.token;
+    //   state.currentUser = payload.data.email
+    // },
     SET_LOGIN_INFO(state, payload) {
-      localStorage.setItem('ACCESS_TOKEN', payload.accessToken);
-      localStorage.setItem('USER_INFO', payload.user);
-      state.ACCESS_TOKEN = payload.accessToken;
-      state.currentUser = payload.user
+      // localStorage.setItem('ACCESS_TOKEN', payload.accessToken);
+      localStorage.setItem('USER_INFO', payload);
+      localStorage.setItem('IS_LOGIN', "1");
+      state.ACCESS_TOKEN = JSON.stringify(payload);
+      state.currentUser = payload
+    },
+    LOG_OUT(state,payload){
+      localStorage.removeItem('USER_INFO');
+      localStorage.removeItem('IS_LOGIN');
+      state.ACCESS_TOKEN = ''
+      state.currentUser = ''
     },
     SET_STATUS_LOGIN(state, payload){
       state.isLogin = true;

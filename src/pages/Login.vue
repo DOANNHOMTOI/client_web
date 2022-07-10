@@ -20,22 +20,20 @@
 
                   <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                     <label for="username">Số điện thoại<span class="required">*</span></label>
-                    <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username"
+                    <input v-model="phone" type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username"
                            id="username" value="">
                   </p>
                   <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                     <label for="password">Mật khẩu <span class="required">*</span></label>
-                    <input class="woocommerce-Input woocommerce-Input--text input-text" type="password" name="password"
+                    <input v-model="password" class="woocommerce-Input woocommerce-Input--text input-text" type="password" name="password"
                            id="password">
                   </p>
 
 
                   <p class="form-row" style="margin-top: 20px">
-                   <input
-                    type="hidden" name="_wp_http_referer" value="/james/my-account/">
-                    <input type="button"
-                                                                                             class="woocommerce-Button button"
-                                                                                             name="login" value="Xác nhận">
+                    <input @click="submitForm" type="button"
+                           class="woocommerce-Button button"
+                           name="login" value="Xác nhận">
                   </p>
                   <p class="woocommerce-LostPassword lost_password">
                     <router-link style="color: #f25862" to="/register">Tạo tài khoản mới ?</router-link>
@@ -57,47 +55,46 @@
 </template>
 
 <script>
-import {validationMixin} from "vuelidate"
 import {mapActions} from "vuex";
-
-const {required, maxLength, minLength} = require("vuelidate/lib/validators")
 
 export default {
   name: "Login",
   data() {
     return {
-      email: '',
+      phone: '',
       password: '',
     }
-  },
-  mixins: [validationMixin],
-  validations: {
-    email: {
-      required,
-    },
-    password: {
-      required,
-    },
   },
   methods: {
     ...mapActions(['login']),
     submitForm() {
+      if (this.phone === '' || this.password === ''){
+        alert('Vui lòng nhập đầy đủ thông tin !')
+        return false
+      }
       let data = {
-        email: this.email,
+        phone: this.phone,
         password: this.password,
       }
       this.login(data).then(res => {
-        console.log('RES', res)
+        console.log('RES login', res)
+        if (res.data.data == null){
+          alert('Thông tin đăng nhập không chính xác !')
+        }else{
+          this.$store.commit('SET_LOGIN_INFO',JSON.stringify(res.data.data))
+          this.$store.commit('SET_STATUS_LOGIN',1)
+          this.$router.push('/')
+        }
       }).catch(e => {
         console.log(e)
       })
     },
   },
   created() {
-    if (this.$route.params != null) {
-      this.email = this.$route.params.data.email;
-      this.password = this.$route.params.data.password
-    }
+    // if (this.$route.params != null) {
+    //   this.email = this.$route.params.data.email;
+    //   this.password = this.$route.params.data.password
+    // }
   }
 }
 </script>

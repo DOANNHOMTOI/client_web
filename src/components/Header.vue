@@ -4,11 +4,16 @@
       <div class="container">
         <div class="row">
           <div class="col-md-offset-3 col-md-9 d-flex" style="display: flex;align-items: center;">
-            <div style="width: 85%">
+            <div style="width: 85%;position: relative">
               <div class="form-group mx-sm-3 mb-2" style="display: flex;margin-bottom: 0;">
-                <input type="text" class="form-control" placeholder="Tên sản phẩm, mô tả, ..." id="email">
+                <input v-model="search" @keyup="searchProductInput()" @focus="setShowRS(true)" type="text" class="form-control" placeholder="Tên sản phẩm, mô tả, ..." id="email">
                 <button type="button" class="btn btn-primary mb-2">Tìm kiếm</button>
               </div>
+              <ul v-if="showSearchResult" class="list-group listSearch">
+                <li v-for="item in listSearch" class="list-group-item">
+                  <a @click="toDetailProduct(item.id)" href="#">{{ item.name }}</a>
+                </li>
+              </ul>
             </div>
             <div class="widget woocommerce widget_shopping_cart"><h2 class="widgettitle">Cart</h2>
               <div class="widget_shopping_cart_content">
@@ -55,7 +60,32 @@
                 </div>
               </div>
             </div>
-            <router-link to="/login" tag="button" class="btn btn-primary mb-2">Đăng nhập</router-link>
+            <router-link v-if="!getStatusLogin" to="/login" tag="button" class="btn btn-primary mb-2">Đăng nhập</router-link>
+            <div v-if="getStatusLogin" class="top-menu" style="display:flex;align-items: center">
+              <img style="width: 25px;padding-top: 0;padding-right: 5px;margin-left: 10px" src="/static/images/user.png" alt="">
+              <span style="display:block;width: 100px;overflow:hidden;">{{ JSON.parse(getInfoUser).name}}</span>
+              <div class="top-menu-container">
+                <ul id="menu-top-menu" class="nav-menu">
+                  <li
+                      class="menu-item menu-item-type-post_type menu-item-object-page last menu-item-4009">
+                    <router-link to="/shop">Cửa hàng</router-link>
+                  </li>
+                  <li id="menu-item-4009"
+                      class="menu-item menu-item-type-post_type menu-item-object-page last menu-item-4009">
+                    <router-link to="/cart">Giỏ hàng</router-link>
+                  </li>
+                  <li
+                      class="menu-item menu-item-type-post_type menu-item-object-page last menu-item-4009">
+                    <router-link to="/checkout">Đặt hàng</router-link>
+                  </li>
+                  <li
+                    @click="logoutWeb()"
+                    class="menu-item menu-item-type-post_type menu-item-object-page last menu-item-4009">
+                    <a href="#">Đăng Xuất</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -155,12 +185,15 @@ export default {
   data(){
     return{
       listCate:[],
+      listSearch: [],
+      showSearchResult: false,
+      search: ''
       // carts: localStorage.getItem('carts') != null ? JSON.parse(localStorage.getItem('carts')) : []
     }
   },
 
   methods:{
-    ...mapActions(['getListProductCategory']),
+    ...mapActions(['getListProductCategory','filterProduct']),
     getPathFile(path){
       return config.url_api_back_end_real + path
     },
@@ -175,9 +208,43 @@ export default {
       })
       return this.convertCurrency(totalPrice)
     },
+    logoutWeb(){
+      this.$store.commit('LOG_OUT','')
+      window.location.href = ''
+    },
+    setShowRS(flag){
+      this.showSearchResult = flag
+    },
+    searchProductInput(){
+      console.log(this.search)
+      if (this.search === '') {
+        this.showSearchResult = false
+        return false
+      }
+      let filter = {
+        name : this.search
+      }
+      this.filterProduct(filter).then(r=>{
+        console.log('res filterProduct', r)
+        if (r.data.data.products.length == 0){
+          this.listSearch = [{name: "Không tìm thấy kết quả !"}]
+        }else {
+          this.listSearch = r.data.data.products
+        }
+
+
+      }).catch(e=>{
+        console.log(e)
+      })
+    },
+    toDetailProduct(id){
+
+      this.showSearchResult = false
+      this.$router.push('/product/' + id)
+    }
   },
   computed:{
-    ...mapGetters(['getterListItemInCart']),
+    ...mapGetters(['getterListItemInCart','getStatusLogin','getInfoUser']),
 
   },
   created() {
@@ -192,5 +259,27 @@ export default {
 </script>
 
 <style scoped>
-
+.listSearch{
+  position: absolute;
+  z-index: 999;
+  width: 100%;
+}
+.header-container .top-menu:before {
+  content: "";
+  font-family: FontAwesome;
+  display: none;
+  width: 50px;
+  height: 55px;
+  text-align: center;
+  line-height: 55px;
+}
+.header-container .top-menu{
+  width: auto;
+}
+.listSearch li{
+  cursor: pointer;
+}
+.listSearch li:hover{
+  background: lightblue;
+}
 </style>
