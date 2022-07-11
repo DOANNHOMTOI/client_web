@@ -7,11 +7,11 @@
             <div style="width: 85%;position: relative">
               <div class="form-group mx-sm-3 mb-2" style="display: flex;margin-bottom: 0;">
                 <input v-model="search" @keyup="searchProductInput()" @focus="setShowRS(true)" type="text" class="form-control" placeholder="Tên sản phẩm, mô tả, ..." id="email">
-                <button type="button" class="btn btn-primary mb-2">Tìm kiếm</button>
+<!--                <button type="button" class="btn btn-primary mb-2">Tìm kiếm</button>-->
               </div>
               <ul v-if="showSearchResult" class="list-group listSearch">
                 <li v-for="item in listSearch" class="list-group-item">
-                  <a @click="toDetailProduct(item.id)" href="#">{{ item.name }}</a>
+                  <a @click="toDetailProduct(item)" href="#">{{ item.name }}</a>
                 </li>
               </ul>
             </div>
@@ -191,7 +191,9 @@ export default {
       // carts: localStorage.getItem('carts') != null ? JSON.parse(localStorage.getItem('carts')) : []
     }
   },
-
+  mounted() {
+    console.log('this.$route.name', this.$route.name)
+  },
   methods:{
     ...mapActions(['getListProductCategory','filterProduct']),
     getPathFile(path){
@@ -232,15 +234,22 @@ export default {
           this.listSearch = r.data.data.products
         }
 
-
       }).catch(e=>{
         console.log(e)
       })
     },
-    toDetailProduct(id){
+    toDetailProduct(item){
+      // kết quả tìm kiếm
+      let listCate = localStorage.getItem('cates') != null ? JSON.parse(localStorage.getItem('cates')) : []
 
+      if (!listCate.includes(item.category_id)){
+        listCate.push(item.category_id)
+      }
+      localStorage.setItem('cates',JSON.stringify(listCate))
+
+      this.search = ''
       this.showSearchResult = false
-      this.$router.push('/product/' + id)
+      this.$router.push('/product/' + item.id)
     }
   },
   computed:{

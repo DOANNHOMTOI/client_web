@@ -116,6 +116,24 @@ export default {
       return false;
     }
   },
+  async getListProductCare({commit, state}, data) {
+    try {
+      let str = JSON.parse(data).join(",")
+      const headers = {Authorization: 'Bearer ' + localStorage.getItem('ACCESS_TOKEN')};
+      return await axiosInstance.get(`/api/web/productCare?categories=${str}`,{headers : headers}).then(r => {
+        commit('SHOW_LOADING', false);
+        return r
+      })
+        .catch(e => {
+          commit('SHOW_LOADING', false);
+          console.log(e)
+        });
+
+    } catch (error) {
+      console.log(error);
+      return false;
+    }
+  },
   async getDetailProduct({commit, state}, data) {
     try {
       const headers = {Authorization: 'Bearer ' + localStorage.getItem('ACCESS_TOKEN')};

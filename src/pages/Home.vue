@@ -167,6 +167,74 @@
           </div>
         </div>
       </div>
+      <div v-if="listProductCare.length" class="vc_row wpb_row vc_row-fluid products-carousel2 title-1 vc_custom_1450175009936">
+        <div class="row-container">
+          <div class="wpb_column vc_column_container vc_col-sm-12">
+            <div class="vc_column-inner ">
+              <div class="wpb_wrapper">
+                <div class="wpb_text_column wpb_content_element ">
+                  <div class="wpb_wrapper">
+                    <h3>Có thể bạn quan tâm</h3>
+
+                  </div>
+                </div>
+                <div class="woocommerce columns-1" style="margin-top: 20px">
+
+                  <div class="shop-products row grid-view">
+                    <div
+                      v-for="(item,i) in listProductCare"
+                      class=" item-col col-xs-12 col-sm-3 post-2309 product type-product status-publish has-post-thumbnail product_cat-fashion product_cat-footwear product_cat-handbags product_cat-health-beauty product_cat-jewellery product_cat-shoes first instock featured shipping-taxable purchasable product-type-simple">
+                      <div class="product-wrapper">
+
+                        <div class="list-col4 ">
+                          <div class="product-image">
+                            <router-link :to="'product/' + item.id" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+                              <img
+                                width="500" height="500"
+                                :src="getPathFile(item.image)"
+                                class="primary_image wp-post-image" alt="5"
+                                :srcset="getPathFile(item.image)"
+                                sizes="(max-width: 500px) 100vw, 500px"/>
+                              <img width="500" height="500"
+                                   :src="getPathFile(item.image)"
+                                   class="secondary_image" alt="6"
+                                   sizes="(max-width: 500px) 100vw, 500px"/>
+                            </router-link>
+                            <div class="list-col2">
+                              <div class="list-col8 ">
+                                <div class="gridview">
+                                  <div class="price-box"><span class="woocommerce-Price-amount amount">{{item.price}}</span></div>
+
+                                </div>
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="list-col8 ">
+                          <div class="gridview">
+                            <h2 class="product-name">
+                              <router-link :to="'product/' + item.id">
+                                {{ item.name }}
+                              </router-link>
+                            </h2>
+                            <div class="price-box"><span class="woocommerce-Price-amount amount">
+                              {{ item.price}} đ</span></div>
+
+                          </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="vc_row wpb_row vc_row-fluid products-carousel2 title-1 vc_custom_1450175009936">
         <div class="row-container">
           <div class="wpb_column vc_column_container vc_col-sm-12">
@@ -349,6 +417,7 @@ export default {
       listCate:[],
       listProduct:[],
       listProductNew:[],
+      listProductCare:[],
       cateIndex: 0
     }
   },
@@ -373,6 +442,15 @@ export default {
    }).catch(e=>{
      console.log(e)
    })
+   if (localStorage.getItem('cates') != null){
+     this.getListProductCare(localStorage.getItem('cates')).then(r=>{
+       console.log('res getListProductNew', r)
+       this.listProductCare = r.data.data
+       console.log('this.getListProductCare', this.listProductCare)
+     }).catch(e=>{
+       console.log(e)
+     })
+   }
  },
   mounted() {
     // To demonstrate functionality of exposed component functions
@@ -388,7 +466,7 @@ export default {
      * @param {Object} placeResultData PlaceResult object
      * @param {String} id Input container ID
      */
-    ...mapActions(['getListProductCategory','filterProduct','getListProductNew']),
+    ...mapActions(['getListProductCategory','filterProduct','getListProductNew','getListProductCare']),
     setProduct(category_id){
       this.cateIndex = category_id
       this.filterProduct({category_id: category_id}).then(res=>{
