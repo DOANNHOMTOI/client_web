@@ -101,6 +101,8 @@ export default {
         if (res.data.success){
           alert('Tạo tài khoản thành công !')
           this.$router.push('/login')
+        }else{
+          alert('Số điện thoại này đã đăng ký tài khoản trước đó !')
         }
       }).catch(e => {
         console.log(e)
