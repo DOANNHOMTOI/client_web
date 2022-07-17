@@ -104,7 +104,7 @@
                                   <div class="product-wrapper">
                                     <div class="list-col4">
                                       <div class="product-image">
-                                        <router-link :to="'/shop/' + product.id" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+                                        <router-link :to="'/product/' + product.id" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
                                           <img width="500" height="500"
                                                :src="getPathFile(product.image)"
                                                class="primary_image wp-post-image" alt="7"
@@ -115,7 +115,7 @@
                                           <div class="list-col8 ">
                                             <div class="gridview">
                                               <h2 class="product-name">
-                                                <router-link :to="'/shop/' + product.id">
+                                                <router-link :to="'/product/' + product.id">
                                                   {{ product.name }}
                                                 </router-link>
                                               </h2>
@@ -137,7 +137,7 @@
                                     <div class="list-col8 ">
                                       <div class="gridview">
                                         <h2 class="product-name">
-                                          <router-link :to="'/shop/' + product.id">
+                                          <router-link :to="'/product/' + product.id">
                                             {{ product.name }}
                                           </router-link>
                                         </h2>

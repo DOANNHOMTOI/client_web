@@ -115,73 +115,421 @@
         </div>
 
         <div class="container">
-
           <div class="woocommerce-tabs wc-tabs-wrapper">
             <ul class="tabs wc-tabs" role="tablist">
-              <li class="description_tab" id="tab-title-description" role="tab" aria-controls="tab-description">
-                <a href="#tab-description">Thông tin chi tiết</a>
+              <li class="description_tab" :class="tab == 1 ? 'active' : ''" id="tab-title-description" role="tab" aria-controls="tab-description">
+                <a @click="showTab(1)">Thông tin chi tiết</a>
+              </li>
+              <li class="reviews_tab" :class="tab == 2 ? 'active' : ''" id="tab-title-reviews" role="tab" aria-controls="tab-reviews">
+                <a @click="showTab(2)">Đánh giá sản phẩm</a>
               </li>
             </ul>
-            <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab"
-                 id="tab-description" role="tabpanel" aria-labelledby="tab-title-description">
-
+            <div v-if="tab == 1" class="woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab" id="tab-description" role="tabpanel" aria-labelledby="tab-title-description">
               <p v-html="product.detail.body"></p>
             </div>
+            <div v-if="tab == 2" class="woocommerce-Tabs-panel woocommerce-Tabs-panel--reviews panel entry-content wc-tab" id="tab-reviews" role="tabpanel" aria-labelledby="tab-title-reviews">
+              <div id="reviews">
+                <div id="comments">
+                  <ul class="commentlist">
+                    <li v-for="(cmt,i) in listComment" :key="i" style="margin-bottom: 10px"
+                        class="comment byuser comment-author-admin bypostauthor even thread-even depth-1" id="li-comment-40">
+                      <div id="comment-40" class="comment_container">
+                        <div class="comment-text" style="padding: 10px;margin: auto;">
+                          <div class="star-rating">
+                            <span v-for="star in cmt.rate" class="fa fa-star checked"></span>
+                          </div>
+                          <p class="meta" style="padding-top: 10px">
+                            <strong class="woocommerce-review__author" itemprop="author">{{ cmt.guest_info.name }}</strong>
+                            <span class="woocommerce-review__dash">–</span>
+<!--                            <time class="woocommerce-review__published-date" itemprop="datePublished" datetime="2015-03-23T04:45:38+00:00">{{ cmt.created_at }}</time>-->
+                          </p>
+
+                          <div class="description"><p>{{ cmt.comment }}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </li><!-- #comment-## -->
+                  </ul>
+                </div>
+
+                <div v-if="isShowRating && getStatusLogin" id="review_form_wrapper">
+                  <div id="review_form">
+                    <div id="respond" class="comment-respond">
+                      <h3 id="reply-title" class="comment-reply-title">Đánh giá của bạn<small><a rel="nofollow"
+                                                                                                 id="cancel-comment-reply-link"
+                                                                                                 href="/james/shop/footwear/aenean-sagittis/#respond"
+                                                                                                 style="display:none;">Cancel
+                        reply</a></small></h3>
+                      <form action="https://demo.roadthemes.com/james/wp-comments-post.php" method="post"
+                            id="commentform" class="comment-form">
+                        <p class="comment-form-rating">
+
+
+                        <div class="star-rating" style="margin-bottom: 10px">
+                          <span class="fa fa-star star-rate" :class="rate >= 1 ? 'checked' : ''" @click="rateStar(1)"></span>
+                          <span class="fa fa-star star-rate" :class="rate >= 2 ? 'checked' : ''" @click="rateStar(2)"></span>
+                          <span class="fa fa-star star-rate" :class="rate >= 3 ? 'checked' : ''" @click="rateStar(3)"></span>
+                          <span class="fa fa-star star-rate" :class="rate >= 4 ? 'checked' : ''" @click="rateStar(4)"></span>
+                          <span class="fa fa-star star-rate" :class="rate >= 5 ? 'checked' : ''" @click="rateStar(5)"></span>
+                        </div>
+
+
+                        <p class="comment-form-comment">
+                      <textarea id="comment"
+                                v-model="comment"
+                                                                                                      name="comment"
+                                                                                                      cols="45"
+                                                                                                      rows="8"
+                                                                                                      aria-required="true"></textarea>
+                        </p>
+                        <p class="form-submit">
+                          <input name="submit" type="button" @click="ratingAPI" id="submit" class="submit" value="Đánh giá">
+                        </p>
+                             </form>
+                    </div><!-- #respond -->
+                  </div>
+                </div>
+                <div v-if="!getStatusLogin">
+                  <button class="btn btn-primary">
+                    <router-link style="color: white" to="/login">Đăng nhập để đánh giá</router-link>
+                  </button>
+                </div>
+
+
+                <div class="clear"></div>
+              </div>
+            </div>
           </div>
-          <div v-if="listOther.length" class="widget related_products_widget">
-            <h3 class="widget-title"><span>Sản phẩm liên quan</span></h3>
+          <div class="widget related_products_widget">
+            <h3 class="widget-title"><span>Related Products</span></h3>
+
             <div class="related products">
-              <div class="shop-products row grid-view">
-                <div
-                  v-for="(other) in listOther"
-                  class=" item-col col-xs-12 col-sm-12 post-2249 product type-product status-publish has-post-thumbnail product_cat-health-beauty product_tag-laptop first instock sale shipping-taxable purchasable product-type-simple">
+
+              <div class="shop-products row grid-view slick-initialized slick-slider">
+
+
+
+                <div class="slick-list draggable" tabindex="0"><div class="slick-track" style="opacity: 1; width: 1200px; transform: translate3d(0px, 0px, 0px);"><div class="item-col col-xs-12 col-sm-12 post-2309 product type-product status-publish has-post-thumbnail product_cat-fashion product_cat-footwear product_cat-handbags product_cat-health-beauty product_cat-jewellery product_cat-shoes first instock featured shipping-taxable purchasable product-type-simple slick-slide slick-active" index="0" style="width: 300px;">
                   <div class="product-wrapper">
+
                     <div class="list-col4 ">
                       <div class="product-image">
-                        <router-link :to="'/product/' + other.id">
-                          <img width="500"
-                               height="500"
-                               :src="getPathFile(other.image)"
-                               class="primary_image wp-post-image"
-                               alt="16"
-                               sizes="(max-width: 500px) 100vw, 500px"/>
-                          <img
-                            width="500" height="500"
-                            :src="getPathFile(other.image)"
-                            class="secondary_image" alt="17"
-                            sizes="(max-width: 500px) 100vw, 500px"/>
-                        </router-link>
+                        <a href="https://demo.roadthemes.com/james/shop/footwear/ornare-sed-consequat/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">					<img width="500" height="500" src="//demo.roadthemes.com/james/wp-content/uploads/2014/10/5-500x500.jpg" class="primary_image wp-post-image" alt="5" srcset="//demo.roadthemes.com/james/wp-content/uploads/2014/10/5-500x500.jpg 500w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/5-150x150.jpg 150w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/5-300x300.jpg 300w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/5-768x768.jpg 768w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/5-600x600.jpg 600w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/5-200x200.jpg 200w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/5.jpg 800w" sizes="(max-width: 500px) 100vw, 500px"><img width="500" height="500" src="https://demo.roadthemes.com/james/wp-content/uploads/2014/10/6-500x500.jpg" class="secondary_image" alt="6" srcset="https://demo.roadthemes.com/james/wp-content/uploads/2014/10/6-500x500.jpg 500w, https://demo.roadthemes.com/james/wp-content/uploads/2014/10/6-150x150.jpg 150w, https://demo.roadthemes.com/james/wp-content/uploads/2014/10/6-300x300.jpg 300w, https://demo.roadthemes.com/james/wp-content/uploads/2014/10/6-768x768.jpg 768w, https://demo.roadthemes.com/james/wp-content/uploads/2014/10/6-600x600.jpg 600w, https://demo.roadthemes.com/james/wp-content/uploads/2014/10/6-200x200.jpg 200w, https://demo.roadthemes.com/james/wp-content/uploads/2014/10/6.jpg 800w" sizes="(max-width: 500px) 100vw, 500px">				</a>				<div class="actions">
+                        <ul class="add-to-links clearfix">
+                          <li>
+                            <p class="product woocommerce add_to_cart_inline " style="border:4px solid #ccc; padding: 12px;">
+
+                              <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">£</span>515.00</span>
+                              <a rel="nofollow" href="/james/shop/footwear/aenean-sagittis/?add-to-cart=2309" data-quantity="1" data-product_id="2309" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add to cart</a>
+                            </p>						</li>
+
+                          <li class="quickviewbtn">
+                            <a class="detail-link quickview" data-quick-id="2309" href="https://demo.roadthemes.com/james/shop/footwear/ornare-sed-consequat/" title="Ornare sed consequat">Quick View</a>
+                          </li>
+
+                          <li>
+
+                            <div class="yith-wcwl-add-to-wishlist add-to-wishlist-2309">
+                              <div class="yith-wcwl-add-button show" style="display:block">
+
+
+                                <a href="/james/shop/footwear/aenean-sagittis/?add_to_wishlist=2309" rel="nofollow" data-product-id="2309" data-product-type="simple" class="add_to_wishlist">
+                                  Add to Wishlist</a>
+
+                              </div>
+
+                              <div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
+                                <span class="feedback">Product added!</span>
+                                <a href="https://demo.roadthemes.com/james/wishlist/?wishlist-action" rel="nofollow">
+                                  Browse Wishlist	        </a>
+                              </div>
+
+                              <div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
+                                <span class="feedback">The product is already in the wishlist!</span>
+                                <a href="https://demo.roadthemes.com/james/wishlist/?wishlist-action" rel="nofollow">
+                                  Browse Wishlist	        </a>
+                              </div>
+
+                              <div style="clear:both"></div>
+                              <div class="yith-wcwl-wishlistaddresponse"></div>
+
+                            </div>
+
+                            <div class="clear"></div>						</li>
+                          <li>
+                            <div class="woocommerce product compare-button"><a href="https://demo.roadthemes.com/james?action=yith-woocompare-add-product&amp;id=2309&amp;lang=en" class="compare button" data-product_id="2309" rel="nofollow">Compare</a></div>						</li>
+                        </ul>
+
+                      </div>
                         <div class="list-col2">
                           <div class="list-col8 ">
                             <div class="gridview">
                               <h2 class="product-name">
-                                <router-link :to="'/product/' + other.id">
-                                  {{other.name}}
-                                </router-link>
+                                <a href="https://demo.roadthemes.com/james/shop/footwear/ornare-sed-consequat/">Ornare sed consequat</a>
                               </h2>
+                              <div class="ratings"><div class="star-rating"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div></div>
+                              <div class="price-box"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">£</span>515.00</span></div>
 
                             </div>
                           </div>
                         </div>
+
                       </div>
                     </div>
                     <div class="list-col8 ">
                       <div class="gridview">
                         <h2 class="product-name">
-                          <router-link :to="'/product/' + other.id">
-                            {{other.name}}
-                          </router-link>
+                          <a href="https://demo.roadthemes.com/james/shop/footwear/ornare-sed-consequat/">Ornare sed consequat</a>
                         </h2>
-                        <div class="price-box">
-                          <ins><span class="woocommerce-Price-amount amount">{{ other.price}} đ</span></ins>
-                        </div>
+                        <div class="ratings"><div class="star-rating"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div></div>
+                        <div class="price-box"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">£</span>515.00</span></div>
 
                       </div>
                     </div>
                     <div class="clearfix"></div>
 
                   </div>
-                </div>
+                </div><div class="item-col col-xs-12 col-sm-12 post-2315 product type-product status-publish has-post-thumbnail product_cat-footwear product_cat-handbags product_cat-jewellery product_cat-shoes product_tag-fashion first instock shipping-taxable purchasable product-type-simple slick-slide slick-active" index="1" style="width: 300px;">
+                  <div class="product-wrapper">
+
+                    <div class="list-col4 ">
+                      <div class="product-image">
+                        <a href="https://demo.roadthemes.com/james/shop/footwear/sagittis-luctus/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">					<img width="500" height="500" src="//demo.roadthemes.com/james/wp-content/uploads/2014/10/4-500x500.jpg" class="primary_image wp-post-image" alt="4" srcset="//demo.roadthemes.com/james/wp-content/uploads/2014/10/4-500x500.jpg 500w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/4-150x150.jpg 150w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/4-300x300.jpg 300w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/4-768x768.jpg 768w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/4-600x600.jpg 600w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/4-200x200.jpg 200w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/4.jpg 800w" sizes="(max-width: 500px) 100vw, 500px"><img width="500" height="500" src="https://demo.roadthemes.com/james/wp-content/uploads/2014/10/6-500x500.jpg" class="secondary_image" alt="6" srcset="https://demo.roadthemes.com/james/wp-content/uploads/2014/10/6-500x500.jpg 500w, https://demo.roadthemes.com/james/wp-content/uploads/2014/10/6-150x150.jpg 150w, https://demo.roadthemes.com/james/wp-content/uploads/2014/10/6-300x300.jpg 300w, https://demo.roadthemes.com/james/wp-content/uploads/2014/10/6-768x768.jpg 768w, https://demo.roadthemes.com/james/wp-content/uploads/2014/10/6-600x600.jpg 600w, https://demo.roadthemes.com/james/wp-content/uploads/2014/10/6-200x200.jpg 200w, https://demo.roadthemes.com/james/wp-content/uploads/2014/10/6.jpg 800w" sizes="(max-width: 500px) 100vw, 500px">				</a>				<div class="actions">
+                        <ul class="add-to-links clearfix">
+                          <li>
+                            <p class="product woocommerce add_to_cart_inline " style="border:4px solid #ccc; padding: 12px;">
+
+                              <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">£</span>35.00</span>
+                              <a rel="nofollow" href="/james/shop/footwear/aenean-sagittis/?add-to-cart=2315" data-quantity="1" data-product_id="2315" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add to cart</a>
+                            </p>						</li>
+
+                          <li class="quickviewbtn">
+                            <a class="detail-link quickview" data-quick-id="2315" href="https://demo.roadthemes.com/james/shop/footwear/sagittis-luctus/" title="Sagittis luctus">Quick View</a>
+                          </li>
+
+                          <li>
+
+                            <div class="yith-wcwl-add-to-wishlist add-to-wishlist-2315">
+                              <div class="yith-wcwl-add-button show" style="display:block">
+
+
+                                <a href="/james/shop/footwear/aenean-sagittis/?add_to_wishlist=2315" rel="nofollow" data-product-id="2315" data-product-type="simple" class="add_to_wishlist">
+                                  Add to Wishlist</a>
+
+                              </div>
+
+                              <div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
+                                <span class="feedback">Product added!</span>
+                                <a href="https://demo.roadthemes.com/james/wishlist/?wishlist-action" rel="nofollow">
+                                  Browse Wishlist	        </a>
+                              </div>
+
+                              <div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
+                                <span class="feedback">The product is already in the wishlist!</span>
+                                <a href="https://demo.roadthemes.com/james/wishlist/?wishlist-action" rel="nofollow">
+                                  Browse Wishlist	        </a>
+                              </div>
+
+                              <div style="clear:both"></div>
+                              <div class="yith-wcwl-wishlistaddresponse"></div>
+
+                            </div>
+
+                            <div class="clear"></div>						</li>
+                          <li>
+                            <div class="woocommerce product compare-button"><a href="https://demo.roadthemes.com/james?action=yith-woocompare-add-product&amp;id=2315&amp;lang=en" class="compare button" data-product_id="2315" rel="nofollow">Compare</a></div>						</li>
+                        </ul>
+
+                      </div>
+                        <div class="list-col2">
+                          <div class="list-col8 ">
+                            <div class="gridview">
+                              <h2 class="product-name">
+                                <a href="https://demo.roadthemes.com/james/shop/footwear/sagittis-luctus/">Sagittis luctus</a>
+                              </h2>
+                              <div class="ratings"><div class="star-rating"><span style="width:80%">Rated <strong class="rating">4.00</strong> out of 5</span></div></div>
+                              <div class="price-box"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">£</span>35.00</span></div>
+
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                    <div class="list-col8 ">
+                      <div class="gridview">
+                        <h2 class="product-name">
+                          <a href="https://demo.roadthemes.com/james/shop/footwear/sagittis-luctus/">Sagittis luctus</a>
+                        </h2>
+                        <div class="ratings"><div class="star-rating"><span style="width:80%">Rated <strong class="rating">4.00</strong> out of 5</span></div></div>
+                        <div class="price-box"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">£</span>35.00</span></div>
+
+                      </div>
+                    </div>
+                    <div class="clearfix"></div>
+
+                  </div>
+                </div><div class="item-col col-xs-12 col-sm-12 post-2271 product type-product status-publish has-post-thumbnail product_cat-fashion first instock shipping-taxable purchasable product-type-simple slick-slide slick-active" index="2" style="width: 300px;">
+                  <div class="product-wrapper">
+
+                    <div class="list-col4 ">
+                      <div class="product-image">
+                        <a href="https://demo.roadthemes.com/james/shop/fashion/fermentum-eros/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">					<img width="500" height="500" src="//demo.roadthemes.com/james/wp-content/uploads/2014/10/12-500x500.jpg" class="primary_image wp-post-image" alt="12" srcset="//demo.roadthemes.com/james/wp-content/uploads/2014/10/12-500x500.jpg 500w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/12-150x150.jpg 150w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/12-300x300.jpg 300w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/12-768x768.jpg 768w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/12-600x600.jpg 600w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/12-200x200.jpg 200w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/12.jpg 800w" sizes="(max-width: 500px) 100vw, 500px"><img width="500" height="500" src="https://demo.roadthemes.com/james/wp-content/uploads/2014/10/14-500x500.jpg" class="secondary_image" alt="14" srcset="https://demo.roadthemes.com/james/wp-content/uploads/2014/10/14-500x500.jpg 500w, https://demo.roadthemes.com/james/wp-content/uploads/2014/10/14-150x150.jpg 150w, https://demo.roadthemes.com/james/wp-content/uploads/2014/10/14-300x300.jpg 300w, https://demo.roadthemes.com/james/wp-content/uploads/2014/10/14-768x768.jpg 768w, https://demo.roadthemes.com/james/wp-content/uploads/2014/10/14-600x600.jpg 600w, https://demo.roadthemes.com/james/wp-content/uploads/2014/10/14-200x200.jpg 200w, https://demo.roadthemes.com/james/wp-content/uploads/2014/10/14.jpg 800w" sizes="(max-width: 500px) 100vw, 500px">				</a>				<div class="actions">
+                        <ul class="add-to-links clearfix">
+                          <li>
+                            <p class="product woocommerce add_to_cart_inline " style="border:4px solid #ccc; padding: 12px;">
+
+                              <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">£</span>90.00</span>
+                              <a rel="nofollow" href="/james/shop/footwear/aenean-sagittis/?add-to-cart=2271" data-quantity="1" data-product_id="2271" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add to cart</a>
+                            </p>						</li>
+
+                          <li class="quickviewbtn">
+                            <a class="detail-link quickview" data-quick-id="2271" href="https://demo.roadthemes.com/james/shop/fashion/fermentum-eros/" title="Fermentum eros">Quick View</a>
+                          </li>
+
+                          <li>
+
+                            <div class="yith-wcwl-add-to-wishlist add-to-wishlist-2271">
+                              <div class="yith-wcwl-add-button show" style="display:block">
+
+
+                                <a href="/james/shop/footwear/aenean-sagittis/?add_to_wishlist=2271" rel="nofollow" data-product-id="2271" data-product-type="simple" class="add_to_wishlist">
+                                  Add to Wishlist</a>
+
+                              </div>
+
+                              <div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
+                                <span class="feedback">Product added!</span>
+                                <a href="https://demo.roadthemes.com/james/wishlist/?wishlist-action" rel="nofollow">
+                                  Browse Wishlist	        </a>
+                              </div>
+
+                              <div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
+                                <span class="feedback">The product is already in the wishlist!</span>
+                                <a href="https://demo.roadthemes.com/james/wishlist/?wishlist-action" rel="nofollow">
+                                  Browse Wishlist	        </a>
+                              </div>
+
+                              <div style="clear:both"></div>
+                              <div class="yith-wcwl-wishlistaddresponse"></div>
+
+                            </div>
+
+                            <div class="clear"></div>						</li>
+                          <li>
+                            <div class="woocommerce product compare-button"><a href="https://demo.roadthemes.com/james?action=yith-woocompare-add-product&amp;id=2271&amp;lang=en" class="compare button" data-product_id="2271" rel="nofollow">Compare</a></div>						</li>
+                        </ul>
+
+                      </div>
+                        <div class="list-col2">
+                          <div class="list-col8 ">
+                            <div class="gridview">
+                              <h2 class="product-name">
+                                <a href="https://demo.roadthemes.com/james/shop/fashion/fermentum-eros/">Fermentum eros</a>
+                              </h2>
+                              <div class="ratings"><div class="star-rating"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div></div>
+                              <div class="price-box"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">£</span>90.00</span></div>
+
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                    <div class="list-col8 ">
+                      <div class="gridview">
+                        <h2 class="product-name">
+                          <a href="https://demo.roadthemes.com/james/shop/fashion/fermentum-eros/">Fermentum eros</a>
+                        </h2>
+                        <div class="ratings"><div class="star-rating"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div></div>
+                        <div class="price-box"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">£</span>90.00</span></div>
+
+                      </div>
+                    </div>
+                    <div class="clearfix"></div>
+
+                  </div>
+                </div><div class="item-col col-xs-12 col-sm-12 post-2293 product type-product status-publish has-post-thumbnail product_cat-fashion first instock shipping-taxable purchasable product-type-simple slick-slide slick-active" index="3" style="width: 300px;">
+                  <div class="product-wrapper">
+
+                    <div class="list-col4 ">
+                      <div class="product-image">
+                        <a href="https://demo.roadthemes.com/james/shop/fashion/vivamus-blandit/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">					<img width="500" height="500" src="//demo.roadthemes.com/james/wp-content/uploads/2014/10/8-500x500.jpg" class="primary_image wp-post-image" alt="8" srcset="//demo.roadthemes.com/james/wp-content/uploads/2014/10/8-500x500.jpg 500w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/8-150x150.jpg 150w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/8-300x300.jpg 300w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/8-768x768.jpg 768w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/8-600x600.jpg 600w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/8-200x200.jpg 200w, //demo.roadthemes.com/james/wp-content/uploads/2014/10/8.jpg 800w" sizes="(max-width: 500px) 100vw, 500px"><img width="500" height="500" src="https://demo.roadthemes.com/james/wp-content/uploads/2014/10/9-500x500.jpg" class="secondary_image" alt="9" srcset="https://demo.roadthemes.com/james/wp-content/uploads/2014/10/9-500x500.jpg 500w, https://demo.roadthemes.com/james/wp-content/uploads/2014/10/9-150x150.jpg 150w, https://demo.roadthemes.com/james/wp-content/uploads/2014/10/9-300x300.jpg 300w, https://demo.roadthemes.com/james/wp-content/uploads/2014/10/9-768x768.jpg 768w, https://demo.roadthemes.com/james/wp-content/uploads/2014/10/9-600x600.jpg 600w, https://demo.roadthemes.com/james/wp-content/uploads/2014/10/9-200x200.jpg 200w, https://demo.roadthemes.com/james/wp-content/uploads/2014/10/9.jpg 800w" sizes="(max-width: 500px) 100vw, 500px">				</a>				<div class="actions">
+                        <ul class="add-to-links clearfix">
+                          <li>
+                            <p class="product woocommerce add_to_cart_inline " style="border:4px solid #ccc; padding: 12px;">
+
+                              <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">£</span>65.00</span>
+                              <a rel="nofollow" href="/james/shop/footwear/aenean-sagittis/?add-to-cart=2293" data-quantity="1" data-product_id="2293" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add to cart</a>
+                            </p>						</li>
+
+                          <li class="quickviewbtn">
+                            <a class="detail-link quickview" data-quick-id="2293" href="https://demo.roadthemes.com/james/shop/fashion/vivamus-blandit/" title="Vivamus blandit">Quick View</a>
+                          </li>
+
+                          <li>
+
+                            <div class="yith-wcwl-add-to-wishlist add-to-wishlist-2293">
+                              <div class="yith-wcwl-add-button show" style="display:block">
+
+
+                                <a href="/james/shop/footwear/aenean-sagittis/?add_to_wishlist=2293" rel="nofollow" data-product-id="2293" data-product-type="simple" class="add_to_wishlist">
+                                  Add to Wishlist</a>
+
+                              </div>
+
+                              <div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
+                                <span class="feedback">Product added!</span>
+                                <a href="https://demo.roadthemes.com/james/wishlist/?wishlist-action" rel="nofollow">
+                                  Browse Wishlist	        </a>
+                              </div>
+
+                              <div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
+                                <span class="feedback">The product is already in the wishlist!</span>
+                                <a href="https://demo.roadthemes.com/james/wishlist/?wishlist-action" rel="nofollow">
+                                  Browse Wishlist	        </a>
+                              </div>
+
+                              <div style="clear:both"></div>
+                              <div class="yith-wcwl-wishlistaddresponse"></div>
+
+                            </div>
+
+                            <div class="clear"></div>						</li>
+                          <li>
+                            <div class="woocommerce product compare-button"><a href="https://demo.roadthemes.com/james?action=yith-woocompare-add-product&amp;id=2293&amp;lang=en" class="compare button" data-product_id="2293" rel="nofollow">Compare</a></div>						</li>
+                        </ul>
+
+                      </div>
+                        <div class="list-col2">
+                          <div class="list-col8 ">
+                            <div class="gridview">
+                              <h2 class="product-name">
+                                <a href="https://demo.roadthemes.com/james/shop/fashion/vivamus-blandit/">Vivamus blandit</a>
+                              </h2>
+                              <div class="ratings"><div class="star-rating"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div></div>
+                              <div class="price-box"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">£</span>65.00</span></div>
+
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                    <div class="list-col8 ">
+                      <div class="gridview">
+                        <h2 class="product-name">
+                          <a href="https://demo.roadthemes.com/james/shop/fashion/vivamus-blandit/">Vivamus blandit</a>
+                        </h2>
+                        <div class="ratings"><div class="star-rating"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div></div>
+                        <div class="price-box"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">£</span>65.00</span></div>
+
+                      </div>
+                    </div>
+                    <div class="clearfix"></div>
+
+                  </div>
+                </div></div></div>
               </div>
             </div>
           </div>
@@ -211,14 +559,41 @@ export default {
       sizeSet: 0,
       colorSet: 0,
       qty: 1,
-      listOther: []
+      tab: 2,
+      rate: 1,
+      listOther: [],
+      listComment: [],
+      comment:'',
+      isShowRating: true,
     }
   },
   computed:{
-    ...mapGetters(['getterListItemInCart'])
+    ...mapGetters(['getterListItemInCart','getStatusLogin'])
   },
   methods: {
-    ...mapActions(['getDetailProduct']),
+    ...mapActions(['getDetailProduct','rateProduct','getListRating']),
+    ratingAPI(){
+      if(this.comment === ''){
+        alert('Vui lòng nhập đánh giá !')
+        return false;
+      }
+      let obj = {
+        product_id : this.$route.params.id,
+        guest_id : JSON.parse(localStorage.getItem('USER_INFO')).id,
+        rate : this.rate,
+        comment : this.comment
+      }
+      console.log('obj', obj)
+      this.rateProduct(obj).then(r=>{
+        alert('Cảm ơn bạn đã đánh giá sản phẩm của chúng tôi !')
+        this.isShowRating = false
+      }).catch(e=>{
+        console.log(e)
+      })
+    },
+    showTab(index){
+      this.tab = index
+    },
     sendimg(a) {
       document.getElementById('mainimg').src = a.src;
     },
@@ -265,6 +640,9 @@ export default {
       localStorage.setItem('carts', JSON.stringify(carts))
       this.$store.commit('SET_LIST_ITEM_IN_CART',JSON.stringify(carts))
       alert('Đã thêm vào giỏ hàng !')
+    },
+    rateStar(star){
+      this.rate = star
     }
   },
   created() {
@@ -275,10 +653,29 @@ export default {
     }).catch(e=>{
       console.log(e)
     })
+
+    let url = `/api/web/rating/getByProduct?product=${this.$route.params.id}`
+    if (this.getStatusLogin){
+      url += `&user=${JSON.parse(localStorage.getItem('USER_INFO')).id}`
+    }
+    this.getListRating(url).then(r=>{
+      console.log('res getListRating', r)
+      this.listComment = r.data.data.list
+      if (r.data.data.is_comment === false){
+        this.isShowRating = false
+      }else{
+
+      }
+    }).catch(e=>{
+      console.log(e)
+    })
   }
 }
 </script>
 <style scoped>
+.fa-star.checked{
+  color: orange;
+}
 #thumb_container {
   text-align: center;
   padding: 0px;
@@ -307,5 +704,13 @@ export default {
   background-color: #f25862;
   color: #fff;
   border-color: #f25862;
+}
+.star-rate{
+  cursor: pointer;
+  font-size: 18px;
+  padding-right: 8px;
+}
+#comments,#review_form_wrapper{
+  max-width: unset !important;
 }
 </style>

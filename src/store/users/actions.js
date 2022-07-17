@@ -151,6 +151,40 @@ export default {
       return false;
     }
   },
+  async getListRating({commit, state}, data) {
+    try {
+      const headers = {Authorization: 'Bearer ' + localStorage.getItem('ACCESS_TOKEN')};
+      return await axiosInstance.get(data,{headers : headers}).then(r => {
+        commit('SHOW_LOADING', false);
+        return r
+      })
+        .catch(e => {
+          commit('SHOW_LOADING', false);
+          console.log(e)
+        });
+
+    } catch (error) {
+      console.log(error);
+      return false;
+    }
+  },
+  async rateProduct({commit, state}, data) {
+    try {
+      const headers = {Authorization: 'Bearer ' + localStorage.getItem('ACCESS_TOKEN')};
+      return await axiosInstance.post(`/api/web/rating/create`,data,{headers : headers}).then(r => {
+        commit('SHOW_LOADING', false);
+        return r
+      })
+        .catch(e => {
+          commit('SHOW_LOADING', false);
+          console.log(e)
+        });
+
+    } catch (error) {
+      console.log(error);
+      return false;
+    }
+  },
   async filterProduct({commit, state}, data) {
     try {
       const headers = {Authorization: 'Bearer ' + localStorage.getItem('ACCESS_TOKEN')};
