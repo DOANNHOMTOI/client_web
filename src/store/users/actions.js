@@ -63,6 +63,25 @@ export default {
       return false;
     }
   },
+  async getListBanner({commit, state}, currPage) {
+    try {
+      const headers = {Authorization: 'Bearer ' + localStorage.getItem('ACCESS_TOKEN')};
+      commit('SHOW_LOADING', true);
+      console.log('currPage', currPage)
+      return await axiosInstance.get(`/api/web/banner/top`,{headers : headers}).then(r => {
+        commit('SHOW_LOADING', false);
+        return r
+      })
+        .catch(e => {
+          commit('SHOW_LOADING', false);
+          console.log(e)
+        });
+
+    } catch (error) {
+      console.log(error);
+      return false;
+    }
+  },
   async checkVoucher({commit, state}, code) {
     try {
       const headers = {Authorization: 'Bearer ' + localStorage.getItem('ACCESS_TOKEN')};

@@ -3,63 +3,17 @@
     <div class="entry-content">
       <div class="vc_row wpb_row vc_row-fluid home-banner">
         <div class="row-container">
-          <div class="wpb_column vc_column_container vc_col-sm-4">
+          <div v-for="(item,i) in listBanner" :key="i" class="wpb_column vc_column_container vc_col-sm-4">
             <div class="vc_column-inner ">
               <div class="wpb_wrapper">
                 <div class="wpb_single_image wpb_content_element vc_align_center">
-
                   <figure class="wpb_wrapper vc_figure">
-                    <a href="#" target="_self" class="vc_single_image-wrapper   vc_box_border_grey"><img
+                    <a href="#" target="_self" class="vc_single_image-wrapper   vc_box_border_grey">
+                      <img
+                        style="height: 542px"
                       width="370" height="542"
-                      src="http://demo.roadthemes.com/james/wp-content/uploads/2015/12/jbanner-1.jpg"
+                      :src="getPathFile(item.image)"
                       class="vc_single_image-img attachment-full" alt="jbanner-1"
-                      srcset="http://demo.roadthemes.com/james/wp-content/uploads/2015/12/jbanner-1.jpg 370w, http://demo.roadthemes.com/james/wp-content/uploads/2015/12/jbanner-1-205x300.jpg 205w"
-                      sizes="(max-width: 370px) 100vw, 370px"/></a>
-                  </figure>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="wpb_column vc_column_container vc_col-sm-4">
-            <div class="vc_column-inner ">
-              <div class="wpb_wrapper">
-                <div class="wpb_single_image wpb_content_element vc_align_center">
-
-                  <figure class="wpb_wrapper vc_figure">
-                    <a href="#" target="_self" class="vc_single_image-wrapper   vc_box_border_grey"><img
-                      width="370" height="542"
-                      src="http://demo.roadthemes.com/james/wp-content/uploads/2015/12/jbanner-2.jpg"
-                      class="vc_single_image-img attachment-full" alt="jbanner-2"
-                      srcset="http://demo.roadthemes.com/james/wp-content/uploads/2015/12/jbanner-2.jpg 370w, http://demo.roadthemes.com/james/wp-content/uploads/2015/12/jbanner-2-205x300.jpg 205w"
-                      sizes="(max-width: 370px) 100vw, 370px"/></a>
-                  </figure>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="wpb_column vc_column_container vc_col-sm-4">
-            <div class="vc_column-inner ">
-              <div class="wpb_wrapper">
-                <div class="wpb_single_image wpb_content_element vc_align_center  vc_custom_1450967869062">
-
-                  <figure class="wpb_wrapper vc_figure">
-                    <a href="#" target="_self" class="vc_single_image-wrapper   vc_box_border_grey"><img
-                      width="370" height="280"
-                      src="http://demo.roadthemes.com/james/wp-content/uploads/2015/12/jbanner-3.jpg"
-                      class="vc_single_image-img attachment-full" alt="jbanner-3"
-                      srcset="http://demo.roadthemes.com/james/wp-content/uploads/2015/12/jbanner-3.jpg 370w, http://demo.roadthemes.com/james/wp-content/uploads/2015/12/jbanner-3-300x227.jpg 300w"
-                      sizes="(max-width: 370px) 100vw, 370px"/></a>
-                  </figure>
-                </div>
-
-                <div class="wpb_single_image wpb_content_element vc_align_center">
-
-                  <figure class="wpb_wrapper vc_figure">
-                    <a href="#" target="_self" class="vc_single_image-wrapper   vc_box_border_grey"><img
-                      width="370" height="234"
-                      src="http://demo.roadthemes.com/james/wp-content/uploads/2015/12/jbanner-4.jpg"
-                      class="vc_single_image-img attachment-full" alt="jbanner-4"
-                      srcset="http://demo.roadthemes.com/james/wp-content/uploads/2015/12/jbanner-4.jpg 370w, http://demo.roadthemes.com/james/wp-content/uploads/2015/12/jbanner-4-300x190.jpg 300w"
                       sizes="(max-width: 370px) 100vw, 370px"/></a>
                   </figure>
                 </div>
@@ -418,6 +372,7 @@ export default {
       listProduct:[],
       listProductNew:[],
       listProductCare:[],
+      listBanner:[],
       cateIndex: 0
     }
   },
@@ -432,6 +387,12 @@ export default {
        this.listProduct = res.data.data.products
 
      })
+   }).catch(e=>{
+     console.log(e)
+   })
+   this.getListBanner(-1).then(r=>{
+     console.log('res getListBanner', r)
+     this.listBanner = r.data.data
    }).catch(e=>{
      console.log(e)
    })
@@ -466,7 +427,7 @@ export default {
      * @param {Object} placeResultData PlaceResult object
      * @param {String} id Input container ID
      */
-    ...mapActions(['getListProductCategory','filterProduct','getListProductNew','getListProductCare']),
+    ...mapActions(['getListProductCategory','filterProduct','getListProductNew','getListProductCare','getListBanner']),
     setProduct(category_id){
       this.cateIndex = category_id
       this.filterProduct({category_id: category_id}).then(res=>{
