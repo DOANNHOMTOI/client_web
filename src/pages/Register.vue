@@ -33,7 +33,7 @@
                   </p>
                   <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                     <label for="username">Email</label>
-                    <input v-model="email" type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username"
+                    <input v-model="email" type="email" class="woocommerce-Input woocommerce-Input--text input-text" name="username"
                            value="">
                   </p>
 
