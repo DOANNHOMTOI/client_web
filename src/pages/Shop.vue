@@ -308,17 +308,31 @@ export default {
 </script>
 
 <style scoped>
-.price-sale{
+.main-container .shop-products .item-col .product-wrapper .product-image{
+    overflow: hidden;
+}
+.main-container .shop-products .item-col .product-wrapper .product-image a img,.item-img img {
+  transition: 0.3s !important;
+
+}
+
+.main-container .shop-products .item-col .product-wrapper .product-image a img:hover ,.item-img img:hover{
+  transform: scale(1.1) !important;
+}
+
+.price-sale {
   color: #716b6b;
   text-decoration: line-through;
   font-size: 12px;
 }
-.price-box{
+
+.price-box {
   display: flex;
   justify-content: space-between;
   float: unset !important;
   margin-top: 15px !important;
 }
+
 .tragop {
   position: absolute;
   top: 10px;
@@ -334,6 +348,7 @@ export default {
   align-items: center;
   z-index: 2;
 }
+
 @media only screen and (max-width: 600px) {
   .img-responsive {
     margin-bottom: 20px;

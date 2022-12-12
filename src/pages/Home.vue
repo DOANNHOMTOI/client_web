@@ -753,6 +753,17 @@ export default {
 </script>
 
 <style scoped>
+.main-container .shop-products .item-col .product-wrapper .product-image{
+    overflow: hidden;
+}
+.main-container .shop-products .item-col .product-wrapper .product-image a img,.item-img img {
+  transition: 0.3s !important;
+
+}
+
+.main-container .shop-products .item-col .product-wrapper .product-image a img:hover ,.item-img img:hover{
+  transform: scale(1.1) !important;
+}
 .product__box-btn {
   width: 100%;
   position: relative;

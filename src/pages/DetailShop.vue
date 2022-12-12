@@ -113,9 +113,10 @@
                 <template v-if="product.detail.qty === 0">
                   <div style="color: red"><b>Sản phẩm đã hết hàng</b></div>
                 </template>
-                <div class="product-hotline" style="text-align:center;margin-top: 10px;">Gọi 
+                <div class="product-hotline" style="text-align:center;margin-top: 10px;">Gọi
                   <a href="tel:0901250190" title="0901250190">0901 250 190</a> để tư vấn
-                  mua hàng</div>
+                  mua hàng
+                </div>
               </div><!-- .summary -->
             </div>
             <div class="col-xs-12 col-md-3">
@@ -1022,11 +1023,24 @@ export default {
 }
 </script>
 <style scoped>
-.product-hotline a{
+.c-new__img {
+  overflow: hidden;
+}
+
+.c-new__img img {
+  transition: 0.3s;
+}
+
+.c-new__img img:hover {
+  transform: scale(1.1);
+}
+
+.product-hotline a {
   color: #f25862;
   font-weight: 600;
   font-size: 18px;
 }
+
 @media only screen and (max-width: 600px) {
   .product_title {
     font-size: 20px !important;
