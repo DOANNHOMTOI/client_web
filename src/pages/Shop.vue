@@ -3,28 +3,6 @@
     <div class="category-desc sidebar">
     </div>
     <div class="container">
-      <div class="evo-coll-banner row">
-        <div class="col-xl-12 col-md-8">
-          <a href="/collections/all">
-            <img src="//bizweb.dktcdn.net/thumb/grande/100/431/707/themes/836413/assets/col_banner_1.jpg?1670428170364"
-              alt="Niperfume" class="img-responsive center-block" />
-          </a>
-        </div>
-        <div class=" col-md-4 col-12 small-banner">
-          <a href="/collections/all" title="Niperfume">
-            <img class="lazy loaded"
-              src="//bizweb.dktcdn.net/100/431/707/themes/836413/assets/col_banner_small_1.jpg?1670428170364"
-              data-src="//bizweb.dktcdn.net/100/431/707/themes/836413/assets/col_banner_small_1.jpg?1670428170364"
-              alt="Niperfume" data-was-processed="true">
-          </a>
-          <a href="/collections/all" title="Niperfume">
-            <img class="lazy loaded"
-              src="//bizweb.dktcdn.net/100/431/707/themes/836413/assets/col_banner_small_2.jpg?1670428170364"
-              data-src="//bizweb.dktcdn.net/100/431/707/themes/836413/assets/col_banner_small_2.jpg?1670428170364"
-              alt="Niperfume" data-was-processed="true">
-          </a>
-        </div>
-      </div>
 
       <nav class="woocommerce-breadcrumb">
 
@@ -48,8 +26,8 @@
             <ul class="product-categories">
               <li class="cat-item cat-item-44" v-for="(cate, i) in listCategory">
                 <a :class="$route.params.category_id === cate.id ? 'active' : ''" @click="filCate(cate.id)" href="#">{{
-                    cate.name
-                }}</a>
+    cate.name
+}}</a>
                 <span class="count" style="font-weight: bold">({{ cate.numProduct }})</span>
               </li>
             </ul>
@@ -129,8 +107,8 @@
                   <div class="list-col8 ">
                     <div class="gridview">
                       <h2 class="product-name">
-                        <a href="http://demo.roadthemes.com/james/shop/health-beauty/aenean-eu-tristique/">{{ item.name
-                        }}</a>
+                        <router-link :to="'/product/' + item.id">{{ item.name
+}}</router-link>
                       </h2>
 
                       <div class="price-box">
@@ -140,8 +118,8 @@
                     </div>
                     <div class="listview">
                       <h2 class="product-name">
-                        <a href="http://demo.roadthemes.com/james/shop/health-beauty/aenean-eu-tristique/">Aenean
-                          eu tristique</a>
+                        <router-link :to="'/product/' + item.id">Aenean
+                          eu tristique</router-link>
                       </h2>
                       <div class="price-box"><span class="woocommerce-Price-amount amount"><span
                             class="woocommerce-Price-currencySymbol">&pound;</span>80.00</span></div>
@@ -308,15 +286,18 @@ export default {
 </script>
 
 <style scoped>
-.main-container .shop-products .item-col .product-wrapper .product-image{
-    overflow: hidden;
+.main-container .shop-products .item-col .product-wrapper .product-image {
+  overflow: hidden;
 }
-.main-container .shop-products .item-col .product-wrapper .product-image a img,.item-img img {
+
+.main-container .shop-products .item-col .product-wrapper .product-image a img,
+.item-img img {
   transition: 0.3s !important;
 
 }
 
-.main-container .shop-products .item-col .product-wrapper .product-image a img:hover ,.item-img img:hover{
+.main-container .shop-products .item-col .product-wrapper .product-image a img:hover,
+.item-img img:hover {
   transform: scale(1.1) !important;
 }
 

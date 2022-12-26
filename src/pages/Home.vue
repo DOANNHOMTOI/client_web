@@ -10,7 +10,7 @@
                 <router-link :to="{ name: 'Shop', params: { category_id: cate.id } }">
                   <a style="cursor: pointer" data-vc-tabs data-vc-container=".vc_tta">
                     <span class="vc_tta-title-text">
-                      <img :src="listImageCate[i]" class="img-cate" />
+                     
                       {{ cate.name }}</span>
                   </a>
                 </router-link>
@@ -21,17 +21,20 @@
         <div class="col-xs-12 col-md-7">
           <div>
             <a href="#" target="_self">
-              <img src="../assets/slider_4.jpg" class="slide-banner large" />
+              <img src="https://intphcm.com/data/upload/banner-thoi-trang-con-nit.jpg" class="slide-banner large" />
             </a>
           </div>
         </div>
         <div class="col-xs-12 col-md-2">
           <div>
             <a href="#" target="_self">
-              <img src="https://png.pngtree.com/thumb_back/fw800/back_our/20190620/ourmid/pngtree-summer-children-s-clothing-poster-banner-clothing-image_153631.jpg" class="slide-banner" />
+              <img
+                src="https://png.pngtree.com/thumb_back/fw800/back_our/20190620/ourmid/pngtree-summer-children-s-clothing-poster-banner-clothing-image_153631.jpg"
+                class="slide-banner" />
             </a>
             <a href="#" target="_self">
-              <img src="https://baobikhoiphat.com/wp-content/uploads/2022/04/logo-shop-quan-ao-tre-em.jpg" class="slide-banner" />
+              <img src="https://baobikhoiphat.com/wp-content/uploads/2022/04/logo-shop-quan-ao-tre-em.jpg"
+                class="slide-banner" />
             </a>
             <a href="#" target="_self">
               <img src="https://intphcm.com/data/upload/banner-thoi-trang-con-nit.jpg" class="slide-banner" />
@@ -44,88 +47,6 @@
     </div>
     <div class="section_coupons">
       <div class="container">
-        <div class="row scroll justify-content-xl-center  ">
-          <div class=" py-2 col-xl-6 col-md-3  ">
-            <div class="coupon_item ">
-              <div class="coupon_icon">
-                <img class="img-fluid"
-                  src="//bizweb.dktcdn.net/100/431/707/themes/836413/assets/code_1.jpg?1670428170364"
-                  alt="coupon_1_img.png" width="79" height="70">
-              </div>
-              <div class="coupon_body">
-                <div class="coupon_head">
-                  <h3 class="coupon_title">NHẬP MÃ: NPF100</h3>
-                  <div class="coupon_desc">Mã giảm 100k cho đơn hàng tối thiểu 1500k.</div>
-                </div>
-                <div class="d-flex align-items-center flex-wrap justify-content-between">
-                  <button class="btn btn-main btn-sm  coupon_copy" data-ega-coupon="NPF100">
-                    <span>Sao chép mã</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class=" py-2 col-xl-6 col-md-3  ">
-            <div class="coupon_item ">
-              <div class="coupon_icon ">
-                <img class="img-fluid"
-                  src="//bizweb.dktcdn.net/100/431/707/themes/836413/assets/code_2.jpg?1670428170364"
-                  alt="coupon_1_img.png" width="79" height="70">
-              </div>
-              <div class="coupon_body">
-                <div class="coupon_head">
-                  <h3 class="coupon_title">NHẬP MÃ: NPF200</h3>
-                  <div class="coupon_desc">Mã giảm 200K cho đơn hàng tối thiểu 3500k.</div>
-                </div>
-                <div class="d-flex align-items-center flex-wrap justify-content-between">
-                  <button class="btn btn-main btn-sm  coupon_copy" data-ega-coupon="NPF200">
-                    <span>Sao chép mã</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class=" py-2 col-xl-6 col-md-3  ">
-            <div class="coupon_item ">
-              <div class="coupon_icon ">
-                <img class="img-fluid"
-                  src="//bizweb.dktcdn.net/100/431/707/themes/836413/assets/code_3.jpg?1670428170364"
-                  alt="coupon_1_img.png" width="79" height="70">
-              </div>
-              <div class="coupon_body">
-                <div class="coupon_head">
-                  <h3 class="coupon_title">NHẬP MÃ: NPF300</h3>
-                  <div class="coupon_desc">Mã giảm 300K cho đơn hàng tối thiểu 4500k.</div>
-                </div>
-                <div class="d-flex align-items-center flex-wrap justify-content-between">
-                  <button class="btn btn-main btn-sm  coupon_copy" data-ega-coupon="NPF300">
-                    <span>Sao chép mã</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class=" py-2 col-xl-6 col-md-3  ">
-            <div class="coupon_item ">
-              <div class="coupon_icon ">
-                <img class="img-fluid"
-                  src="//bizweb.dktcdn.net/100/431/707/themes/836413/assets/code_4.jpg?1670428170364"
-                  alt="coupon_1_img.png" width="79" height="70">
-              </div>
-              <div class="coupon_body">
-                <div class="coupon_head">
-                  <h3 class="coupon_title">NHẬP MÃ: FREESHIP</h3>
-                  <div class="coupon_desc">Miễn phí vận chuyển . KHÔNG CẦN NHẬP MÃ</div>
-                </div>
-                <div class="d-flex align-items-center flex-wrap justify-content-between">
-                  <button class="btn btn-main btn-sm  coupon_copy" data-ega-coupon="FREESHIP">
-                    <span>Sao chép mã</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
     <div class="coundown">
@@ -163,20 +84,6 @@
           </div>
         </div>
       </div>
-      <div class="container">
-        <div class="banner-center row">
-          <div class="col-xl-12 col-md-6">
-            <router-link :to="'product/'">
-              <img src="../assets/feature_banner_1.jpg" />
-            </router-link>
-          </div>
-          <div class="col-xl-12 col-md-6">
-            <router-link :to="'product/'">
-              <img src="../assets/feature_banner_2.jpg" />
-            </router-link>
-          </div>
-        </div>
-      </div>
 
       <div class="vc_row wpb_row vc_row-fluid products-tabs">
         <div class="row-container">
@@ -184,11 +91,11 @@
             <div class="vc_column-inner ">
               <div class="wpb_wrapper cate-wrapper">
                 <div class="evo-product-new-title">
-                  <h4 class="sport-titles">NƯỚC HOA NỮ</h4>
+                  <h4 class="sport-titles">QUẦN ÁO TRẺ EM</h4>
                 </div>
                 <div class="row evo-product-new-banner-cate ">
                   <div class="col-xl-6 col-md-3">
-                    <img src="../assets/evo_block_product_banner_2.jpg" />
+                    <!-- <img src="../assets/evo_block_product_banner_2.jpg" /> -->
                   </div>
                   <div class="vc_tta-tabs-container col-xl-6 col-md-9">
                     <ul class="vc_tta-tabs-list">
@@ -197,9 +104,7 @@
                         <a @click="setProduct(cate.id)" style="cursor: pointer" data-vc-tabs
                           data-vc-container=".vc_tta">
                           <div class="keyword-img">
-                            <img :src="listCateImageBottom[i]" :data-src="listCateImageBottom[i]" alt="Nước hoa nam"
-                              class="lazy img-responsive mx-auto d-block loaded" data-was-processed="true" />
-                          </div>
+                           </div>
                           <span class="vc_tta-title-text">{{ cate.name }}</span>
                         </a>
                       </li>
@@ -262,8 +167,8 @@
                                               </div>
                                               <div class="price-box"><span class="woocommerce-Price-amount amount"><span
                                                     class="woocommerce-Price-currencySymbol">&pound;</span>{{
-                                                        product.price
-                                                    }} Đ</span>
+    product.price
+}} Đ</span>
                                               </div>
 
                                             </div>
@@ -347,7 +252,7 @@
                               <div class="list-col8 ">
                                 <div class="gridview">
                                   <div class="price-box"><span class="woocommerce-Price-amount amount">{{ item.price
-                                  }}</span></div>
+}}</span></div>
 
                                 </div>
                               </div>
@@ -421,7 +326,7 @@
                               <div class="list-col8 ">
                                 <div class="gridview">
                                   <div class="price-box"><span class="woocommerce-Price-amount amount">{{ item.price
-                                  }}</span></div>
+}}</span></div>
 
                                 </div>
                               </div>
@@ -495,7 +400,7 @@
                               <div class="list-col8 ">
                                 <div class="gridview">
                                   <div class="price-box"><span class="woocommerce-Price-amount amount">{{ item.price
-                                  }}</span></div>
+}}</span></div>
 
                                 </div>
                               </div>
@@ -534,14 +439,6 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="container section_banner ">
-        <router-link :to="'product/'">
-          <img class="lazy loaded"
-            src="//bizweb.dktcdn.net/100/431/707/themes/836413/assets/feature_banner.jpg?1670428170364"
-            data-src="//bizweb.dktcdn.net/100/431/707/themes/836413/assets/feature_banner.jpg?1670428170364"
-            alt="Niperfume" data-was-processed="true" />
-        </router-link>
       </div>
       <div class="container evo-product-new-title">
         <h4 class="sport-titles">TIN TỨC NỔI BẬT</h4>
@@ -671,24 +568,15 @@ export default {
       listProductCare: [],
       listBanner: [],
       cateIndex: 0,
-      listImageCate: ['//bizweb.dktcdn.net/100/431/707/themes/836413/assets/index-cate-icon-1.png?1670428170364',
-        '//bizweb.dktcdn.net/100/431/707/themes/836413/assets/index-cate-icon-2.png?1670428170364',
-        '//bizweb.dktcdn.net/100/431/707/themes/836413/assets/index-cate-icon-3.png?1670428170364',
-        '//bizweb.dktcdn.net/100/431/707/themes/836413/assets/index-cate-icon-4.png?1670428170364',
-        '//bizweb.dktcdn.net/100/431/707/themes/836413/assets/index-cate-icon-7.png?1670428170364'
+      listImageCate: [
       ],
       listCateImageBottom: [
-        "//bizweb.dktcdn.net/thumb/large/100/431/707/collections/7310260-1.jpg?v=1648004932907",
-        "//bizweb.dktcdn.net/thumb/large/100/431/707/collections/libre.png?v=1648005033323",
-        "//bizweb.dktcdn.net/thumb/large/100/431/707/collections/screenshot-2021-11-14-at-10-22-34-mua-lan-khu-mui-chanel-bleu-de-stick-deodorant-75ml-chinh-hang-phap-gia-tot.png?v=1636861142730",
-        "//bizweb.dktcdn.net/thumb/large/100/431/707/collections/screenshot-2022-03-17-at-13-40-23-mua-combo-dior-nuoc-hoa-sauvage-edp-100ml-son-duong-addict-001-pink-dior-mua-tai-vua-hang-hieu-h040008.png?v=1648005189540",
-        "//bizweb.dktcdn.net/thumb/large/100/431/707/collections/screenshot-2022-03-25-at-08-39-13-niperfume-nuoc-hoa-mini.png?v=1648172358917"
+
       ]
     }
   },
   created() {
     this.getListProductCategory(-1).then(r => {
-      console.log('res getProductCategory', r)
       this.listCate = r.data.data.data
       this.cateID = r.data.data.data[0].id
       this.cateIndex = r.data.data.data[0].id
@@ -701,22 +589,19 @@ export default {
       console.log(e)
     })
     this.getListBanner(-1).then(r => {
-      console.log('res getListBanner', r)
       this.listBanner = r.data.data
     }).catch(e => {
       console.log(e)
     })
     this.getListProductNew(-1).then(r => {
-      console.log('res getListProductNew', r)
-      this.listProductNew = r.data.data
+       this.listProductNew = r.data.data
       console.log('this.listProductNew', this.listProductNew)
     }).catch(e => {
       console.log(e)
     })
     if (localStorage.getItem('cates') != null) {
       this.getListProductCare(localStorage.getItem('cates')).then(r => {
-        console.log('res getListProductNew', r)
-        this.listProductCare = r.data.data
+         this.listProductCare = r.data.data
         console.log('this.getListProductCare', this.listProductCare)
       }).catch(e => {
         console.log(e)
@@ -741,7 +626,6 @@ export default {
     setProduct(category_id) {
       this.cateIndex = category_id
       this.filterProduct({ category_id: category_id }).then(res => {
-        console.log('res filterProduct', res)
         this.listProduct = res.data.data.products
       })
     },
@@ -753,17 +637,21 @@ export default {
 </script>
 
 <style scoped>
-.main-container .shop-products .item-col .product-wrapper .product-image{
-    overflow: hidden;
+.main-container .shop-products .item-col .product-wrapper .product-image {
+  overflow: hidden;
 }
-.main-container .shop-products .item-col .product-wrapper .product-image a img,.item-img img {
+
+.main-container .shop-products .item-col .product-wrapper .product-image a img,
+.item-img img {
   transition: 0.3s !important;
 
 }
 
-.main-container .shop-products .item-col .product-wrapper .product-image a img:hover ,.item-img img:hover{
+.main-container .shop-products .item-col .product-wrapper .product-image a img:hover,
+.item-img img:hover {
   transform: scale(1.1) !important;
 }
+
 .product__box-btn {
   width: 100%;
   position: relative;
