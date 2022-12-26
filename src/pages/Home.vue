@@ -28,13 +28,13 @@
         <div class="col-xs-12 col-md-2">
           <div>
             <a href="#" target="_self">
-              <img src="../assets/slider_6.jpg" class="slide-banner" />
+              <img src="https://png.pngtree.com/thumb_back/fw800/back_our/20190620/ourmid/pngtree-summer-children-s-clothing-poster-banner-clothing-image_153631.jpg" class="slide-banner" />
             </a>
             <a href="#" target="_self">
-              <img src="../assets/slider_7.jpg" class="slide-banner" />
+              <img src="https://baobikhoiphat.com/wp-content/uploads/2022/04/logo-shop-quan-ao-tre-em.jpg" class="slide-banner" />
             </a>
             <a href="#" target="_self">
-              <img src="../assets/slider_8.jpg" class="slide-banner" />
+              <img src="https://intphcm.com/data/upload/banner-thoi-trang-con-nit.jpg" class="slide-banner" />
             </a>
           </div>
         </div>
