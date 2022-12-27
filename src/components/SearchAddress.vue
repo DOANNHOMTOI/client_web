@@ -9,7 +9,7 @@
                  placeholder="Địa điểm gần bạn ...">
           <i class="icon_pin_alt"></i>
           <div class="results" v-if="toggle">
-            <div class="result" v-for="item in newLocations">
+            <div class="result" v-for="item in newLocations" :key="item">
               <span @click="selectResult(item)" @mousedown.prevent>
                 {{ item }}
               </span>
@@ -58,10 +58,8 @@ export default {
     }
   },
   created() {
-    console.log('this.getterAddressUser', this.getterAddressUser)
   },
   mounted() {
-    // console.log('this.getterAddressUser', this.getterAddressUser)
     this.search = localStorage.getItem('addressUser') != null ? localStorage.getItem('addressUser') :''
   },
   computed: {

@@ -47,7 +47,7 @@
                               </span>
                             </router-link>
                           </li>
-                          <li v-for="cate in listCate"
+                          <li v-for="cate in listCate" :key="cate"
                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4017 multicolumn_dropdown default_style drop_to_right submenu_full_width columns3">
                             <router-link :to="{ name: 'Shop', params: { category_id: cate.id } }"
                               class="item_link  disable_icon">
@@ -91,7 +91,7 @@
                 <!--                <button type="button" class="btn btn-primary mb-2">Tìm kiếm</button>-->
               </div>
               <ul v-if="showSearchResult" class="list-group listSearch">
-                <li v-for="item in listSearch" class="list-group-item">
+                <li v-for="item in listSearch" class="list-group-item" :key="item">
                   <a @click="toDetailProduct(item)" href="#">{{ item.name }}</a>
                 </li>
               </ul>
@@ -108,7 +108,7 @@
                     <template v-if="getterListItemInCart.length > 0">
                       <div class="mini_cart_arrow"></div>
                       <ul class="cart_list product_list_widget ">
-                        <li id="mcitem-40b5f25a228570053bc64a043c3f1833" v-for="(item, i) in getterListItemInCart">
+                        <li id="mcitem-40b5f25a228570053bc64a043c3f1833" v-for="(item, i) in getterListItemInCart" :key="i">
                           <a class="product-image" href="#">
                             <img width="200" height="200" :src="getPathFile(item.product.image)"
                               class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="7"
@@ -215,7 +215,6 @@ export default {
     }
   },
   mounted() {
-    console.log('this.$route.name', this.$route.name)
   },
   methods: {
     ...mapActions(['getListProductCategory', 'filterProduct']),
@@ -241,7 +240,6 @@ export default {
       this.showSearchResult = flag
     },
     searchProductInput() {
-      console.log(this.search)
       if (this.search === '') {
         this.showSearchResult = false
         return false
@@ -250,7 +248,6 @@ export default {
         name: this.search
       }
       this.filterProduct(filter).then(r => {
-        console.log('res filterProduct', r)
         if (r.data.data.products.length == 0) {
           this.listSearch = [{ name: "Không tìm thấy kết quả !" }]
         } else {
@@ -281,7 +278,6 @@ export default {
   },
   created() {
     this.getListProductCategory(-1).then(r => {
-      console.log('res getProductCategory', r)
       this.listCate = r.data.data.data
     }).catch(e => {
       console.log(e)

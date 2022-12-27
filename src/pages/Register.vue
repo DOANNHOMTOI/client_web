@@ -18,27 +18,27 @@
                 <form class="woocomerce-form woocommerce-form-login login" method="post">
 
                   <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                    <label for="username">Họ tên<span class="required">*</span></label>
+                    <label for="username">Họ tên<span class="required">*</span></label><br />
                     <input v-model="name" type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username">
                   </p>
                   <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                    <label for="username">Số điện thoại<span class="required">*</span></label>
+                    <label for="username">Số điện thoại<span class="required">*</span></label><br />
                     <input v-model="phone" type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username"
                            id="username" value="">
                   </p>
                   <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                    <label for="username">Mật khẩu<span class="required">*</span></label>
+                    <label for="username">Mật khẩu<span class="required">*</span></label><br />
                     <input v-model="password" type="password" class="woocommerce-Input woocommerce-Input--text input-text" name="username"
                             value="">
                   </p>
                   <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                    <label for="username">Email</label>
+                    <label for="username">Email</label><br />
                     <input v-model="email" type="email" class="woocommerce-Input woocommerce-Input--text input-text" name="username"
                            value="">
                   </p>
 
                   <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                    <label for="password">Địa chỉ <span class="required">*</span></label>
+                    <label for="password">Địa chỉ <span class="required">*</span></label><br />
                     <input v-model="address" class="woocommerce-Input woocommerce-Input--text input-text" type="text" name="password"
                            id="password">
                   </p>
@@ -97,7 +97,6 @@ export default {
         address: this.address,
       }
       this.register(data).then(res => {
-        console.log('RES', res)
         if (res.data.success){
           alert('Tạo tài khoản thành công !')
           this.$router.push('/login')

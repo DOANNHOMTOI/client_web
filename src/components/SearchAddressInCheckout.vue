@@ -8,7 +8,7 @@
                  type="text"
                  placeholder="">
           <div class="results" style="z-index: 999;" v-if="toggle">
-            <div class="result" v-for="item in newLocations">
+            <div class="result" v-for="item in newLocations" :key="item">
               <span @click="selectResult(item)" @mousedown.prevent>
                 {{ item }}
               </span>
@@ -51,7 +51,6 @@ export default {
     }
   },
   mounted() {
-    // console.log('this.getterAddressUser', this.getterAddressUser)
     this.search = localStorage.getItem('addressUser')
   },
   created() {
@@ -60,9 +59,7 @@ export default {
       addressUser : this.getterAddressUser
     }
     this.calculateDeliveriesMatrix({data}).then(res=>{
-      console.log('res calculateDeliveriesMatrix', res)
     }).catch(e=>{
-      console.log('catch calculateDeliveriesMatrix', e)
     })
   },
   computed:{
@@ -80,9 +77,7 @@ export default {
         addressUser : this.getterAddressUser
       }
       this.calculateDeliveriesMatrix({data}).then(res=>{
-        console.log('res calculateDeliveriesMatrix', res)
       }).catch(e=>{
-        console.log('catch calculateDeliveriesMatrix', e)
       })
     },
     searchMerchant() {

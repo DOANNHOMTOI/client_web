@@ -48,7 +48,6 @@ export default {
     try {
       const headers = {Authorization: 'Bearer ' + localStorage.getItem('ACCESS_TOKEN')};
       commit('SHOW_LOADING', true);
-      console.log('currPage', currPage)
       return await axiosInstance.get(`/api/web/product-category?page=${currPage}`,{headers : headers}).then(r => {
         commit('SHOW_LOADING', false);
         return r
@@ -67,7 +66,6 @@ export default {
     try {
       const headers = {Authorization: 'Bearer ' + localStorage.getItem('ACCESS_TOKEN')};
       commit('SHOW_LOADING', true);
-      console.log('currPage', currPage)
       return await axiosInstance.get(`/api/web/banner/top`,{headers : headers}).then(r => {
         commit('SHOW_LOADING', false);
         return r

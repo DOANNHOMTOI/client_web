@@ -20,10 +20,10 @@
           <div class="col-sm-6 col-lg-3 footer-infos">
             <h4 class="footer-title">Thông tin khác</h4>
             <p>
-              <strong>HỘ KINH DOANH NƯỚC HOA NIPERFUME</strong>
+              <strong>HỘ KINH DOANH đồ trẻ em </strong>
             </p>
             <p><strong>Mã số thuế: </strong>41W8060917</p>
-            <p><strong>Người DDPL: </strong>Nguyễn Chí Tâm</p>
+            <p><strong>Người DDPL: </strong>Nguyễn Lan Chinh</p>
             <p><strong>Ngày hoạt động: </strong>26/07/2021</p>
             <p><strong>Giấy phép kinh doanh: </strong>41W8060917</p>
 

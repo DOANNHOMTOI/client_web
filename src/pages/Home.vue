@@ -138,7 +138,7 @@
                           <div class="vc_tta-panel-body">
                             <div class="woocommerce columns-3">
                               <div class="shop-products row grid-view">
-                                <div v-for="(product, i) in listProduct"
+                                <div v-for="(product, i) in listProduct" :key="i"
                                   class="item-col col-xs-12 col-sm-3 post-2299 product type-product status-publish has-post-thumbnail product_cat-fashion product_cat-footwear first instock featured shipping-taxable purchasable product-type-simple">
                                   <div class="product-wrapper">
                                     <span class="tragop">
@@ -196,10 +196,7 @@
                                       <router-link :to="'product/' + product.id">
                                         <p>Chi tiết</p>
                                       </router-link>
-                                      <router-link :to="'product/' + product.id">
-                                        <p>Yêu thích</p>
-                                      </router-link>
-
+                
                                     </div>
                                   </div>
                                 </div>
@@ -234,7 +231,7 @@
                 <div class="woocommerce columns-1" style="margin-top: 20px">
 
                   <div class="shop-products row grid-view">
-                    <div v-for="(item, i) in listProductCare"
+                    <div v-for="(item, i) in listProductCare" :key="i"
                       class=" item-col col-xs-12 col-sm-3 post-2309 product type-product status-publish has-post-thumbnail product_cat-fashion product_cat-footwear product_cat-handbags product_cat-health-beauty product_cat-jewellery product_cat-shoes first instock featured shipping-taxable purchasable product-type-simple">
                       <div class="product-wrapper">
 
@@ -277,10 +274,6 @@
                           <router-link :to="'product/' + item.id">
                             <p>Chi tiết</p>
                           </router-link>
-                          <router-link :to="'product/' + item.id">
-                            <p>Yêu thích</p>
-                          </router-link>
-
                         </div>
                       </div>
                     </div>
@@ -306,7 +299,7 @@
                 <div class="woocommerce columns-1" style="margin-top: 20px">
 
                   <div class="shop-products row grid-view">
-                    <div v-for="(item, i) in listProductNew"
+                    <div v-for="(item, i) in listProductNew" :key="i"
                       class=" item-col col-xs-12 col-sm-3 post-2309 product type-product status-publish has-post-thumbnail product_cat-fashion product_cat-footwear product_cat-handbags product_cat-health-beauty product_cat-jewellery product_cat-shoes first instock featured shipping-taxable purchasable product-type-simple">
                       <div class="product-wrapper">
                         <span class="tragop">
@@ -348,13 +341,6 @@
                         </div>
                         <div class="clearfix"></div>
                         <div class="product__box-btn">
-                          <router-link :to="'product/' + item.id">
-                            <p>Chi tiết</p>
-                          </router-link>
-                          <router-link :to="'product/' + item.id">
-                            <p>Yêu thích</p>
-                          </router-link>
-
                         </div>
                       </div>
                     </div>
@@ -380,7 +366,7 @@
                 <div class="woocommerce columns-1" style="margin-top: 20px">
 
                   <div class="shop-products row grid-view">
-                    <div v-for="(item, i) in listProductNew"
+                    <div v-for="(item, i) in listProductNew" :key="i"
                       class=" item-col col-xs-12 col-sm-3 post-2309 product type-product status-publish has-post-thumbnail product_cat-fashion product_cat-footwear product_cat-handbags product_cat-health-beauty product_cat-jewellery product_cat-shoes first instock featured shipping-taxable purchasable product-type-simple">
                       <div class="product-wrapper">
                         <span class="tragop">
@@ -425,10 +411,6 @@
                           <router-link :to="'product/' + item.id">
                             <p>Chi tiết</p>
                           </router-link>
-                          <router-link :to="'product/' + item.id">
-                            <p>Yêu thích</p>
-                          </router-link>
-
                         </div>
                       </div>
                     </div>
@@ -440,9 +422,7 @@
           </div>
         </div>
       </div>
-      <div class="container evo-product-new-title">
-        <h4 class="sport-titles">TIN TỨC NỔI BẬT</h4>
-      </div>
+
       <div class="container new-blogs">
         <div class="row">
           <div class="col-xl-6 col-md-3">
@@ -581,7 +561,6 @@ export default {
       this.cateID = r.data.data.data[0].id
       this.cateIndex = r.data.data.data[0].id
       this.filterProduct({ category_id: r.data.data.data[0].id }).then(res => {
-        console.log('res filterProduct', res)
         this.listProduct = res.data.data.products
 
       })
@@ -595,14 +574,12 @@ export default {
     })
     this.getListProductNew(-1).then(r => {
        this.listProductNew = r.data.data
-      console.log('this.listProductNew', this.listProductNew)
     }).catch(e => {
       console.log(e)
     })
     if (localStorage.getItem('cates') != null) {
       this.getListProductCare(localStorage.getItem('cates')).then(r => {
          this.listProductCare = r.data.data
-        console.log('this.getListProductCare', this.listProductCare)
       }).catch(e => {
         console.log(e)
       })
