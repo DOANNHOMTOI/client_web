@@ -7,7 +7,7 @@ import Register from "../pages/Register";
 import Checkout from "../pages/CheckOut";
 import DetailShop from "../pages/DetailShop";
 import Cart from "../components/Cart";
-
+import CallBack from "../pages/CallBack"
 Vue.use(Router)
 
 export default new Router({
@@ -50,6 +50,12 @@ export default new Router({
       path: '/shop',
       name: 'Shop',
       component: Shop
+    },
+    {
+      path: '/callback-momo',
+      name: 'callback',
+      component:CallBack
     }
+
   ]
 })

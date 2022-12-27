@@ -1,10 +1,8 @@
-import {axiosClientAPI,axiosInstance} from "../../helpers/axiosInstance"
-import router from '@/router'
-export default {
+import { axiosInstance} from "../../helpers/axiosInstance"
+ export default {
   async register({commit, dispatch}, data) {
     try {
-      console.log('data get', data)
-      return await axiosInstance.post('/api/web/user/register', data, {})
+       return await axiosInstance.post('/api/web/user/register', data, {})
         .then(async (res) => {
           return res
         })

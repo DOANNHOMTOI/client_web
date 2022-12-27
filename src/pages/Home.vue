@@ -1,17 +1,30 @@
 <template>
-  <article id="post-4430" class="post-4430 page type-page status-publish hentry mt-4" style="margin-top: 10px">
+  <article
+    id="post-4430"
+    class="post-4430 page type-page status-publish hentry mt-4"
+    style="margin-top: 10px"
+  >
     <div class="row-container category-img">
       <div class="row">
         <div class="col-xs-12 col-md-3">
           <div class="vc_tta-tabs-container">
             <ul class="vc_tta-tabs-list">
-              <li class="vc_tta-tab" :class="{ vc_active: cateIndex === cate.id }" v-for="(cate,i) in listCate" :key="i"
-                data-vc-tab>
-                <router-link :to="{ name: 'Shop', params: { category_id: cate.id } }">
-                  <a style="cursor: pointer" data-vc-tabs data-vc-container=".vc_tta">
-                    <span class="vc_tta-title-text">
-                     
-                      {{ cate.name }}</span>
+              <li
+                class="vc_tta-tab"
+                :class="{ vc_active: cateIndex === cate.id }"
+                v-for="(cate, i) in listCate"
+                :key="i"
+                data-vc-tab
+              >
+                <router-link
+                  :to="{ name: 'Shop', params: { category_id: cate.id } }"
+                >
+                  <a
+                    style="cursor: pointer"
+                    data-vc-tabs
+                    data-vc-container=".vc_tta"
+                  >
+                    <span class="vc_tta-title-text"> {{ cate.name }}</span>
                   </a>
                 </router-link>
               </li>
@@ -21,7 +34,10 @@
         <div class="col-xs-12 col-md-7">
           <div>
             <a href="#" target="_self">
-              <img src="https://intphcm.com/data/upload/banner-thoi-trang-con-nit.jpg" class="slide-banner large" />
+              <img
+                src="https://intphcm.com/data/upload/banner-thoi-trang-con-nit.jpg"
+                class="slide-banner large"
+              />
             </a>
           </div>
         </div>
@@ -30,24 +46,27 @@
             <a href="#" target="_self">
               <img
                 src="https://png.pngtree.com/thumb_back/fw800/back_our/20190620/ourmid/pngtree-summer-children-s-clothing-poster-banner-clothing-image_153631.jpg"
-                class="slide-banner" />
+                class="slide-banner"
+              />
             </a>
             <a href="#" target="_self">
-              <img src="https://baobikhoiphat.com/wp-content/uploads/2022/04/logo-shop-quan-ao-tre-em.jpg"
-                class="slide-banner" />
+              <img
+                src="https://baobikhoiphat.com/wp-content/uploads/2022/04/logo-shop-quan-ao-tre-em.jpg"
+                class="slide-banner"
+              />
             </a>
             <a href="#" target="_self">
-              <img src="https://intphcm.com/data/upload/banner-thoi-trang-con-nit.jpg" class="slide-banner" />
+              <img
+                src="https://intphcm.com/data/upload/banner-thoi-trang-con-nit.jpg"
+                class="slide-banner"
+              />
             </a>
           </div>
         </div>
       </div>
-
-
     </div>
     <div class="section_coupons">
-      <div class="container">
-      </div>
+      <div class="container"></div>
     </div>
     <div class="coundown">
       <h1 id="headline">COMBO HOT SALE</h1>
@@ -68,15 +87,31 @@
     <div class="entry-content">
       <div class="vc_row wpb_row vc_row-fluid home-banner">
         <div class="row-container">
-          <div v-for="(item, i) in listBanner" :key="i" class="wpb_column vc_column_container vc_col-sm-4">
+          <div
+            v-for="(item, i) in listBanner"
+            :key="i"
+            class="wpb_column vc_column_container vc_col-sm-4"
+          >
             <div class="vc_column-inner ">
               <div class="wpb_wrapper">
-                <div class="wpb_single_image wpb_content_element vc_align_center">
+                <div
+                  class="wpb_single_image wpb_content_element vc_align_center"
+                >
                   <figure class="wpb_wrapper vc_figure">
-                    <a href="#" target="_self" class="vc_single_image-wrapper   vc_box_border_grey">
-                      <img style="height: 542px" width="370" height="542" :src="getPathFile(item.image)"
-                        class="vc_single_image-img attachment-full" alt="jbanner-1"
-                        sizes="(max-width: 370px) 100vw, 370px" /></a>
+                    <a
+                      href="#"
+                      target="_self"
+                      class="vc_single_image-wrapper   vc_box_border_grey"
+                    >
+                      <img
+                        style="height: 542px"
+                        width="370"
+                        height="542"
+                        :src="getPathFile(item.image)"
+                        class="vc_single_image-img attachment-full"
+                        alt="jbanner-1"
+                        sizes="(max-width: 370px) 100vw, 370px"
+                    /></a>
                   </figure>
                 </div>
               </div>
@@ -99,12 +134,20 @@
                   </div>
                   <div class="vc_tta-tabs-container col-xl-6 col-md-9">
                     <ul class="vc_tta-tabs-list">
-                      <li class="vc_tta-tab" :class="{ vc_active: cateIndex === cate.id }" v-for="(cate, i) in listCate"
-                        :key="i" data-vc-tab>
-                        <a @click="setProduct(cate.id)" style="cursor: pointer" data-vc-tabs
-                          data-vc-container=".vc_tta">
-                          <div class="keyword-img">
-                           </div>
+                      <li
+                        class="vc_tta-tab"
+                        :class="{ vc_active: cateIndex === cate.id }"
+                        v-for="(cate, i) in listCate"
+                        :key="i"
+                        data-vc-tab
+                      >
+                        <a
+                          @click="setProduct(cate.id)"
+                          style="cursor: pointer"
+                          data-vc-tabs
+                          data-vc-container=".vc_tta"
+                        >
+                          <div class="keyword-img"></div>
                           <span class="vc_tta-title-text">{{ cate.name }}</span>
                         </a>
                       </li>
@@ -113,7 +156,8 @@
                 </div>
                 <div class="vc_tta-container" data-vc-action="collapse">
                   <div
-                    class="vc_general vc_tta vc_tta-tabs vc_tta-color-grey vc_tta-style-classic vc_tta-shape-rounded vc_tta-spacing-1 vc_tta-tabs-position-left vc_tta-controls-align-left ">
+                    class="vc_general vc_tta vc_tta-tabs vc_tta-color-grey vc_tta-style-classic vc_tta-shape-rounded vc_tta-spacing-1 vc_tta-tabs-position-left vc_tta-controls-align-left "
+                  >
                     <!-- <div class="vc_tta-tabs-container">
                       <ul class="vc_tta-tabs-list">
                         <li class="vc_tta-tab" :class="{ vc_active: cateIndex === cate.id }"
@@ -127,76 +171,116 @@
                     </div> -->
                     <div class="vc_tta-panels-container">
                       <div v-if="listProduct.length" class="vc_tta-panels">
-                        <div class="vc_tta-panel vc_active" id="1450790267996-59361fa5-cf71"
-                          data-vc-content=".vc_tta-panel-body">
+                        <div
+                          class="vc_tta-panel vc_active"
+                          id="1450790267996-59361fa5-cf71"
+                          data-vc-content=".vc_tta-panel-body"
+                        >
                           <div class="vc_tta-panel-heading">
-                            <h4 class="vc_tta-panel-title"><a href="#1450790267996-59361fa5-cf71" data-vc-accordion
-                                data-vc-container=".vc_tta-container"><span
-                                  class="vc_tta-title-text">Footwear</span></a>
+                            <h4 class="vc_tta-panel-title">
+                              <a
+                                href="#1450790267996-59361fa5-cf71"
+                                data-vc-accordion
+                                data-vc-container=".vc_tta-container"
+                                ><span class="vc_tta-title-text"
+                                  >Footwear</span
+                                ></a
+                              >
                             </h4>
                           </div>
                           <div class="vc_tta-panel-body">
                             <div class="woocommerce columns-3">
                               <div class="shop-products row grid-view">
-                                <div v-for="(product, i) in listProduct" :key="i"
-                                  class="item-col col-xs-12 col-sm-3 post-2299 product type-product status-publish has-post-thumbnail product_cat-fashion product_cat-footwear first instock featured shipping-taxable purchasable product-type-simple">
-                                  <div class="product-wrapper">
+                                <div
+                                  v-for="(product, i) in listProduct"
+                                  :key="i"
+                                  class="item-col col-xs-12 col-sm-3 post-2299 product type-product status-publish has-post-thumbnail product_cat-fashion product_cat-footwear first instock featured shipping-taxable purchasable product-type-simple"
+                                >
+                                  <div
+                                    class="product-wrapper"
+                                    style="min-height: 300px;"
+                                  >
                                     <span class="tragop">
                                       Trả góp 0%
                                     </span>
                                     <div class="list-col4">
                                       <div class="product-image">
-                                        <router-link :to="'/product/' + product.id"
-                                          class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
-                                          <img width="500" height="500" :src="getPathFile(product.image)"
-                                            class="primary_image wp-post-image" alt="7"
+                                        <router-link
+                                          :to="'/product/' + product.id"
+                                          class="woocommerce-LoopProduct-link woocommerce-loop-product__link"
+                                        >
+                                          <img
+                                            :src="getPathFile(product.image)"
+                                            class="primary_image wp-post-image"
+                                            alt="7"
                                             :srcset="getPathFile(product.image)"
-                                            sizes="(max-width: 500px) 100vw, 500px" />
+                                          />
                                         </router-link>
                                         <div class="list-col2">
                                           <div class="list-col8 ">
                                             <div class="gridview">
-                                              <h2 class="product-name">
-                                                <router-link :to="'/product/' + product.id">
+                                              <h2
+                                                class="product-name"
+                                                style="min-height: 30px;"
+                                              >
+                                                <router-link
+                                                  :to="'/product/' + product.id"
+                                                >
                                                   {{ product.name }}
                                                 </router-link>
                                               </h2>
                                               <div class="ratings">
-                                                <div class="star-rating"><span style="width:80%">Rated <strong
-                                                      class="rating">4.00</strong> out of 5</span></div>
+                                                <div class="star-rating">
+                                                  <span style="width:80%"
+                                                    >Rated
+                                                    <strong class="rating"
+                                                      >4.00</strong
+                                                    >
+                                                    out of 5</span
+                                                  >
+                                                </div>
                                               </div>
-                                              <div class="price-box"><span class="woocommerce-Price-amount amount"><span
-                                                    class="woocommerce-Price-currencySymbol">&pound;</span>{{
-    product.price
-}} Đ</span>
+                                              <div class="price-box">
+                                                <span
+                                                  class="woocommerce-Price-amount amount"
+                                                  ><span
+                                                    class="woocommerce-Price-currencySymbol"
+                                                    >&pound;</span
+                                                  >{{ product.price }} Đ</span
+                                                >
                                               </div>
-
                                             </div>
                                           </div>
                                         </div>
-
                                       </div>
                                     </div>
                                     <div class="list-col8 ">
                                       <div class="gridview">
                                         <h2 class="product-name">
-                                          <router-link :to="'/product/' + product.id">
+                                          <router-link
+                                            :to="'/product/' + product.id"
+                                          >
                                             {{ product.name }}
                                           </router-link>
                                         </h2>
-                                        <div class="price-box"><span class="woocommerce-Price-amount amount"><span
-                                              class="woocommerce-Price-currencySymbol"></span>{{ product.price }}
-                                            đ</span>
+                                        <div class="price-box">
+                                          <span
+                                            class="woocommerce-Price-amount amount"
+                                            ><span
+                                              class="woocommerce-Price-currencySymbol"
+                                            ></span
+                                            >{{ product.price }} đ</span
+                                          >
                                         </div>
-
                                       </div>
                                     </div>
                                     <div class="clearfix"></div>
                                     <div class="product__box-btn">
-                                      <router-link :to="'product/' + product.id">
+                                      <router-link
+                                        :to="'product/' + product.id"
+                                      >
                                         <p>Chi tiết</p>
                                       </router-link>
-                
                                     </div>
                                   </div>
                                 </div>
@@ -206,7 +290,9 @@
                         </div>
                       </div>
                       <div v-if="!listProduct.length" class="vc_tta-panels">
-                        <h4 style="padding:20px" class="vc_tta-panel-title">Không có sản phẩm nào</h4>
+                        <h4 style="padding:20px" class="vc_tta-panel-title">
+                          Không có sản phẩm nào
+                        </h4>
                       </div>
                     </div>
                   </div>
@@ -216,8 +302,10 @@
           </div>
         </div>
       </div>
-      <div v-if="listProductCare.length"
-        class="vc_row wpb_row vc_row-fluid products-carousel2 title-1 vc_custom_1450175009936">
+      <div
+        v-if="listProductCare.length"
+        class="vc_row wpb_row vc_row-fluid products-carousel2 title-1 vc_custom_1450175009936"
+      >
         <div class="row-container">
           <div class="wpb_column vc_column_container vc_col-sm-12">
             <div class="vc_column-inner ">
@@ -225,36 +313,52 @@
                 <div class="wpb_text_column wpb_content_element ">
                   <div class="wpb_wrapper">
                     <h3>Có thể bạn quan tâm</h3>
-
                   </div>
                 </div>
                 <div class="woocommerce columns-1" style="margin-top: 20px">
-
                   <div class="shop-products row grid-view">
-                    <div v-for="(item, i) in listProductCare" :key="i"
-                      class=" item-col col-xs-12 col-sm-3 post-2309 product type-product status-publish has-post-thumbnail product_cat-fashion product_cat-footwear product_cat-handbags product_cat-health-beauty product_cat-jewellery product_cat-shoes first instock featured shipping-taxable purchasable product-type-simple">
+                    <div
+                      v-for="(item, i) in listProductCare"
+                      :key="i"
+                      class=" item-col col-xs-12 col-sm-3 post-2309 product type-product status-publish has-post-thumbnail product_cat-fashion product_cat-footwear product_cat-handbags product_cat-health-beauty product_cat-jewellery product_cat-shoes first instock featured shipping-taxable purchasable product-type-simple"
+                    >
                       <div class="product-wrapper">
-
                         <div class="list-col4 ">
                           <div class="product-image">
-                            <router-link :to="'product/' + item.id"
-                              class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
-                              <img width="500" height="500" :src="getPathFile(item.image)"
-                                class="primary_image wp-post-image" alt="5" :srcset="getPathFile(item.image)"
-                                sizes="(max-width: 500px) 100vw, 500px" />
-                              <img width="500" height="500" :src="getPathFile(item.image)" class="secondary_image"
-                                alt="6" sizes="(max-width: 500px) 100vw, 500px" />
+                            <router-link
+                              :to="'product/' + item.id"
+                              class="woocommerce-LoopProduct-link woocommerce-loop-product__link"
+                            >
+                              <img
+                                width="500"
+                                height="500"
+                                :src="getPathFile(item.image)"
+                                class="primary_image wp-post-image"
+                                alt="5"
+                                :srcset="getPathFile(item.image)"
+                                sizes="(max-width: 500px) 100vw, 500px"
+                              />
+                              <img
+                                width="500"
+                                height="500"
+                                :src="getPathFile(item.image)"
+                                class="secondary_image"
+                                alt="6"
+                                sizes="(max-width: 500px) 100vw, 500px"
+                              />
                             </router-link>
                             <div class="list-col2">
                               <div class="list-col8 ">
                                 <div class="gridview">
-                                  <div class="price-box"><span class="woocommerce-Price-amount amount">{{ item.price
-}}</span></div>
-
+                                  <div class="price-box">
+                                    <span
+                                      class="woocommerce-Price-amount amount"
+                                      >{{ item.price }}</span
+                                    >
+                                  </div>
                                 </div>
                               </div>
                             </div>
-
                           </div>
                         </div>
                         <div class="list-col8 ">
@@ -264,9 +368,11 @@
                                 {{ item.name }}
                               </router-link>
                             </h2>
-                            <div class="price-box"><span class="woocommerce-Price-amount amount">
-                                {{ item.price }} đ</span></div>
-
+                            <div class="price-box">
+                              <span class="woocommerce-Price-amount amount">
+                                {{ item.price }} đ</span
+                              >
+                            </div>
                           </div>
                         </div>
                         <div class="clearfix"></div>
@@ -278,14 +384,15 @@
                       </div>
                     </div>
                   </div>
-
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="vc_row wpb_row vc_row-fluid products-carousel2 title-1 vc_custom_1450175009936">
+      <div
+        class="vc_row wpb_row vc_row-fluid products-carousel2 title-1 vc_custom_1450175009936"
+      >
         <div class="row-container">
           <div class="wpb_column vc_column_container vc_col-sm-12">
             <div class="vc_column-inner ">
@@ -293,38 +400,55 @@
                 <div class="wpb_text_column wpb_content_element ">
                   <div class="wpb_wrapper evo-product-new-title">
                     <h3 class="sport-titles">Sản phẩm mới</h3>
-
                   </div>
                 </div>
                 <div class="woocommerce columns-1" style="margin-top: 20px">
-
                   <div class="shop-products row grid-view">
-                    <div v-for="(item, i) in listProductNew" :key="i"
-                      class=" item-col col-xs-12 col-sm-3 post-2309 product type-product status-publish has-post-thumbnail product_cat-fashion product_cat-footwear product_cat-handbags product_cat-health-beauty product_cat-jewellery product_cat-shoes first instock featured shipping-taxable purchasable product-type-simple">
+                    <div
+                      v-for="(item, i) in listProductNew"
+                      :key="i"
+                      class=" item-col col-xs-12 col-sm-3 post-2309 product type-product status-publish has-post-thumbnail product_cat-fashion product_cat-footwear product_cat-handbags product_cat-health-beauty product_cat-jewellery product_cat-shoes first instock featured shipping-taxable purchasable product-type-simple"
+                    >
                       <div class="product-wrapper">
                         <span class="tragop">
                           Trả góp 0%
                         </span>
                         <div class="list-col4 ">
                           <div class="product-image">
-                            <router-link :to="'product/' + item.id"
-                              class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
-                              <img width="500" height="500" :src="getPathFile(item.image)"
-                                class="primary_image wp-post-image" alt="5" :srcset="getPathFile(item.image)"
-                                sizes="(max-width: 500px) 100vw, 500px" />
-                              <img width="500" height="500" :src="getPathFile(item.image)" class="secondary_image"
-                                alt="6" sizes="(max-width: 500px) 100vw, 500px" />
+                            <router-link
+                              :to="'product/' + item.id"
+                              class="woocommerce-LoopProduct-link woocommerce-loop-product__link"
+                            >
+                              <img
+                                width="500"
+                                height="500"
+                                :src="getPathFile(item.image)"
+                                class="primary_image wp-post-image"
+                                alt="5"
+                                :srcset="getPathFile(item.image)"
+                                sizes="(max-width: 500px) 100vw, 500px"
+                              />
+                              <img
+                                width="500"
+                                height="500"
+                                :src="getPathFile(item.image)"
+                                class="secondary_image"
+                                alt="6"
+                                sizes="(max-width: 500px) 100vw, 500px"
+                              />
                             </router-link>
                             <div class="list-col2">
                               <div class="list-col8 ">
                                 <div class="gridview">
-                                  <div class="price-box"><span class="woocommerce-Price-amount amount">{{ item.price
-}}</span></div>
-
+                                  <div class="price-box">
+                                    <span
+                                      class="woocommerce-Price-amount amount"
+                                      >{{ item.price }}</span
+                                    >
+                                  </div>
                                 </div>
                               </div>
                             </div>
-
                           </div>
                         </div>
                         <div class="list-col8 ">
@@ -334,25 +458,27 @@
                                 {{ item.name }}
                               </router-link>
                             </h2>
-                            <div class="price-box"><span class="woocommerce-Price-amount amount">
-                                {{ item.price }} đ</span></div>
-
+                            <div class="price-box">
+                              <span class="woocommerce-Price-amount amount">
+                                {{ item.price }} đ</span
+                              >
+                            </div>
                           </div>
                         </div>
                         <div class="clearfix"></div>
-                        <div class="product__box-btn">
-                        </div>
+                        <div class="product__box-btn"></div>
                       </div>
                     </div>
                   </div>
-
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="vc_row wpb_row vc_row-fluid products-carousel2 title-1 vc_custom_1450175009936">
+      <div
+        class="vc_row wpb_row vc_row-fluid products-carousel2 title-1 vc_custom_1450175009936"
+      >
         <div class="row-container">
           <div class="wpb_column vc_column_container vc_col-sm-12">
             <div class="vc_column-inner ">
@@ -360,38 +486,55 @@
                 <div class="wpb_text_column wpb_content_element ">
                   <div class="wpb_wrapper evo-product-new-title">
                     <h3 class="sport-titles">Bán chạy</h3>
-
                   </div>
                 </div>
                 <div class="woocommerce columns-1" style="margin-top: 20px">
-
                   <div class="shop-products row grid-view">
-                    <div v-for="(item, i) in listProductNew" :key="i"
-                      class=" item-col col-xs-12 col-sm-3 post-2309 product type-product status-publish has-post-thumbnail product_cat-fashion product_cat-footwear product_cat-handbags product_cat-health-beauty product_cat-jewellery product_cat-shoes first instock featured shipping-taxable purchasable product-type-simple">
+                    <div
+                      v-for="(item, i) in listProductNew"
+                      :key="i"
+                      class=" item-col col-xs-12 col-sm-3 post-2309 product type-product status-publish has-post-thumbnail product_cat-fashion product_cat-footwear product_cat-handbags product_cat-health-beauty product_cat-jewellery product_cat-shoes first instock featured shipping-taxable purchasable product-type-simple"
+                    >
                       <div class="product-wrapper">
                         <span class="tragop">
                           Trả góp 0%
                         </span>
                         <div class="list-col4 ">
                           <div class="product-image">
-                            <router-link :to="'product/' + item.id"
-                              class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
-                              <img width="500" height="500" :src="getPathFile(item.image)"
-                                class="primary_image wp-post-image" alt="5" :srcset="getPathFile(item.image)"
-                                sizes="(max-width: 500px) 100vw, 500px" />
-                              <img width="500" height="500" :src="getPathFile(item.image)" class="secondary_image"
-                                alt="6" sizes="(max-width: 500px) 100vw, 500px" />
+                            <router-link
+                              :to="'product/' + item.id"
+                              class="woocommerce-LoopProduct-link woocommerce-loop-product__link"
+                            >
+                              <img
+                                width="500"
+                                height="500"
+                                :src="getPathFile(item.image)"
+                                class="primary_image wp-post-image"
+                                alt="5"
+                                :srcset="getPathFile(item.image)"
+                                sizes="(max-width: 500px) 100vw, 500px"
+                              />
+                              <img
+                                width="500"
+                                height="500"
+                                :src="getPathFile(item.image)"
+                                class="secondary_image"
+                                alt="6"
+                                sizes="(max-width: 500px) 100vw, 500px"
+                              />
                             </router-link>
                             <div class="list-col2">
                               <div class="list-col8 ">
                                 <div class="gridview">
-                                  <div class="price-box"><span class="woocommerce-Price-amount amount">{{ item.price
-}}</span></div>
-
+                                  <div class="price-box">
+                                    <span
+                                      class="woocommerce-Price-amount amount"
+                                      >{{ item.price }}</span
+                                    >
+                                  </div>
                                 </div>
                               </div>
                             </div>
-
                           </div>
                         </div>
                         <div class="list-col8 ">
@@ -401,9 +544,11 @@
                                 {{ item.name }}
                               </router-link>
                             </h2>
-                            <div class="price-box"><span class="woocommerce-Price-amount amount">
-                                {{ item.price }} đ</span></div>
-
+                            <div class="price-box">
+                              <span class="woocommerce-Price-amount amount">
+                                {{ item.price }} đ</span
+                              >
+                            </div>
                           </div>
                         </div>
                         <div class="clearfix"></div>
@@ -415,132 +560,27 @@
                       </div>
                     </div>
                   </div>
-
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      <div class="container new-blogs">
-        <div class="row">
-          <div class="col-xl-6 col-md-3">
-            <a href="/chinh-sach-gia-ca-tai-niperfume" title="CHÍNH SÁCH GIÁ CẢ tại NIPERFUME"
-              class="news-top_item_img">
-              <div class="item-img">
-
-                <img
-                  src="//bizweb.dktcdn.net/thumb/large/100/431/707/articles/banner-web-nho-2-660x339px.jpg?v=1670220012000"
-                  data-src="//bizweb.dktcdn.net/thumb/large/100/431/707/articles/banner-web-nho-2-660x339px.jpg?v=1670220012000"
-                  alt="CHÍNH SÁCH GIÁ CẢ tại NIPERFUME" class="lazy img-responsive center-block loaded"
-                  data-was-processed="true">
-
-              </div>
-              <div class="item-img-content">
-                <h3>CHÍNH SÁCH GIÁ CẢ tại NIPERFUME</h3>
-                <span>05/12/2022</span>
-              </div>
-            </a>
-          </div>
-          <div class="col-xl-6 col-md-3">
-            <a href="/8-dieu-ban-chua-biet-ve-nuoc-hoa-niche" title="8 ĐIỀU BẠN CHƯA BIẾT VỀ NƯỚC HOA&nbsp;NICHE"
-              class="news-top_item_img ">
-              <div class="item-img">
-
-                <img src="//bizweb.dktcdn.net/thumb/large/100/431/707/articles/nichie.jpg?v=1670037031860"
-                  data-src="//bizweb.dktcdn.net/thumb/large/100/431/707/articles/nichie.jpg?v=1670037031860"
-                  alt="8 ĐIỀU BẠN CHƯA BIẾT VỀ NƯỚC HOA&nbsp;NICHE" class="lazy img-responsive center-block loaded"
-                  data-was-processed="true">
-
-              </div>
-              <div class="item-img-content">
-                <h3>8 ĐIỀU BẠN CHƯA BIẾT VỀ NƯỚC HOA&nbsp;NICHE</h3>
-                <span>03/12/2022</span>
-              </div>
-            </a>
-          </div>
-          <div class="col-xl-6 col-md-3">
-            <a href="/xit-nuoc-hoa-dung-cach-dieu-ma-moi-chang-trai-can-biet-phan-2-ket-thuc"
-              title="Xịt nước hoa đúng cách – Điều mà mọi chàng trai cần biết (Phần 2 – Kết thúc)"
-              class="news-top_item_img">
-              <div class="item-img">
-
-                <img
-                  src="//bizweb.dktcdn.net/thumb/large/100/431/707/articles/screenshot-2022-12-03-at-10-05-44-xit-nuoc-hoa-dung-cach-dieu-ma-moi-chang-trai-can-biet-phan-2-ket-thuc-nuochoarosa-com-nuoc-hoa-cao-cap-chinh-hang-gia-tot-mau-moi.png?v=1670036753157"
-                  data-src="//bizweb.dktcdn.net/thumb/large/100/431/707/articles/screenshot-2022-12-03-at-10-05-44-xit-nuoc-hoa-dung-cach-dieu-ma-moi-chang-trai-can-biet-phan-2-ket-thuc-nuochoarosa-com-nuoc-hoa-cao-cap-chinh-hang-gia-tot-mau-moi.png?v=1670036753157"
-                  alt="Xịt nước hoa đúng cách – Điều mà mọi chàng trai cần biết (Phần 2 – Kết thúc)"
-                  class="lazy img-responsive center-block loaded" data-was-processed="true">
-
-              </div>
-              <div class="item-img-content">
-                <h3>Xịt nước hoa đúng cách – Điều mà mọi chàng trai cần biết (Phần 2 – Kết thúc)</h3>
-                <span>03/12/2022</span>
-              </div>
-            </a>
-          </div>
-          <div class="col-xl-6 col-md-3">
-            <a href="/xit-nuoc-hoa-dung-cach-dieu-ma-moi-chang-trai-can-biet-phan-1"
-              title="Xịt nước hoa đúng cách – Điều mà mọi chàng trai cần biết (Phần 1)" class="news-top_item_img ">
-              <div class="item-img">
-
-                <img
-                  src="//bizweb.dktcdn.net/thumb/large/100/431/707/articles/screenshot-2022-12-03-at-10-02-45-xit-nuoc-hoa-dung-cach-dieu-ma-moi-chang-trai-can-biet-phan-1-nuochoarosa-com-nuoc-hoa-cao-cap-chinh-hang-gia-tot-mau-moi.png?v=1670036605690"
-                  data-src="//bizweb.dktcdn.net/thumb/large/100/431/707/articles/screenshot-2022-12-03-at-10-02-45-xit-nuoc-hoa-dung-cach-dieu-ma-moi-chang-trai-can-biet-phan-1-nuochoarosa-com-nuoc-hoa-cao-cap-chinh-hang-gia-tot-mau-moi.png?v=1670036605690"
-                  alt="Xịt nước hoa đúng cách – Điều mà mọi chàng trai cần biết (Phần 1)"
-                  class="lazy img-responsive center-block loaded" data-was-processed="true">
-
-              </div>
-              <div class="item-img-content">
-                <h3>Xịt nước hoa đúng cách – Điều mà mọi chàng trai cần biết (Phần 1)</h3>
-                <span>03/12/2022</span>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-      <!-- <div class="vc_row wpb_row vc_row-fluid banner-text vc_custom_1458807635262">
-        <div class="row-container">
-          <div class="wpb_column vc_column_container vc_col-sm-6">
-            <div class="vc_column-inner ">
-              <div class="wpb_wrapper">
-                <div class="wpb_text_column wpb_content_element ">
-                  <div class="wpb_wrapper">
-                    <div class="des-banner">
-                      <p class="des-1">online&amp;in-store</p>
-                      <h4>sport shoes collection</h4>
-                      <h2>entire shoes purchase<br />
-                        save up to $70</h2>
-                      <p><a class="buton" href="#">see the collection</a></p>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="wpb_column vc_column_container vc_col-sm-6">
-            <div class="vc_column-inner ">
-              <div class="wpb_wrapper"></div>
-            </div>
-          </div>
-        </div>
-      </div> -->
     </div>
   </article>
 </template>
 
 <script>
-import VueGoogleAutocomplete from 'vue-google-autocomplete'
+import VueGoogleAutocomplete from "vue-google-autocomplete";
 import { mapActions } from "vuex";
 import { config } from "../constants/config";
 export default {
   name: "Home",
   components: { VueGoogleAutocomplete },
 
-  data: function () {
+  data: function() {
     return {
-      address: '',
+      address: "",
       cateID: 0,
       listCate: [],
       listProduct: [],
@@ -548,49 +588,53 @@ export default {
       listProductCare: [],
       listBanner: [],
       cateIndex: 0,
-      listImageCate: [
-      ],
-      listCateImageBottom: [
-
-      ]
-    }
+      listImageCate: [],
+      listCateImageBottom: []
+    };
   },
   created() {
-    this.getListProductCategory(-1).then(r => {
-      this.listCate = r.data.data.data
-      this.cateID = r.data.data.data[0].id
-      this.cateIndex = r.data.data.data[0].id
-      this.filterProduct({ category_id: r.data.data.data[0].id }).then(res => {
-        this.listProduct = res.data.data.products
-
+    this.getListProductCategory(-1)
+      .then(r => {
+        this.listCate = r.data.data.data;
+        this.cateID = r.data.data.data[0].id;
+        this.cateIndex = r.data.data.data[0].id;
+        this.filterProduct({ category_id: r.data.data.data[0].id }).then(
+          res => {
+            this.listProduct = res.data.data.products;
+          }
+        );
       })
-    }).catch(e => {
-      console.log(e)
-    })
-    this.getListBanner(-1).then(r => {
-      this.listBanner = r.data.data
-    }).catch(e => {
-      console.log(e)
-    })
-    this.getListProductNew(-1).then(r => {
-       this.listProductNew = r.data.data
-    }).catch(e => {
-      console.log(e)
-    })
-    if (localStorage.getItem('cates') != null) {
-      this.getListProductCare(localStorage.getItem('cates')).then(r => {
-         this.listProductCare = r.data.data
-      }).catch(e => {
-        console.log(e)
+      .catch(e => {
+        console.log(e);
+      });
+    this.getListBanner(-1)
+      .then(r => {
+        this.listBanner = r.data.data;
       })
+      .catch(e => {
+        console.log(e);
+      });
+    this.getListProductNew(-1)
+      .then(r => {
+        this.listProductNew = r.data.data;
+      })
+      .catch(e => {
+        console.log(e);
+      });
+    if (localStorage.getItem("cates") != null) {
+      this.getListProductCare(localStorage.getItem("cates"))
+        .then(r => {
+          this.listProductCare = r.data.data;
+        })
+        .catch(e => {
+          console.log(e);
+        });
     }
   },
   mounted() {
     // To demonstrate functionality of exposed component functions
     // Here we make focus on the user input
-
   },
-
 
   methods: {
     /**
@@ -599,18 +643,24 @@ export default {
      * @param {Object} placeResultData PlaceResult object
      * @param {String} id Input container ID
      */
-    ...mapActions(['getListProductCategory', 'filterProduct', 'getListProductNew', 'getListProductCare', 'getListBanner']),
+    ...mapActions([
+      "getListProductCategory",
+      "filterProduct",
+      "getListProductNew",
+      "getListProductCare",
+      "getListBanner"
+    ]),
     setProduct(category_id) {
-      this.cateIndex = category_id
+      this.cateIndex = category_id;
       this.filterProduct({ category_id: category_id }).then(res => {
-        this.listProduct = res.data.data.products
-      })
+        this.listProduct = res.data.data.products;
+      });
     },
     getPathFile(path) {
-      return config.url_api_back_end_real + path
+      return config.url_api_back_end_real + path;
     }
   }
-}
+};
 </script>
 
 <style scoped>
@@ -621,10 +671,15 @@ export default {
 .main-container .shop-products .item-col .product-wrapper .product-image a img,
 .item-img img {
   transition: 0.3s !important;
-
 }
 
-.main-container .shop-products .item-col .product-wrapper .product-image a img:hover,
+.main-container
+  .shop-products
+  .item-col
+  .product-wrapper
+  .product-image
+  a
+  img:hover,
 .item-img img:hover {
   transform: scale(1.1) !important;
 }
@@ -796,7 +851,6 @@ export default {
   border-radius: 10px;
 }
 
-
 .evo-product-new-title {
   background: #bf2929;
   padding: 10px 0;
@@ -810,9 +864,9 @@ export default {
 .evo-product-new-banner-cate li {
   display: inline-block;
   border: 1px solid rgba(0, 0, 0, 0.05);
-  -webkit-transition: all .1s ease-in;
-  -o-transition: all .1s ease-in;
-  transition: all .1s ease-in;
+  -webkit-transition: all 0.1s ease-in;
+  -o-transition: all 0.1s ease-in;
+  transition: all 0.1s ease-in;
   -ms-flex-preferred-size: calc(calc(100% / 5));
   flex-basis: calc(calc(100% / 5));
   width: calc(calc(100% / 5));
@@ -964,7 +1018,7 @@ export default {
   clear: unset;
 }
 
-.category-img .vc_tta-tabs-list li+li {
+.category-img .vc_tta-tabs-list li + li {
   border-top: 1px solid rgba(0, 0, 0, 0.04);
 }
 
@@ -1014,4 +1068,7 @@ export default {
   color: #fff;
   margin-top: 5px;
 }
+ .product-image{
+  max-height: 200px;
+} 
 </style>
