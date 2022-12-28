@@ -34,8 +34,6 @@ export default {
     }
   },
   mounted() {
-    console.log("ok", this.$route.query.orderId);
-
     this.goHome({
       orderId: this.$route.query.orderId
     });

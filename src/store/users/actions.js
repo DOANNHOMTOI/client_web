@@ -204,8 +204,7 @@ import { axiosInstance} from "../../helpers/axiosInstance"
     try {
       const headers = {Authorization: 'Bearer ' + localStorage.getItem('ACCESS_TOKEN')};
       // commit('SHOW_LOADING', true);
-      console.log('data filterProduct', data)
-      var bodyFormData = new FormData();
+       var bodyFormData = new FormData();
 
       let endPoint = '/api/web/productFilter';
       if(data.name !== undefined && data.name != null){
