@@ -7,8 +7,6 @@ var headers = {
 }
 
 async function getLongLatByMerchant(address, headers) {
-  // console.log('merchant in getLongLatByMerchant', address)
-  // console.log('headers in getLongLatByMerchant', headers)
   try {
     let obj = {
       address: {
@@ -26,7 +24,6 @@ async function getLongLatByMerchant(address, headers) {
     return await axiosInstance.post('/api/v1/locations/geocode', obj, {headers})
       .then(async res => {
         if (res.data.status_code == 200) {
-          // console.log('res.data.data', res.data.data)
           return res.data.data
         } else {
           return false
@@ -42,8 +39,6 @@ async function getLongLatByMerchant(address, headers) {
 }
 
 async function getServiceId(longLat, address, headers) {
-  console.log('longLat in getServiceId', longLat)
-  console.log('address in getServiceId', address)
   try {
     let obj = {
       long: longLat.long,
@@ -56,13 +51,6 @@ async function getServiceId(longLat, address, headers) {
     }
     return await axiosInstance.post('/api/v1/deliveries/services', obj, {headers})
       .then(async res => {
-        console.log('res in getServiceId', res)
-        // if (res.data.status_code == 200) {
-        //   // console.log('res.data.data', res.data.data)
-        //   return res.data.data
-        // } else {
-        //   return false
-        // }
       })
       .catch(er => {
         console.log('res getServiceId catch', er)

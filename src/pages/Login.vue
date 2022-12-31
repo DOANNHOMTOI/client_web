@@ -39,7 +39,9 @@
                     <router-link style="color: #f25862" to="/register">Tạo tài khoản mới ?</router-link>
                   </p>
 
-
+                  <p class="woocommerce-LostPassword lost_password">
+                    <router-link style="color: #f25862" to="/forgetpassword">quên mật khẩu ?</router-link>
+                  </p>
                 </form>
 
 

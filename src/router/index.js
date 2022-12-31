@@ -7,7 +7,10 @@ import Register from "../pages/Register";
 import Checkout from "../pages/CheckOut";
 import DetailShop from "../pages/DetailShop";
 import Cart from "../components/Cart";
-import CallBack from "../pages/CallBack"
+import CallBack from "../pages/CallBack";
+import ForgetPassword from "../pages/ForgetPassword";
+
+
 Vue.use(Router)
 
 export default new Router({
@@ -55,6 +58,11 @@ export default new Router({
       path: '/callback-momo',
       name: 'callback',
       component:CallBack
+    },
+    {
+      path: '/forgetpassword',
+      name: 'forgetpassword',
+      component:ForgetPassword
     }
 
   ]
