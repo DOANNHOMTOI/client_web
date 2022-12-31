@@ -1,10 +1,8 @@
-import {axiosClientAPI,axiosInstance} from "../../helpers/axiosInstance"
-import router from '@/router'
-export default {
+import { axiosInstance} from "../../helpers/axiosInstance"
+ export default {
   async register({commit, dispatch}, data) {
     try {
-      console.log('data get', data)
-      return await axiosInstance.post('/api/web/user/register', data, {})
+       return await axiosInstance.post('/api/web/user/register', data, {})
         .then(async (res) => {
           return res
         })
@@ -17,8 +15,29 @@ export default {
       return false
     }
   },
+
+  async forget({commit, dispatch}, data) {
+    try {
+      commit('SHOW_LOADING', true);
+       return await axiosInstance.post('/api/web/user/forgetPass', data, {})
+        .then(async (res) => {
+          return res
+        })
+        .catch(error => {
+          console.log(error)
+          return false;
+        })
+    } catch (error) {
+      console.log(error)
+      return false
+    }
+    finally{
+      commit('SHOW_LOADING', false);
+    }
+  },
   async login({commit, dispatch}, data) {
     try {
+      commit('SHOW_LOADING', true);
       return await axiosInstance.post('/api/web/user/login', data, {})
         .then(async (res) => {
           return res
@@ -28,6 +47,9 @@ export default {
         })
     } catch (error) {
       return false
+    }
+    finally{
+      commit('SHOW_LOADING', false);
     }
   },
   async checkLogin({commit, dispatch}) {
@@ -48,7 +70,6 @@ export default {
     try {
       const headers = {Authorization: 'Bearer ' + localStorage.getItem('ACCESS_TOKEN')};
       commit('SHOW_LOADING', true);
-      console.log('currPage', currPage)
       return await axiosInstance.get(`/api/web/product-category?page=${currPage}`,{headers : headers}).then(r => {
         commit('SHOW_LOADING', false);
         return r
@@ -67,7 +88,6 @@ export default {
     try {
       const headers = {Authorization: 'Bearer ' + localStorage.getItem('ACCESS_TOKEN')};
       commit('SHOW_LOADING', true);
-      console.log('currPage', currPage)
       return await axiosInstance.get(`/api/web/banner/top`,{headers : headers}).then(r => {
         commit('SHOW_LOADING', false);
         return r
@@ -102,6 +122,7 @@ export default {
   },
   async createOrderAPI({commit, state}, data) {
     try {
+      commit('SHOW_LOADING', true);
       const headers = {Authorization: 'Bearer ' + localStorage.getItem('ACCESS_TOKEN')};
       commit('SHOW_LOADING', true);
       return await axiosInstance.post(`/api/web/order`,data,{headers : headers}).then(r => {
@@ -208,8 +229,7 @@ export default {
     try {
       const headers = {Authorization: 'Bearer ' + localStorage.getItem('ACCESS_TOKEN')};
       // commit('SHOW_LOADING', true);
-      console.log('data filterProduct', data)
-      var bodyFormData = new FormData();
+       var bodyFormData = new FormData();
 
       let endPoint = '/api/web/productFilter';
       if(data.name !== undefined && data.name != null){

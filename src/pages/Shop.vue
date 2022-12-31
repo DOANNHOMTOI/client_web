@@ -24,7 +24,7 @@
           <aside id="woocommerce_product_categories-4" class="widget woocommerce widget_product_categories">
             <h3 class="widget-title"><span>Danh Mục</span></h3>
             <ul class="product-categories">
-              <li class="cat-item cat-item-44" v-for="(cate, i) in listCategory">
+              <li class="cat-item cat-item-44" v-for="(cate, i) in listCategory" :key="i">
                 <a :class="$route.params.category_id === cate.id ? 'active' : ''" @click="filCate(cate.id)" href="#">{{
     cate.name
 }}</a>
@@ -62,7 +62,7 @@
               <span>Sản phẩm mới</span>
             </h3>
             <ul class="product_list_widget">
-              <li v-for="(item, i) in listNew">
+              <li v-for="(item, i) in listNew" :key="i">
                 <div class="product-image">
                   <router-link :to="'/product/' + item.id"
                     class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
@@ -86,8 +86,8 @@
         </div>
         <div id="archive-product" class="col-xs-12 col-md-9">
           <div class="archive-border">
-            <div class="shop-products products row grid-view sidebar" style="display:flex;flex-wrap: wrap;">
-              <div v-if="listProduct.length > 0" v-for="item in listProduct"
+            <div v-if="listProduct.length > 0" class="shop-products products row grid-view sidebar" style="display:flex;flex-wrap: wrap;">
+              <div  v-for="item in listProduct" :key="item"
                 class=" item-col col-xs-12 col-sm-3 post-2266 product type-product status-publish has-post-thumbnail product_cat-health-beauty first instock shipping-taxable purchasable product-type-simple">
                 <div class="product-wrapper">
                   <span class="tragop">
@@ -233,7 +233,6 @@ export default {
   },
   created() {
     this.filterProduct(this.filter).then(r => {
-      console.log('res filterProduct', r)
       this.listCategory = r.data.data.categories
       this.listProduct = r.data.data.products
       this.listNew = r.data.data.product_new
@@ -249,7 +248,6 @@ export default {
     filCate(id) {
       this.filter.category_id = id;
       this.filterProduct(this.filter).then(r => {
-        console.log('res filterProduct', r)
         this.listProduct = r.data.data.products
       }).catch(e => {
         console.log(e)
@@ -264,7 +262,6 @@ export default {
       this.filter.maxPrice = this.max
 
       this.filterProduct(this.filter).then(r => {
-        console.log('res filterProduct', r)
         this.listProduct = r.data.data.products
       }).catch(e => {
         console.log(e)
@@ -275,7 +272,6 @@ export default {
       this.filter.minPrice = null
       this.filter.maxPrice = null
       this.filterProduct(this.filter).then(r => {
-        console.log('res filterProduct', r)
         this.listProduct = r.data.data.products
       }).catch(e => {
         console.log(e)

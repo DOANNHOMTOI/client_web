@@ -19,12 +19,12 @@
 
 
                   <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                    <label for="username">Số điện thoại<span class="required">*</span></label>
+                    <label for="username">Số điện thoại<span class="required">*</span></label><br />
                     <input v-model="phone" type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username"
                            id="username" value="">
                   </p>
                   <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                    <label for="password">Mật khẩu <span class="required">*</span></label>
+                    <label for="password">Mật khẩu <span class="required">*</span></label><br />
                     <input v-model="password" class="woocommerce-Input woocommerce-Input--text input-text" type="password" name="password"
                            id="password">
                   </p>
@@ -39,7 +39,9 @@
                     <router-link style="color: #f25862" to="/register">Tạo tài khoản mới ?</router-link>
                   </p>
 
-
+                  <p class="woocommerce-LostPassword lost_password">
+                    <router-link style="color: #f25862" to="/forgetpassword">quên mật khẩu ?</router-link>
+                  </p>
                 </form>
 
 
@@ -77,7 +79,6 @@ export default {
         password: this.password,
       }
       this.login(data).then(res => {
-        console.log('RES login', res)
         if (res.data.data == null){
           alert('Thông tin đăng nhập không chính xác !')
         }else{

@@ -51,16 +51,7 @@ const store = new Vuex.Store({
     SHOW_DROPDOWN_CART: (state, flag = false) => {
       state.isShowDropDown = flag
     },
-    // SET_TOKEN_LOCAL_STORAGE(state, payload) {
-    //   console.log('payload', payload)
-    //   console.log('state', state)
-    //   localStorage.setItem('ACCESS_TOKEN', payload.res.data.token);
-    //   localStorage.setItem('USER_INFO', payload.data.email);
-    //   state.ACCESS_TOKEN = payload.res.data.token;
-    //   state.currentUser = payload.data.email
-    // },
     SET_LOGIN_INFO(state, payload) {
-      // localStorage.setItem('ACCESS_TOKEN', payload.accessToken);
       localStorage.setItem('USER_INFO', payload);
       localStorage.setItem('IS_LOGIN', "1");
       state.ACCESS_TOKEN = JSON.stringify(payload);

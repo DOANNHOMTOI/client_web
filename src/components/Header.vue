@@ -19,26 +19,37 @@
             <div class="col-xs-0 col-md-8">
               <div class="visible-lg visible-md">
                 <div class="horizontal-menu">
-
                   <!-- begin "mega_main_menu" -->
-                  <div id="mega_main_menu_first"
-                    class="primary primary_style-flat icons-left first-lvl-align-left first-lvl-separator-smooth direction-horizontal fullwidth-disable pushing_content-disable mobile_minimized-disable dropdowns_trigger-hover dropdowns_animation-anim_5 no-logo no-search no-woo_cart no-buddypress responsive-enable coercive_styles-disable indefinite_location_mode-disable language_direction-ltr version-2-1-2 mega_main mega_main_menu">
+                  <div
+                    id="mega_main_menu_first"
+                    class="primary primary_style-flat icons-left first-lvl-align-left first-lvl-separator-smooth direction-horizontal fullwidth-disable pushing_content-disable mobile_minimized-disable dropdowns_trigger-hover dropdowns_animation-anim_5 no-logo no-search no-woo_cart no-buddypress responsive-enable coercive_styles-disable indefinite_location_mode-disable language_direction-ltr version-2-1-2 mega_main mega_main_menu"
+                  >
                     <div class="menu_holder">
-                      <div class="mmm_fullwidth_container"></div><!-- class="fullwidth_container" -->
+                      <div class="mmm_fullwidth_container"></div>
+                      <!-- class="fullwidth_container" -->
                       <div class="menu_inner">
                         <span class="nav_logo">
                           <a class="mobile_toggle">
                             <span class="mobile_button">
                               Menu &nbsp;
                               <span class="symbol_menu">&equiv;</span>
-                              <span class="symbol_cross">&#x2573;</span>
-                            </span><!-- class="mobile_button" -->
-                          </a>
-                        </span><!-- /class="nav_logo" -->
-                        <ul id="mega_main_menu_ul_first" class="mega_main_menu_ul">
-                          <li id="menu-item-4017"
-                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4017 multicolumn_dropdown default_style drop_to_right submenu_full_width columns3">
-                            <router-link to="/shop" tabindex="4" class="item_link  disable_icon">
+                              <span class="symbol_cross">&#x2573;</span> </span
+                            ><!-- class="mobile_button" -->
+                          </a> </span
+                        ><!-- /class="nav_logo" -->
+                        <ul
+                          id="mega_main_menu_ul_first"
+                          class="mega_main_menu_ul"
+                        >
+                          <li
+                            id="menu-item-4017"
+                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4017 multicolumn_dropdown default_style drop_to_right submenu_full_width columns3"
+                          >
+                            <router-link
+                              to="/shop"
+                              tabindex="4"
+                              class="item_link  disable_icon"
+                            >
                               <i class=""></i>
                               <span class="link_content">
                                 <span class="link_text">
@@ -47,10 +58,18 @@
                               </span>
                             </router-link>
                           </li>
-                          <li v-for="cate in listCate"
-                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4017 multicolumn_dropdown default_style drop_to_right submenu_full_width columns3">
-                            <router-link :to="{ name: 'Shop', params: { category_id: cate.id } }"
-                              class="item_link  disable_icon">
+                          <li
+                            v-for="cate, i in listCate"
+                            :key="i"
+                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4017 multicolumn_dropdown default_style drop_to_right submenu_full_width columns3"
+                          >
+                            <router-link
+                              :to="{
+                                name: 'Shop',
+                                params: { category_id: cate.id }
+                              }"
+                              class="item_link  disable_icon"
+                            >
                               <i class=""></i>
                               <span class="link_content">
                                 <span class="link_text">
@@ -63,14 +82,18 @@
                       </div>
 
                       <!-- /class="menu_inner" -->
-                    </div><!-- /class="menu_holder" -->
-                  </div><!-- /id="mega_main_menu" -->
+                    </div>
+                    <!-- /class="menu_holder" -->
+                  </div>
+                  <!-- /id="mega_main_menu" -->
                 </div>
               </div>
             </div>
             <div class="col-xs-8 col-md-2">
               <div class="evo-main-hotline">
-                <a href="tel:0901250190" title="Gọi mua hàng:"><span>Gọi mua hàng:</span>0901 250 190</a>
+                <a href="tel:0901250190" title="Gọi mua hàng:"
+                  ><span>Gọi mua hàng:</span>0901 250 190</a
+                >
               </div>
             </div>
           </div>
@@ -83,15 +106,32 @@
           <div class="col-md-3 text-animas">
             <div class="typewriter">Black friday up sale 60%</div>
           </div>
-          <div class=" col-md-9 d-flex login-box" style="display: flex;align-items: center;">
+          <div
+            class=" col-md-9 d-flex login-box"
+            style="display: flex;align-items: center;"
+          >
             <div style="width: 85%;position: relative">
-              <div class="form-group mx-sm-3 mb-2" style="display: flex;margin-bottom: 0;">
-                <input v-model="search" @keyup="searchProductInput()" @focus="setShowRS(true)" type="text"
-                  class="form-control" placeholder="Tên sản phẩm, mô tả, ..." id="email">
+              <div
+                class="form-group mx-sm-3 mb-2"
+                style="display: flex;margin-bottom: 0;"
+              >
+                <input
+                  v-model="search"
+                  @keyup="searchProductInput()"
+                  @focus="setShowRS(true)"
+                  type="text"
+                  class="form-control"
+                  placeholder="Tên sản phẩm, mô tả, ..."
+                  id="email"
+                />
                 <!--                <button type="button" class="btn btn-primary mb-2">Tìm kiếm</button>-->
               </div>
               <ul v-if="showSearchResult" class="list-group listSearch">
-                <li v-for="item in listSearch" class="list-group-item">
+                <li
+                  v-for="item,index in listSearch"
+                  class="list-group-item"
+                  :key="index"
+                >
                   <a @click="toDetailProduct(item)" href="#">{{ item.name }}</a>
                 </li>
               </ul>
@@ -101,74 +141,125 @@
               <div class="widget_shopping_cart_content">
                 <div class="cart-toggler">
                   <span class="cart-quantity">
-                    {{ getterListItemInCart.length }} </span>
+                    {{ getterListItemInCart.length }}
+                  </span>
                 </div>
                 <div class="mini_cart_content" style="height: 0px;">
                   <div class="mini_cart_inner">
                     <template v-if="getterListItemInCart.length > 0">
                       <div class="mini_cart_arrow"></div>
                       <ul class="cart_list product_list_widget ">
-                        <li id="mcitem-40b5f25a228570053bc64a043c3f1833" v-for="(item, i) in getterListItemInCart">
+                        <li
+                          id="mcitem-40b5f25a228570053bc64a043c3f1833"
+                          v-for="(item, i) in getterListItemInCart"
+                          :key="i"
+                        >
                           <a class="product-image" href="#">
-                            <img width="200" height="200" :src="getPathFile(item.product.image)"
-                              class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="7"
-                              sizes="(max-width: 200px) 100vw, 200px">
-                            <span class="quantity">{{ item.qty }}</span> </a>
+                            <img
+                              width="200"
+                              height="200"
+                              :src="getPathFile(item.product.image)"
+                              class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
+                              alt="7"
+                              sizes="(max-width: 200px) 100vw, 200px"
+                            />
+                            <span class="quantity">{{ item.qty }}</span>
+                          </a>
                           <div class="product-details">
                             <a class="product-name">
                               {{ item.product.name }}
                             </a>
-                            <span class="quantity"><span class="woocommerce-Price-amount amount">{{ item.attribute.size
-                            }} / {{ item.attribute.color }} / {{ item.product.price_sale > 0 ?
-    parseInt(item.product.price_sale) : item.product.price
-}} đ</span></span>
+                            <span class="quantity"
+                              ><span class="woocommerce-Price-amount amount"
+                                >{{ item.attribute.size }} /
+                                {{ item.attribute.color }} /
+                                {{
+                                  item.product.price_sale > 0
+                                    ? parseInt(item.product.price_sale)
+                                    : item.product.price
+                                }}
+                                đ</span
+                              ></span
+                            >
                           </div>
                         </li>
-                      </ul><!-- end product list -->
-                      <p class="total">Tổng tiền: <span class="woocommerce-Price-amount amount">
-                          {{ totalPriceCart() }}</span></p>
+                      </ul>
+                      <!-- end product list -->
+                      <p class="total">
+                        Tổng tiền:
+                        <span class="woocommerce-Price-amount amount">
+                          {{ totalPriceCart() }}</span
+                        >
+                      </p>
                       <p class="buttons">
                         <router-link to="/cart" class="button wc-forward">
                           Xem giỏ
                         </router-link>
-                        <router-link to="/checkout" class="button checkout wc-forward">
+                        <router-link
+                          to="/checkout"
+                          class="button checkout wc-forward"
+                        >
                           Đặt hàng
                         </router-link>
                       </p>
                     </template>
                     <template v-if="getterListItemInCart.length == 0">
-                      <h5 style="font-weight: bold; text-align: center">Chưa có sản phẩm nào trong giỏ</h5>
+                      <h5 style="font-weight: bold; text-align: center">
+                        Chưa có sản phẩm nào trong giỏ
+                      </h5>
                     </template>
                   </div>
                   <div class="loading"></div>
                 </div>
               </div>
             </div>
-            <router-link v-if="!getStatusLogin" to="/login" tag="button" class="btn btn-primary btn-login mb-2">
+            <router-link
+              v-if="!getStatusLogin"
+              to="/login"
+              tag="button"
+              class="btn btn-primary btn-login mb-2"
+            >
               <span> </span>
               <span> </span>
               <span> </span>
               <span> </span>
-              Đăng
-              nhập</router-link>
-            <div v-if="getStatusLogin" class="top-menu" style="display:flex;align-items: center">
-              <img style="width: 25px;padding-top: 0;padding-right: 5px;margin-left: 10px" src="/static/images/user.png"
-                alt="">
-              <span style="display:block;width: 100px;overflow:hidden;">{{ JSON.parse(getInfoUser).name }}</span>
+              Đăng nhập</router-link
+            >
+            <div
+              v-if="getStatusLogin"
+              class="top-menu"
+              style="display:flex;align-items: center"
+            >
+              <img
+                style="width: 25px;padding-top: 0;padding-right: 5px;margin-left: 10px"
+                src="/static/images/user.png"
+                alt=""
+              />
+              <span style="display:block;width: 100px;overflow:hidden;">{{
+                JSON.parse(getInfoUser).name
+              }}</span>
               <div class="top-menu-container">
                 <ul id="menu-top-menu" class="nav-menu">
-                  <li class="menu-item menu-item-type-post_type menu-item-object-page last menu-item-4009">
+                  <li
+                    class="menu-item menu-item-type-post_type menu-item-object-page last menu-item-4009"
+                  >
                     <router-link to="/shop">Cửa hàng</router-link>
                   </li>
-                  <li id="menu-item-4009"
-                    class="menu-item menu-item-type-post_type menu-item-object-page last menu-item-4009">
+                  <li
+                    id="menu-item-4009"
+                    class="menu-item menu-item-type-post_type menu-item-object-page last menu-item-4009"
+                  >
                     <router-link to="/cart">Giỏ hàng</router-link>
                   </li>
-                  <li class="menu-item menu-item-type-post_type menu-item-object-page last menu-item-4009">
+                  <li
+                    class="menu-item menu-item-type-post_type menu-item-object-page last menu-item-4009"
+                  >
                     <router-link to="/checkout">Đặt hàng</router-link>
                   </li>
-                  <li @click="logoutWeb()"
-                    class="menu-item menu-item-type-post_type menu-item-object-page last menu-item-4009">
+                  <li
+                    @click="logoutWeb()"
+                    class="menu-item menu-item-type-post_type menu-item-object-page last menu-item-4009"
+                  >
                     <a href="#">Đăng Xuất</a>
                   </li>
                 </ul>
@@ -181,12 +272,15 @@
     <div class="main-menu clearfix">
       <div class="container">
         <div class="mobile-menu visible-xs visible-sm">
-          <div class="mbmenu-toggler">Menu<span class="mbmenu-icon"><i class="fa fa-bars"></i></span></div>
+          <div class="mbmenu-toggler">
+            Menu<span class="mbmenu-icon"><i class="fa fa-bars"></i></span>
+          </div>
           <div class="clearfix"></div>
           <div class="mobile-menu-container">
             <ul id="menu-horizontal-menu" class="nav-menu">
               <li
-                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4017">
+                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4017"
+              >
                 <a href="http://demo.roadthemes.com/james/shop/">Shop</a>
               </li>
             </ul>
@@ -210,84 +304,87 @@ export default {
       listCate: [],
       listSearch: [],
       showSearchResult: false,
-      search: ''
+      search: ""
       // carts: localStorage.getItem('carts') != null ? JSON.parse(localStorage.getItem('carts')) : []
-    }
+    };
   },
-  mounted() {
-    console.log('this.$route.name', this.$route.name)
-  },
+  mounted() {},
   methods: {
-    ...mapActions(['getListProductCategory', 'filterProduct']),
+    ...mapActions(["getListProductCategory", "filterProduct"]),
     getPathFile(path) {
-      return config.url_api_back_end_real + path
+      return config.url_api_back_end_real + path;
     },
     convertCurrency(x) {
-      return x.toLocaleString('vi-VN') + ' đ'
+      return x.toLocaleString("vi-VN") + " đ";
     },
     totalPriceCart() {
       let totalPrice = 0;
-      this.getterListItemInCart.forEach(function (item) {
-        let price = item.product.price_sale > 0 ? parseInt(item.product.price_sale) : item.product.price
-        totalPrice += price * item.qty
-      })
-      return this.convertCurrency(totalPrice)
+      this.getterListItemInCart.forEach(function(item) {
+        let price =
+          item.product.price_sale > 0
+            ? parseInt(item.product.price_sale)
+            : item.product.price;
+        totalPrice += price * item.qty;
+      });
+      return this.convertCurrency(totalPrice);
     },
     logoutWeb() {
-      this.$store.commit('LOG_OUT', '')
-      window.location.href = ''
+      this.$store.commit("LOG_OUT", "");
+      window.location.href = "";
     },
     setShowRS(flag) {
-      this.showSearchResult = flag
+      this.showSearchResult = flag;
     },
     searchProductInput() {
-      console.log(this.search)
-      if (this.search === '') {
-        this.showSearchResult = false
-        return false
+      if (this.search === "") {
+        this.showSearchResult = false;
+        return false;
       }
       let filter = {
         name: this.search
-      }
-      this.filterProduct(filter).then(r => {
-        console.log('res filterProduct', r)
-        if (r.data.data.products.length == 0) {
-          this.listSearch = [{ name: "Không tìm thấy kết quả !" }]
-        } else {
-          this.listSearch = r.data.data.products
-        }
-
-      }).catch(e => {
-        console.log(e)
-      })
+      };
+      this.filterProduct(filter)
+        .then(r => {
+          if (r.data.data.products.length == 0) {
+            this.listSearch = [{ name: "Không tìm thấy kết quả !" }];
+          } else {
+            this.listSearch = r.data.data.products;
+          }
+        })
+        .catch(e => {
+          console.log(e);
+        });
     },
     toDetailProduct(item) {
       // kết quả tìm kiếm
-      let listCate = localStorage.getItem('cates') != null ? JSON.parse(localStorage.getItem('cates')) : []
+      let listCate =
+        localStorage.getItem("cates") != null
+          ? JSON.parse(localStorage.getItem("cates"))
+          : [];
 
       if (!listCate.includes(item.category_id)) {
-        listCate.push(item.category_id)
+        listCate.push(item.category_id);
       }
-      localStorage.setItem('cates', JSON.stringify(listCate))
+      localStorage.setItem("cates", JSON.stringify(listCate));
 
-      this.search = ''
-      this.showSearchResult = false
-      this.$router.push('/product/' + item.id)
+      this.search = "";
+      this.showSearchResult = false;
+      this.$router.push("/product/" + item.id);
     }
   },
   computed: {
-    ...mapGetters(['getterListItemInCart', 'getStatusLogin', 'getInfoUser']),
-
+    ...mapGetters(["getterListItemInCart", "getStatusLogin", "getInfoUser"])
   },
   created() {
-    this.getListProductCategory(-1).then(r => {
-      console.log('res getProductCategory', r)
-      this.listCate = r.data.data.data
-    }).catch(e => {
-      console.log(e)
-    })
-  },
-}
+    this.getListProductCategory(-1)
+      .then(r => {
+        this.listCate = r.data.data.data;
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  }
+};
 </script>
 
 <style scoped>
@@ -320,7 +417,6 @@ export default {
   }
 }
 
-
 .header-container .top-menu:before {
   content: "";
   font-family: FontAwesome;
@@ -348,12 +444,10 @@ export default {
   white-space: nowrap;
   overflow: hidden;
   border-right: 3px solid #212121;
-  animation: cursor 1s step-start infinite,
-    text 5s steps(18) alternate infinite;
+  animation: cursor 1s step-start infinite, text 5s steps(18) alternate infinite;
 }
 
 @keyframes cursor {
-
   0%,
   100% {
     border-color: #212121;
@@ -370,7 +464,13 @@ export default {
   }
 }
 
-.horizontal-menu #mega_main_menu_first>.menu_holder .menu_inner>ul>li>a.item_link {
+.horizontal-menu
+  #mega_main_menu_first
+  > .menu_holder
+  .menu_inner
+  > ul
+  > li
+  > a.item_link {
   padding: 0 15px !important;
   min-height: unset !important;
   line-height: 1.5 !important;
@@ -397,7 +497,14 @@ export default {
   text-align: left;
 }
 
-.horizontal-menu #mega_main_menu_first>.menu_holder .menu_inner>ul>li>a.item_link .link_text {
+.horizontal-menu
+  #mega_main_menu_first
+  > .menu_holder
+  .menu_inner
+  > ul
+  > li
+  > a.item_link
+  .link_text {
   line-height: 60px !important;
   min-height: 60px !important;
 }
@@ -467,7 +574,7 @@ export default {
   right: 0;
   width: 100%;
   height: 3px;
-  background: #D52027;
+  background: #d52027;
   animation: animate1 2s linear infinite;
 }
 
@@ -487,7 +594,7 @@ export default {
   right: 0;
   height: 100%;
   width: 3px;
-  background: #D52027;
+  background: #d52027;
   animation: animate2 2s linear infinite;
   animation-delay: 1s;
 }
@@ -508,7 +615,7 @@ export default {
   right: 0;
   width: 100%;
   height: 3px;
-  background: #D52027;
+  background: #d52027;
   animation: animate3 2s linear infinite;
 }
 
@@ -528,7 +635,7 @@ export default {
   left: 0;
   height: 100%;
   width: 3px;
-  background: #D52027;
+  background: #d52027;
   animation: animate4 2s linear infinite;
   animation-delay: 1s;
 }
