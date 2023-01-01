@@ -158,17 +158,6 @@
                   <div
                     class="vc_general vc_tta vc_tta-tabs vc_tta-color-grey vc_tta-style-classic vc_tta-shape-rounded vc_tta-spacing-1 vc_tta-tabs-position-left vc_tta-controls-align-left "
                   >
-                    <!-- <div class="vc_tta-tabs-container">
-                      <ul class="vc_tta-tabs-list">
-                        <li class="vc_tta-tab" :class="{ vc_active: cateIndex === cate.id }"
-                          v-for="(cate, i) in listCate" :key="i" data-vc-tab>
-                          <a @click="setProduct(cate.id)" style="cursor: pointer" data-vc-tabs
-                            data-vc-container=".vc_tta">
-                            <span class="vc_tta-title-text">{{ cate.name }}</span>
-                          </a>
-                        </li>
-                      </ul>
-                    </div> -->
                     <div class="vc_tta-panels-container">
                       <div v-if="listProduct.length" class="vc_tta-panels">
                         <div
