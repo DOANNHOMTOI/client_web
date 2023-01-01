@@ -245,8 +245,11 @@ export default {
         percent = parseInt(this.percent) / 100;
       } else percent = 1;
 
-      totalPrice = (totalPrice + 30000) * percent;
-      
+      totalPrice = (totalPrice) * percent + 30000;
+
+      if(this.percent){
+
+      }
       return this.convertCurrency(totalPrice);
     },
     createOrder() {
@@ -275,7 +278,7 @@ export default {
         ).toString(),
         shipment_type: "1",
         payment_type: +this.selected,
-        voucher_id: this.voucher_id ? this.voucher_id : "null",
+        voucher_id: this.voucher_id ? this.voucher_id.toString() : "null",
         note: this.note
       };
       JSON.parse(JSON.stringify(obj));
@@ -324,7 +327,7 @@ export default {
       if (this.voucher === "") return false;
       this.checkVoucher(this.voucher)
         .then(r => {
-          if (r.data.data == null) {
+          if (r.success == false) {
             this.err_code = "Mã giảm giá không đúng !";
             return false;
           }

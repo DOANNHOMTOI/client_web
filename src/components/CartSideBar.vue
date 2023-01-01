@@ -9,7 +9,7 @@
       <div class="main">
         <template v-if="getterListItemInCart.length > 0">
           <ul class="clearfix list-item ">
-            <li v-for="(item,index) in getterListItemInCart">
+            <li v-for="(item,index) in getterListItemInCart" :key="index">
               <a class="if-item-in-cart" href=""><span style="font-weight: bold;">{{item.qty}}x</span> {{item.product.name}}</a>
               <span class="price-item-cart">{{convertCurrency(item.product.price)}}</span>
             </li>

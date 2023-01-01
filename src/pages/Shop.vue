@@ -86,8 +86,9 @@
         </div>
         <div id="archive-product" class="col-xs-12 col-md-9">
           <div class="archive-border">
-            <div v-if="listProduct.length > 0" class="shop-products products row grid-view sidebar" style="display:flex;flex-wrap: wrap;">
-              <div  v-for="item in listProduct" :key="item"
+            <div v-if="listProduct.length > 0" class="shop-products products row grid-view sidebar"
+              style="display:flex;flex-wrap: wrap;">
+              <div v-for="(item, i) in listProduct" :key="i"
                 class=" item-col col-xs-12 col-sm-3 post-2266 product type-product status-publish has-post-thumbnail product_cat-health-beauty first instock shipping-taxable purchasable product-type-simple">
                 <div class="product-wrapper">
                   <span class="tragop">

@@ -4,12 +4,10 @@
       <div class="col-lg-10" :class="this.$route.name !== 'Home' ? 'col-left-search' : ''">
         <div class="form-group autocomplete">
           <input v-model="search" @blur="toggle = false" @focus="toggle = true" id="ip-search"
-                 class="form-control no_border_r"
-                 type="text"
-                 placeholder="Địa điểm gần bạn ...">
+            class="form-control no_border_r" type="text" placeholder="Địa điểm gần bạn ...">
           <i class="icon_pin_alt"></i>
           <div class="results" v-if="toggle">
-            <div class="result" v-for="item in newLocations" :key="item">
+            <div class="result" v-for="(item, i) in newLocations" :key="i">
               <span @click="selectResult(item)" @mousedown.prevent>
                 {{ item }}
               </span>
@@ -19,23 +17,21 @@
         </div>
       </div>
       <div class="col-lg-2" :class="this.$route.name !== 'Home' ? 'col-right-search' : ''">
-        <input type="submit"
-               :class="this.search === '' ? 'ip-search-disabled' : ''"
-               value="Tìm kiếm"
-               @click.prevent="searchMerchant()">
+        <input type="submit" :class="this.search === '' ? 'ip-search-disabled' : ''" value="Tìm kiếm"
+          @click.prevent="searchMerchant()">
       </div>
     </div>
   </form>
 </template>
 
 <script>
-import {mapActions, mapGetters} from "vuex";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "SearchAddress",
   data() {
     return {
-      locations:[],
+      locations: [],
       field: 'name',
       search: this.getterAddressUser,
       toggle: false,
@@ -48,7 +44,7 @@ export default {
       this.getLocationSearch(this.search).then(res => {
         this.locations = res.data.data;
         this.locations.forEach(element => {
-          if (this.newLocations.length < 5){ // chỉ lấy 5 item đầu
+          if (this.newLocations.length < 5) { // chỉ lấy 5 item đầu
             this.newLocations.push(element);
           }
         });
@@ -60,17 +56,17 @@ export default {
   created() {
   },
   mounted() {
-    this.search = localStorage.getItem('addressUser') != null ? localStorage.getItem('addressUser') :''
+    this.search = localStorage.getItem('addressUser') != null ? localStorage.getItem('addressUser') : ''
   },
   computed: {
     ...mapGetters(['getterAddressUser'])
   },
   methods: {
-    ...mapActions(['getLocationSearch','getMerchantFilter']),
+    ...mapActions(['getLocationSearch', 'getMerchantFilter']),
     selectResult(location) {
       this.search = location;
-      this.$store.commit('SET_ADDRESS_USER',location)
-      localStorage.setItem('addressUser',location)
+      this.$store.commit('SET_ADDRESS_USER', location)
+      localStorage.setItem('addressUser', location)
     },
     searchMerchant() {
       if (this.search === '') {
@@ -78,9 +74,9 @@ export default {
       } else {
         this.$router.push({
           path: '/shops/' + this.search, //use name for router push
-          params: {location: this.search}
+          params: { location: this.search }
         });
-        if (this.$route.name !== 'Home'){
+        if (this.$route.name !== 'Home') {
           this.getMerchantFilter(this.search)
         }
       }
@@ -151,11 +147,13 @@ input[type=submit] {
   padding: 0;
   border-radius: 10px;
 }
+
 .custom-search-input {
   box-shadow: none !important;
 }
-.ip-search-disabled{
- background-color: #bba785 !important;
+
+.ip-search-disabled {
+  background-color: #bba785 !important;
 }
 </style>
 
