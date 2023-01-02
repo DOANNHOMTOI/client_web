@@ -1,29 +1,14 @@
 <template>
-  <article
-    id="post-4430"
-    class="post-4430 page type-page status-publish hentry mt-4"
-    style="margin-top: 10px"
-  >
+  <article id="post-4430" class="post-4430 page type-page status-publish hentry mt-4" style="margin-top: 10px">
     <div class="row-container category-img">
       <div class="row">
         <div class="col-xs-12 col-md-3">
           <div class="vc_tta-tabs-container">
             <ul class="vc_tta-tabs-list">
-              <li
-                class="vc_tta-tab"
-                :class="{ vc_active: cateIndex === cate.id }"
-                v-for="(cate, i) in listCate"
-                :key="i"
-                data-vc-tab
-              >
-                <router-link
-                  :to="{ name: 'Shop', params: { category_id: cate.id } }"
-                >
-                  <a
-                    style="cursor: pointer"
-                    data-vc-tabs
-                    data-vc-container=".vc_tta"
-                  >
+              <li class="vc_tta-tab" :class="{ vc_active: cateIndex === cate.id }" v-for="(cate, i) in listCate"
+                :key="i" data-vc-tab>
+                <router-link :to="{ name: 'Shop', params: { category_id: cate.id } }">
+                  <a style="cursor: pointer" data-vc-tabs data-vc-container=".vc_tta">
                     <span class="vc_tta-title-text"> {{ cate.name }}</span>
                   </a>
                 </router-link>
@@ -34,10 +19,7 @@
         <div class="col-xs-12 col-md-7">
           <div>
             <a href="#" target="_self">
-              <img
-                src="https://intphcm.com/data/upload/banner-thoi-trang-con-nit.jpg"
-                class="slide-banner large"
-              />
+              <img src="https://intphcm.com/data/upload/banner-thoi-trang-con-nit.jpg" class="slide-banner large" />
             </a>
           </div>
         </div>
@@ -46,20 +28,14 @@
             <a href="#" target="_self">
               <img
                 src="https://png.pngtree.com/thumb_back/fw800/back_our/20190620/ourmid/pngtree-summer-children-s-clothing-poster-banner-clothing-image_153631.jpg"
-                class="slide-banner"
-              />
+                class="slide-banner" />
             </a>
             <a href="#" target="_self">
-              <img
-                src="https://baobikhoiphat.com/wp-content/uploads/2022/04/logo-shop-quan-ao-tre-em.jpg"
-                class="slide-banner"
-              />
+              <img src="https://baobikhoiphat.com/wp-content/uploads/2022/04/logo-shop-quan-ao-tre-em.jpg"
+                class="slide-banner" />
             </a>
             <a href="#" target="_self">
-              <img
-                src="https://intphcm.com/data/upload/banner-thoi-trang-con-nit.jpg"
-                class="slide-banner"
-              />
+              <img src="https://intphcm.com/data/upload/banner-thoi-trang-con-nit.jpg" class="slide-banner" />
             </a>
           </div>
         </div>
@@ -87,31 +63,15 @@
     <div class="entry-content">
       <div class="vc_row wpb_row vc_row-fluid home-banner">
         <div class="row-container">
-          <div
-            v-for="(item, i) in listBanner"
-            :key="i"
-            class="wpb_column vc_column_container vc_col-sm-4"
-          >
+          <div v-for="(item, i) in listBanner" :key="i" class="wpb_column vc_column_container vc_col-sm-4">
             <div class="vc_column-inner ">
               <div class="wpb_wrapper">
-                <div
-                  class="wpb_single_image wpb_content_element vc_align_center"
-                >
+                <div class="wpb_single_image wpb_content_element vc_align_center">
                   <figure class="wpb_wrapper vc_figure">
-                    <a
-                      href="#"
-                      target="_self"
-                      class="vc_single_image-wrapper   vc_box_border_grey"
-                    >
-                      <img
-                        style="height: 542px"
-                        width="370"
-                        height="542"
-                        :src="getPathFile(item.image)"
-                        class="vc_single_image-img attachment-full"
-                        alt="jbanner-1"
-                        sizes="(max-width: 370px) 100vw, 370px"
-                    /></a>
+                    <a href="#" target="_self" class="vc_single_image-wrapper   vc_box_border_grey">
+                      <img style="height: 542px" width="370" height="542" :src="getPathFile(item.image)"
+                        class="vc_single_image-img attachment-full" alt="jbanner-1"
+                        sizes="(max-width: 370px) 100vw, 370px" /></a>
                   </figure>
                 </div>
               </div>
@@ -120,157 +80,138 @@
         </div>
       </div>
 
-      <div class="vc_row wpb_row vc_row-fluid products-tabs">
-        <div class="row-container">
-          <div class="wpb_column vc_column_container vc_col-sm-12">
-            <div class="vc_column-inner ">
-              <div class="wpb_wrapper cate-wrapper">
-                <div class="evo-product-new-title">
-                  <h4 class="sport-titles">QUẦN ÁO TRẺ EM</h4>
-                </div>
-                <div class="row evo-product-new-banner-cate ">
-                  <div class="col-xl-6 col-md-3">
-                    <!-- <img src="../assets/evo_block_product_banner_2.jpg" /> -->
-                  </div>
-                  <div class="vc_tta-tabs-container col-xl-6 col-md-9">
-                    <ul class="vc_tta-tabs-list">
-                      <li
-                        class="vc_tta-tab"
-                        :class="{ vc_active: cateIndex === cate.id }"
-                        v-for="(cate, i) in listCate"
-                        :key="i"
-                        data-vc-tab
-                      >
-                        <a
-                          @click="setProduct(cate.id)"
-                          style="cursor: pointer"
-                          data-vc-tabs
-                          data-vc-container=".vc_tta"
-                        >
-                          <div class="keyword-img"></div>
-                          <span class="vc_tta-title-text">{{ cate.name }}</span>
-                        </a>
-                      </li>
-                    </ul>
+
+      <div class="shop-products row grid-view">
+        <h1 style="margin: auto;text-align: center;">mã giảm giá</h1>
+        <div data-v-5a90ec03="" class="product-wrapper">
+          <div class="woocommerce columns-3">
+            <div class="shop-products row grid-view">
+              <div v-for="(item, i) in voucher" :key="i">
+                <div class="container">
+                  <div class="col-xs-2" style="background-color: red; color: white;padding: 20px;">
+                    <span>
+                      copy mã : {{ item.code }}
+                    </span>
+                    <br>
+                    <br>
+                    <span>
+                      {{ item.title }}
+                    </span>
                   </div>
                 </div>
-                <div class="vc_tta-container" data-vc-action="collapse">
-                  <div
-                    class="vc_general vc_tta vc_tta-tabs vc_tta-color-grey vc_tta-style-classic vc_tta-shape-rounded vc_tta-spacing-1 vc_tta-tabs-position-left vc_tta-controls-align-left "
-                  >
-                    <div class="vc_tta-panels-container">
-                      <div v-if="listProduct.length" class="vc_tta-panels">
-                        <div
-                          class="vc_tta-panel vc_active"
-                          id="1450790267996-59361fa5-cf71"
-                          data-vc-content=".vc_tta-panel-body"
-                        >
-                          <div class="vc_tta-panel-heading">
-                            <h4 class="vc_tta-panel-title">
-                              <a
-                                href="#1450790267996-59361fa5-cf71"
-                                data-vc-accordion
-                                data-vc-container=".vc_tta-container"
-                                ><span class="vc_tta-title-text"
-                                  >Footwear</span
-                                ></a
-                              >
-                            </h4>
-                          </div>
-                          <div class="vc_tta-panel-body">
-                            <div class="woocommerce columns-3">
-                              <div class="shop-products row grid-view">
-                                <div
-                                  v-for="(product, i) in listProduct"
-                                  :key="i"
-                                  class="item-col col-xs-12 col-sm-3 post-2299 product type-product status-publish has-post-thumbnail product_cat-fashion product_cat-footwear first instock featured shipping-taxable purchasable product-type-simple"
-                                >
-                                  <div
-                                    class="product-wrapper"
-                                    style="min-height: 300px;"
-                                  >
-                                    <span class="tragop">
-                                      Trả góp 0%
-                                    </span>
-                                    <div class="list-col4">
-                                      <div class="product-image">
-                                        <router-link
-                                          :to="'/product/' + product.id"
-                                          class="woocommerce-LoopProduct-link woocommerce-loop-product__link"
-                                        >
-                                          <img
-                                            :src="getPathFile(product.image)"
-                                            class="primary_image wp-post-image"
-                                            alt="7"
-                                            :srcset="getPathFile(product.image)"
-                                          />
-                                        </router-link>
-                                        <div class="list-col2">
-                                          <div class="list-col8 ">
-                                            <div class="gridview">
-                                              <h2
-                                                class="product-name"
-                                                style="min-height: 30px;"
-                                              >
-                                                <router-link
-                                                  :to="'/product/' + product.id"
-                                                >
-                                                  {{ product.name }}
-                                                </router-link>
-                                              </h2>
-                                              <div class="ratings">
-                                                <div class="star-rating">
-                                                  <span style="width:80%"
-                                                    >Rated
-                                                    <strong class="rating"
-                                                      >4.00</strong
-                                                    >
-                                                    out of 5</span
-                                                  >
-                                                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div data-v-5a90ec03="" class="list-col8">
+          <div data-v-5a90ec03="" class="gridview">
+            <h2 data-v-5a90ec03="" class="product-name">
+            </h2>
+          </div>
+        </div>
+        <div data-v-5a90ec03="" class="clearfix"></div>
+        <div data-v-5a90ec03="" class="product__box-btn"></div>
+      </div>
+    </div>
+
+    <div class="vc_row wpb_row vc_row-fluid products-tabs">
+      <div class="row-container">
+        <div class="wpb_column vc_column_container vc_col-sm-12">
+          <div class="vc_column-inner ">
+            <div class="wpb_wrapper cate-wrapper">
+              <div class="evo-product-new-title">
+                <h4 class="sport-titles">QUẦN ÁO TRẺ EM</h4>
+              </div>
+              <div class="row evo-product-new-banner-cate ">
+                <div class="col-xl-6 col-md-3">
+                  <!-- <img src="../assets/evo_block_product_banner_2.jpg" /> -->
+                </div>
+                <div class="vc_tta-tabs-container col-xl-6 col-md-9">
+                  <ul class="vc_tta-tabs-list">
+                    <li class="vc_tta-tab" :class="{ vc_active: cateIndex === cate.id }" v-for="(cate, i) in listCate"
+                      :key="i" data-vc-tab>
+                      <a @click="setProduct(cate.id)" style="cursor: pointer" data-vc-tabs data-vc-container=".vc_tta">
+                        <div class="keyword-img"></div>
+                        <span class="vc_tta-title-text">{{ cate.name }}</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="vc_tta-container" data-vc-action="collapse">
+                <div
+                  class="vc_general vc_tta vc_tta-tabs vc_tta-color-grey vc_tta-style-classic vc_tta-shape-rounded vc_tta-spacing-1 vc_tta-tabs-position-left vc_tta-controls-align-left ">
+                  <div class="vc_tta-panels-container">
+                    <div v-if="listProduct.length" class="vc_tta-panels">
+                      <div class="vc_tta-panel vc_active" id="1450790267996-59361fa5-cf71"
+                        data-vc-content=".vc_tta-panel-body">
+                        <div class="vc_tta-panel-heading">
+                          <h4 class="vc_tta-panel-title">
+                            <a href="#1450790267996-59361fa5-cf71" data-vc-accordion
+                              data-vc-container=".vc_tta-container"><span class="vc_tta-title-text">Footwear</span></a>
+                          </h4>
+                        </div>
+                        <div class="vc_tta-panel-body">
+                          <div class="woocommerce columns-3">
+                            <div class="shop-products row grid-view">
+                              <div v-for="(product, i) in listProduct" :key="i"
+                                class="item-col col-xs-12 col-sm-3 post-2299 product type-product status-publish has-post-thumbnail product_cat-fashion product_cat-footwear first instock featured shipping-taxable purchasable product-type-simple">
+                                <div class="product-wrapper" style="min-height: 300px;">
+                                  <span class="tragop">
+                                    Trả góp 0%
+                                  </span>
+                                  <div class="list-col4">
+                                    <div class="product-image">
+                                      <router-link :to="'/product/' + product.id"
+                                        class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+                                        <img :src="getPathFile(product.image)" class="primary_image wp-post-image"
+                                          alt="7" :srcset="getPathFile(product.image)" />
+                                      </router-link>
+                                      <div class="list-col2">
+                                        <div class="list-col8 ">
+                                          <div class="gridview">
+                                            <h2 class="product-name" style="min-height: 30px;">
+                                              <router-link :to="'/product/' + product.id">
+                                                {{ product.name }}
+                                              </router-link>
+                                            </h2>
+                                            <div class="ratings">
+                                              <div class="star-rating">
+                                                <span style="width:80%">Rated
+                                                  <strong class="rating">4.00</strong>
+                                                  out of 5</span>
                                               </div>
-                                              <div class="price-box">
-                                                <span
-                                                  class="woocommerce-Price-amount amount"
-                                                  ><span
-                                                    class="woocommerce-Price-currencySymbol"
-                                                    >&pound;</span
-                                                  >{{ product.price }} Đ</span
-                                                >
-                                              </div>
+                                            </div>
+                                            <div class="price-box">
+                                              <span class="woocommerce-Price-amount amount"><span
+                                                  class="woocommerce-Price-currencySymbol">&pound;</span>{{
+    product.price
+}} Đ</span>
                                             </div>
                                           </div>
                                         </div>
                                       </div>
                                     </div>
-                                    <div class="list-col8 ">
-                                      <div class="gridview">
-                                        <h2 class="product-name">
-                                          <router-link
-                                            :to="'/product/' + product.id"
-                                          >
-                                            {{ product.name }}
-                                          </router-link>
-                                        </h2>
-                                        <div class="price-box">
-                                          <span
-                                            class="woocommerce-Price-amount amount"
-                                            ><span
-                                              class="woocommerce-Price-currencySymbol"
-                                            ></span
-                                            >{{ product.price }} đ</span
-                                          >
-                                        </div>
+                                  </div>
+                                  <div class="list-col8 ">
+                                    <div class="gridview">
+                                      <h2 class="product-name">
+                                        <router-link :to="'/product/' + product.id">
+                                          {{ product.name }}
+                                        </router-link>
+                                      </h2>
+                                      <div class="price-box">
+                                        <span class="woocommerce-Price-amount amount"><span
+                                            class="woocommerce-Price-currencySymbol"></span>{{ product.price }}
+                                          đ</span>
                                       </div>
                                     </div>
-                                    <div class="clearfix"></div>
-                                    <div class="product__box-btn">
-                                      <router-link
-                                        :to="'product/' + product.id"
-                                      >
-                                        <p>Chi tiết</p>
-                                      </router-link>
-                                    </div>
+                                  </div>
+                                  <div class="clearfix"></div>
+                                  <div class="product__box-btn">
+                                    <router-link :to="'product/' + product.id">
+                                      <p>Chi tiết</p>
+                                    </router-link>
                                   </div>
                                 </div>
                               </div>
@@ -278,11 +219,11 @@
                           </div>
                         </div>
                       </div>
-                      <div v-if="!listProduct.length" class="vc_tta-panels">
-                        <h4 style="padding:20px" class="vc_tta-panel-title">
-                          Không có sản phẩm nào
-                        </h4>
-                      </div>
+                    </div>
+                    <div v-if="!listProduct.length" class="vc_tta-panels">
+                      <h4 style="padding:20px" class="vc_tta-panel-title">
+                        Không có sản phẩm nào
+                      </h4>
                     </div>
                   </div>
                 </div>
@@ -291,85 +232,62 @@
           </div>
         </div>
       </div>
-      <div
-        v-if="listProductCare.length"
-        class="vc_row wpb_row vc_row-fluid products-carousel2 title-1 vc_custom_1450175009936"
-      >
-        <div class="row-container">
-          <div class="wpb_column vc_column_container vc_col-sm-12">
-            <div class="vc_column-inner ">
-              <div class="wpb_wrapper">
-                <div class="wpb_text_column wpb_content_element ">
-                  <div class="wpb_wrapper">
-                    <h3>Có thể bạn quan tâm</h3>
-                  </div>
+    </div>
+    <div v-if="listProductCare.length"
+      class="vc_row wpb_row vc_row-fluid products-carousel2 title-1 vc_custom_1450175009936">
+      <div class="row-container">
+        <div class="wpb_column vc_column_container vc_col-sm-12">
+          <div class="vc_column-inner ">
+            <div class="wpb_wrapper">
+              <div class="wpb_text_column wpb_content_element ">
+                <div class="wpb_wrapper">
+                  <h3>Có thể bạn quan tâm</h3>
                 </div>
-                <div class="woocommerce columns-1" style="margin-top: 20px">
-                  <div class="shop-products row grid-view">
-                    <div
-                      v-for="(item, i) in listProductCare"
-                      :key="i"
-                      class=" item-col col-xs-12 col-sm-3 post-2309 product type-product status-publish has-post-thumbnail product_cat-fashion product_cat-footwear product_cat-handbags product_cat-health-beauty product_cat-jewellery product_cat-shoes first instock featured shipping-taxable purchasable product-type-simple"
-                    >
-                      <div class="product-wrapper">
-                        <div class="list-col4 ">
-                          <div class="product-image">
-                            <router-link
-                              :to="'product/' + item.id"
-                              class="woocommerce-LoopProduct-link woocommerce-loop-product__link"
-                            >
-                              <img
-                                width="500"
-                                height="500"
-                                :src="getPathFile(item.image)"
-                                class="primary_image wp-post-image"
-                                alt="5"
-                                :srcset="getPathFile(item.image)"
-                                sizes="(max-width: 500px) 100vw, 500px"
-                              />
-                              <img
-                                width="500"
-                                height="500"
-                                :src="getPathFile(item.image)"
-                                class="secondary_image"
-                                alt="6"
-                                sizes="(max-width: 500px) 100vw, 500px"
-                              />
-                            </router-link>
-                            <div class="list-col2">
-                              <div class="list-col8 ">
-                                <div class="gridview">
-                                  <div class="price-box">
-                                    <span
-                                      class="woocommerce-Price-amount amount"
-                                      >{{ item.price }}</span
-                                    >
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="list-col8 ">
-                          <div class="gridview">
-                            <h2 class="product-name">
-                              <router-link :to="'product/' + item.id">
-                                {{ item.name }}
-                              </router-link>
-                            </h2>
-                            <div class="price-box">
-                              <span class="woocommerce-Price-amount amount">
-                                {{ item.price }} đ</span
-                              >
-                            </div>
-                          </div>
-                        </div>
-                        <div class="clearfix"></div>
-                        <div class="product__box-btn">
-                          <router-link :to="'product/' + item.id">
-                            <p>Chi tiết</p>
+              </div>
+              <div class="woocommerce columns-1" style="margin-top: 20px">
+                <div class="shop-products row grid-view">
+                  <div v-for="(item, i) in listProductCare" :key="i"
+                    class=" item-col col-xs-12 col-sm-3 post-2309 product type-product status-publish has-post-thumbnail product_cat-fashion product_cat-footwear product_cat-handbags product_cat-health-beauty product_cat-jewellery product_cat-shoes first instock featured shipping-taxable purchasable product-type-simple">
+                    <div class="product-wrapper">
+                      <div class="list-col4 ">
+                        <div class="product-image">
+                          <router-link :to="'product/' + item.id"
+                            class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+                            <img width="500" height="500" :src="getPathFile(item.image)"
+                              class="primary_image wp-post-image" alt="5" :srcset="getPathFile(item.image)"
+                              sizes="(max-width: 500px) 100vw, 500px" />
+                            <img width="500" height="500" :src="getPathFile(item.image)" class="secondary_image" alt="6"
+                              sizes="(max-width: 500px) 100vw, 500px" />
                           </router-link>
+                          <div class="list-col2">
+                            <div class="list-col8 ">
+                              <div class="gridview">
+                                <div class="price-box">
+                                  <span class="woocommerce-Price-amount amount">{{ item.price }}</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
+                      </div>
+                      <div class="list-col8 ">
+                        <div class="gridview">
+                          <h2 class="product-name">
+                            <router-link :to="'product/' + item.id">
+                              {{ item.name }}
+                            </router-link>
+                          </h2>
+                          <div class="price-box">
+                            <span class="woocommerce-Price-amount amount">
+                              {{ item.price }} đ</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="clearfix"></div>
+                      <div class="product__box-btn">
+                        <router-link :to="'product/' + item.id">
+                          <p>Chi tiết</p>
+                        </router-link>
                       </div>
                     </div>
                   </div>
@@ -379,173 +297,127 @@
           </div>
         </div>
       </div>
-      <div
-        class="vc_row wpb_row vc_row-fluid products-carousel2 title-1 vc_custom_1450175009936"
-      >
-        <div class="row-container">
-          <div class="wpb_column vc_column_container vc_col-sm-12">
-            <div class="vc_column-inner ">
-              <div class="wpb_wrapper">
-                <div class="wpb_text_column wpb_content_element ">
-                  <div class="wpb_wrapper evo-product-new-title">
-                    <h3 class="sport-titles">Sản phẩm mới</h3>
-                  </div>
-                </div>
-                <div class="woocommerce columns-1" style="margin-top: 20px">
-                  <div class="shop-products row grid-view">
-                    <div
-                      v-for="(item, i) in listProductNew"
-                      :key="i"
-                      class=" item-col col-xs-12 col-sm-3 post-2309 product type-product status-publish has-post-thumbnail product_cat-fashion product_cat-footwear product_cat-handbags product_cat-health-beauty product_cat-jewellery product_cat-shoes first instock featured shipping-taxable purchasable product-type-simple"
-                    >
-                      <div class="product-wrapper">
-                        <span class="tragop">
-                          Trả góp 0%
-                        </span>
-                        <div class="list-col4 ">
-                          <div class="product-image">
-                            <router-link
-                              :to="'product/' + item.id"
-                              class="woocommerce-LoopProduct-link woocommerce-loop-product__link"
-                            >
-                              <img
-                                width="500"
-                                height="500"
-                                :src="getPathFile(item.image)"
-                                class="primary_image wp-post-image"
-                                alt="5"
-                                :srcset="getPathFile(item.image)"
-                                sizes="(max-width: 500px) 100vw, 500px"
-                              />
-                              <img
-                                width="500"
-                                height="500"
-                                :src="getPathFile(item.image)"
-                                class="secondary_image"
-                                alt="6"
-                                sizes="(max-width: 500px) 100vw, 500px"
-                              />
-                            </router-link>
-                            <div class="list-col2">
-                              <div class="list-col8 ">
-                                <div class="gridview">
-                                  <div class="price-box">
-                                    <span
-                                      class="woocommerce-Price-amount amount"
-                                      >{{ item.price }}</span
-                                    >
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="list-col8 ">
-                          <div class="gridview">
-                            <h2 class="product-name">
-                              <router-link :to="'product/' + item.id">
-                                {{ item.name }}
-                              </router-link>
-                            </h2>
-                            <div class="price-box">
-                              <span class="woocommerce-Price-amount amount">
-                                {{ item.price }} đ</span
-                              >
-                            </div>
-                          </div>
-                        </div>
-                        <div class="clearfix"></div>
-                        <div class="product__box-btn"></div>
-                      </div>
-                    </div>
-                  </div>
+    </div>
+    <div class="vc_row wpb_row vc_row-fluid products-carousel2 title-1 vc_custom_1450175009936">
+      <div class="row-container">
+        <div class="wpb_column vc_column_container vc_col-sm-12">
+          <div class="vc_column-inner ">
+            <div class="wpb_wrapper">
+              <div class="wpb_text_column wpb_content_element ">
+                <div class="wpb_wrapper evo-product-new-title">
+                  <h3 class="sport-titles">Sản phẩm mới</h3>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="vc_row wpb_row vc_row-fluid products-carousel2 title-1 vc_custom_1450175009936"
-      >
-        <div class="row-container">
-          <div class="wpb_column vc_column_container vc_col-sm-12">
-            <div class="vc_column-inner ">
-              <div class="wpb_wrapper">
-                <div class="wpb_text_column wpb_content_element ">
-                  <div class="wpb_wrapper evo-product-new-title">
-                    <h3 class="sport-titles">Bán chạy</h3>
-                  </div>
-                </div>
-                <div class="woocommerce columns-1" style="margin-top: 20px">
-                  <div class="shop-products row grid-view">
-                    <div
-                      v-for="(item, i) in listProductNew"
-                      :key="i"
-                      class=" item-col col-xs-12 col-sm-3 post-2309 product type-product status-publish has-post-thumbnail product_cat-fashion product_cat-footwear product_cat-handbags product_cat-health-beauty product_cat-jewellery product_cat-shoes first instock featured shipping-taxable purchasable product-type-simple"
-                    >
-                      <div class="product-wrapper">
-                        <span class="tragop">
-                          Trả góp 0%
-                        </span>
-                        <div class="list-col4 ">
-                          <div class="product-image">
-                            <router-link
-                              :to="'product/' + item.id"
-                              class="woocommerce-LoopProduct-link woocommerce-loop-product__link"
-                            >
-                              <img
-                                width="500"
-                                height="500"
-                                :src="getPathFile(item.image)"
-                                class="primary_image wp-post-image"
-                                alt="5"
-                                :srcset="getPathFile(item.image)"
-                                sizes="(max-width: 500px) 100vw, 500px"
-                              />
-                              <img
-                                width="500"
-                                height="500"
-                                :src="getPathFile(item.image)"
-                                class="secondary_image"
-                                alt="6"
-                                sizes="(max-width: 500px) 100vw, 500px"
-                              />
-                            </router-link>
-                            <div class="list-col2">
-                              <div class="list-col8 ">
-                                <div class="gridview">
-                                  <div class="price-box">
-                                    <span
-                                      class="woocommerce-Price-amount amount"
-                                      >{{ item.price }}</span
-                                    >
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="list-col8 ">
-                          <div class="gridview">
-                            <h2 class="product-name">
-                              <router-link :to="'product/' + item.id">
-                                {{ item.name }}
-                              </router-link>
-                            </h2>
-                            <div class="price-box">
-                              <span class="woocommerce-Price-amount amount">
-                                {{ item.price }} đ</span
-                              >
-                            </div>
-                          </div>
-                        </div>
-                        <div class="clearfix"></div>
-                        <div class="product__box-btn">
-                          <router-link :to="'product/' + item.id">
-                            <p>Chi tiết</p>
+              <div class="woocommerce columns-1" style="margin-top: 20px">
+                <div class="shop-products row grid-view">
+                  <div v-for="(item, i) in listProductNew" :key="i"
+                    class=" item-col col-xs-12 col-sm-3 post-2309 product type-product status-publish has-post-thumbnail product_cat-fashion product_cat-footwear product_cat-handbags product_cat-health-beauty product_cat-jewellery product_cat-shoes first instock featured shipping-taxable purchasable product-type-simple">
+                    <div class="product-wrapper">
+                      <span class="tragop">
+                        Trả góp 0%
+                      </span>
+                      <div class="list-col4 ">
+                        <div class="product-image">
+                          <router-link :to="'product/' + item.id"
+                            class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+                            <img width="500" height="500" :src="getPathFile(item.image)"
+                              class="primary_image wp-post-image" alt="5" :srcset="getPathFile(item.image)"
+                              sizes="(max-width: 500px) 100vw, 500px" />
+                            <img width="500" height="500" :src="getPathFile(item.image)" class="secondary_image" alt="6"
+                              sizes="(max-width: 500px) 100vw, 500px" />
                           </router-link>
+                          <div class="list-col2">
+                            <div class="list-col8 ">
+                              <div class="gridview">
+                                <div class="price-box">
+                                  <span class="woocommerce-Price-amount amount">{{ item.price }}</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
+                      </div>
+                      <div class="list-col8 ">
+                        <div class="gridview">
+                          <h2 class="product-name">
+                            <router-link :to="'product/' + item.id">
+                              {{ item.name }}
+                            </router-link>
+                          </h2>
+                          <div class="price-box">
+                            <span class="woocommerce-Price-amount amount">
+                              {{ item.price }} đ</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="clearfix"></div>
+                      <div class="product__box-btn"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="vc_row wpb_row vc_row-fluid products-carousel2 title-1 vc_custom_1450175009936">
+      <div class="row-container">
+        <div class="wpb_column vc_column_container vc_col-sm-12">
+          <div class="vc_column-inner ">
+            <div class="wpb_wrapper">
+              <div class="wpb_text_column wpb_content_element ">
+                <div class="wpb_wrapper evo-product-new-title">
+                  <h3 class="sport-titles">Bán chạy</h3>
+                </div>
+              </div>
+              <div class="woocommerce columns-1" style="margin-top: 20px">
+                <div class="shop-products row grid-view">
+                  <div v-for="(item, i) in listProductNew" :key="i"
+                    class=" item-col col-xs-12 col-sm-3 post-2309 product type-product status-publish has-post-thumbnail product_cat-fashion product_cat-footwear product_cat-handbags product_cat-health-beauty product_cat-jewellery product_cat-shoes first instock featured shipping-taxable purchasable product-type-simple">
+                    <div class="product-wrapper">
+                      <span class="tragop">
+                        Trả góp 0%
+                      </span>
+                      <div class="list-col4 ">
+                        <div class="product-image">
+                          <router-link :to="'product/' + item.id"
+                            class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+                            <img width="500" height="500" :src="getPathFile(item.image)"
+                              class="primary_image wp-post-image" alt="5" :srcset="getPathFile(item.image)"
+                              sizes="(max-width: 500px) 100vw, 500px" />
+                            <img width="500" height="500" :src="getPathFile(item.image)" class="secondary_image" alt="6"
+                              sizes="(max-width: 500px) 100vw, 500px" />
+                          </router-link>
+                          <div class="list-col2">
+                            <div class="list-col8 ">
+                              <div class="gridview">
+                                <div class="price-box">
+                                  <span class="woocommerce-Price-amount amount">{{ item.price }}</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="list-col8 ">
+                        <div class="gridview">
+                          <h2 class="product-name">
+                            <router-link :to="'product/' + item.id">
+                              {{ item.name }}
+                            </router-link>
+                          </h2>
+                          <div class="price-box">
+                            <span class="woocommerce-Price-amount amount">
+                              {{ item.price }} đ</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="clearfix"></div>
+                      <div class="product__box-btn">
+                        <router-link :to="'product/' + item.id">
+                          <p>Chi tiết</p>
+                        </router-link>
                       </div>
                     </div>
                   </div>
@@ -563,11 +435,13 @@
 import VueGoogleAutocomplete from "vue-google-autocomplete";
 import { mapActions } from "vuex";
 import { config } from "../constants/config";
+import { axiosInstance } from "../helpers/axiosInstance"
+
 export default {
   name: "Home",
   components: { VueGoogleAutocomplete },
 
-  data: function() {
+  data: function () {
     return {
       address: "",
       cateID: 0,
@@ -578,10 +452,12 @@ export default {
       listBanner: [],
       cateIndex: 0,
       listImageCate: [],
-      listCateImageBottom: []
+      listCateImageBottom: [],
+      voucher: null
     };
   },
   created() {
+    this.callApivoucher();
     this.getListProductCategory(-1)
       .then(r => {
         this.listCate = r.data.data.data;
@@ -621,8 +497,7 @@ export default {
     }
   },
   mounted() {
-    // To demonstrate functionality of exposed component functions
-    // Here we make focus on the user input
+
   },
 
   methods: {
@@ -639,6 +514,13 @@ export default {
       "getListProductCare",
       "getListBanner"
     ]),
+    async callApivoucher() {
+      const headers = { Authorization: 'Bearer ' + localStorage.getItem('ACCESS_TOKEN') };
+      await axiosInstance.get('/api/voucher').then(r =>
+        this.voucher = r.data.data.data
+      )
+
+    },
     setProduct(category_id) {
       this.cateIndex = category_id;
       this.filterProduct({ category_id: category_id }).then(res => {
@@ -662,13 +544,7 @@ export default {
   transition: 0.3s !important;
 }
 
-.main-container
-  .shop-products
-  .item-col
-  .product-wrapper
-  .product-image
-  a
-  img:hover,
+.main-container .shop-products .item-col .product-wrapper .product-image a img:hover,
 .item-img img:hover {
   transform: scale(1.1) !important;
 }
@@ -1007,7 +883,7 @@ export default {
   clear: unset;
 }
 
-.category-img .vc_tta-tabs-list li + li {
+.category-img .vc_tta-tabs-list li+li {
   border-top: 1px solid rgba(0, 0, 0, 0.04);
 }
 
@@ -1057,7 +933,12 @@ export default {
   color: #fff;
   margin-top: 5px;
 }
- .product-image{
+
+.product-image {
   max-height: 200px;
-} 
+}
+
+.product-name {
+  height: 50px;
+}
 </style>
