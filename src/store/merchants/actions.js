@@ -13,8 +13,7 @@ export default {
   },
   async getMerchant({commit, state}, data) {
     try {
-      console.log('getMerchant id', data.id)
-      const headers = {
+       const headers = {
         'Content-Type': 'application/json',
         'X-MONMI-API': config.x_monmi_api,
         Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTk2N2FmYmI0NGExNWQ2ZjVhZTA2ZGEiLCJwYXNzd29yZCI6IiQyYiQwNyRHSlJLUkd0TS9TNndnVmlSbFdDSFJlZHVsT3NyYmZwRXc3R2t0SWdURXZIczZqQWZydDZHeSIsImxvY2F0aW9uIjp7ImFkZHJlc3MiOiIxMjMiLCJkaXN0cmljdElkIjoxLCJwcm92aW5jZUlkIjoxLCJjcmVhdGVkX2F0IjoiMjAyMS0xMS0xOFQxNjoxMDozNS40NDNaIiwidXBkYXRlZF9hdCI6IjIwMjEtMTEtMThUMTY6MTA6MzUuNDQzWiJ9LCJzdGF0dXMiOjEsImlzVmVyaWZpZWQiOjEsImRlc2NyaXB0aW9uIjoiZG9uZSIsInBob25lIjoiKzg0ODg4ODIwMDIwIiwiZW1haWwiOiJzc3NAZ21haWwuY29tIiwibmFtZSI6Imx1IGtoYW5oIGR1eSIsImNyZWF0ZWRfYXQiOiIyMDIxLTExLTE4VDE2OjEwOjM1LjQ0M1oiLCJ1cGRhdGVkX2F0IjoiMjAyMS0xMS0xOFQxNjoxMDozNS40NDNaIiwiY29kZSI6MSwiX192IjowLCJpYXQiOjE2MzcyNTU2MTIsImV4cCI6NTIzNzI1NTYxMn0.oAcfeNM6hYb4s2lVlDRGAgNrIaTfW9n67TOjV51L6VI`,

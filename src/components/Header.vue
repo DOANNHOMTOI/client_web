@@ -257,6 +257,11 @@
                     <router-link to="/checkout">Đặt hàng</router-link>
                   </li>
                   <li
+                  class="menu-item menu-item-type-post_type menu-item-object-page last menu-item-4009"
+                >
+                  <router-link to="/info">thông tin người dùng</router-link>
+                </li>
+                  <li
                     @click="logoutWeb()"
                     class="menu-item menu-item-type-post_type menu-item-object-page last menu-item-4009"
                   >

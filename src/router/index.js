@@ -9,6 +9,7 @@ import DetailShop from "../pages/DetailShop";
 import Cart from "../components/Cart";
 import CallBack from "../pages/CallBack";
 import ForgetPassword from "../pages/ForgetPassword";
+import Info from "../pages/Info";
 
 
 Vue.use(Router)
@@ -63,7 +64,11 @@ export default new Router({
       path: '/forgetpassword',
       name: 'forgetpassword',
       component:ForgetPassword
+    },
+    {
+      path: '/info',
+      name: 'info',
+      component:Info
     }
-
   ]
 })
