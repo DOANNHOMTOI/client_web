@@ -86,9 +86,9 @@
         <div data-v-5a90ec03="" class="product-wrapper">
           <div class="woocommerce columns-3">
             <div class="shop-products row grid-view">
-              <div v-for="(item, i) in voucher" :key="i">
+              <div>
                 <div class="container">
-                  <div class="col-xs-2" style="background-color: red; color: white;padding: 20px;">
+                  <div v-for="(item, i) in voucher" :key="i" class="col-xs-2" style="background-color: red; color: white;padding: 20px; margin: 50px;">
                     <span>
                       copy mã : {{ item.code }}
                     </span>
@@ -337,7 +337,7 @@
                           </div>
                         </div>
                       </div>
-                      <div class="list-col8 ">
+                      <div class="list-col8">
                         <div class="gridview">
                           <h2 class="product-name">
                             <router-link :to="'product/' + item.id">
@@ -351,7 +351,11 @@
                         </div>
                       </div>
                       <div class="clearfix"></div>
-                      <div class="product__box-btn"></div>
+                      <div class="product__box-btn">
+                        <router-link :to="'product/' + item.id">
+                          <p>Chi tiết</p>
+                        </router-link>
+                      </div>
                     </div>
                   </div>
                 </div>

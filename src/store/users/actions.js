@@ -38,6 +38,7 @@ import { axiosInstance} from "../../helpers/axiosInstance"
   async login({commit, dispatch}, data) {
     try {
       commit('SHOW_LOADING', true);
+
       return await axiosInstance.post('/api/web/user/login', data, {})
         .then(async (res) => {
           return res
