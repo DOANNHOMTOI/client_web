@@ -279,10 +279,9 @@ export default {
         shipment_type: "1",
         payment_type: +this.selected,
         voucher_id: this.voucher_id ? this.voucher_id.toString() : "null",
-        note: this.note
+        note: this.note,
       };
       JSON.parse(JSON.stringify(obj));
-      console.log(obj);
       if (this.selected == "1") {
         this.createOrderAPI(obj)
           .then(r => {
