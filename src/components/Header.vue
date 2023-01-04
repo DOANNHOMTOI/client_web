@@ -1,7 +1,6 @@
 <template>
   <div class="header-container">
     <div class="banner-top">
-      <img src="../assets/bannertop.jpg" />
     </div>
 
     <div class="header">
@@ -11,8 +10,10 @@
             <div class="col-xs-2 col-md-2">
               <div class="logo">
                 <router-link to="/">
-                  <!-- <img src="http://demo.roadthemes.com/james/wp-content/uploads/2015/12/logo.png" alt="" /> -->
-                  <img src="../assets/logo.jpg" class="logo-img" />
+                  <img
+                    src="https://bizweb.dktcdn.net/100/302/397/themes/754809/assets/slider_2.jpg?1614149879141"
+                    class="logo-img"
+                  />
                 </router-link>
               </div>
             </div>
@@ -59,7 +60,7 @@
                             </router-link>
                           </li>
                           <li
-                            v-for="cate, i in listCate"
+                            v-for="(cate, i) in listCate"
                             :key="i"
                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4017 multicolumn_dropdown default_style drop_to_right submenu_full_width columns3"
                           >
@@ -128,7 +129,7 @@
               </div>
               <ul v-if="showSearchResult" class="list-group listSearch">
                 <li
-                  v-for="item,index in listSearch"
+                  v-for="(item, index) in listSearch"
                   class="list-group-item"
                   :key="index"
                 >
@@ -257,10 +258,10 @@
                     <router-link to="/checkout">Đặt hàng</router-link>
                   </li>
                   <li
-                  class="menu-item menu-item-type-post_type menu-item-object-page last menu-item-4009"
-                >
-                  <router-link to="/info">thông tin người dùng</router-link>
-                </li>
+                    class="menu-item menu-item-type-post_type menu-item-object-page last menu-item-4009"
+                  >
+                    <router-link to="/info">thông tin người dùng</router-link>
+                  </li>
                   <li
                     @click="logoutWeb()"
                     class="menu-item menu-item-type-post_type menu-item-object-page last menu-item-4009"
@@ -399,11 +400,15 @@ export default {
   object-fit: cover;
 }
 
-.banner-top img {
+.banner-top  {
+  background-size: contain;
+  height: 200px;
+
   width: 100%;
   max-width: 100%;
   object-fit: cover;
-  max-height: 160px;
+  background-image: url("https://bizweb.dktcdn.net/100/302/397/themes/754809/assets/slider_2.jpg?1614149879141");
+
 }
 
 .listSearch {
