@@ -88,15 +88,23 @@
             <div class="shop-products row grid-view">
               <div>
                 <div class="container">
-                  <div v-for="(item, i) in voucher" :key="i" class="col-xs-2" style="background-color: red; color: white;padding: 20px; margin: 50px;">
-                    <span>
-                      copy mã : {{ item.code }}
-                    </span>
-                    <br>
-                    <br>
-                    <span>
-                      {{ item.title }}
-                    </span>
+                  <div v-for="(item, i) in voucher" :key="i" class="col-xs-2"
+                    style="background-color: red; color: white;padding: 20px; margin: 50px;">
+                    <div v-if="item.qty">
+                      <span style="background: black; padding: 5px;cursor: pointer;" @click="copyText(item.code)">
+                        copy mã
+                      </span>
+                      <span>:{{ item.code }}</span>
+                      <br>
+                      <br>
+                      <span>
+                        {{ item.title }}
+                      </span>
+                      <br>
+                      <span>
+                        số lượng : {{ item.qty }}
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -185,8 +193,8 @@
                                             <div class="price-box">
                                               <span class="woocommerce-Price-amount amount"><span
                                                   class="woocommerce-Price-currencySymbol">&pound;</span>{{
-    product.price
-}} Đ</span>
+                                                    product.price
+                                                  }} Đ</span>
                                             </div>
                                           </div>
                                         </div>
@@ -501,16 +509,10 @@ export default {
     }
   },
   mounted() {
-
+    console.log(JSON.parse(this.$store.getters.getInfoUser).id);
   },
 
   methods: {
-    /**
-     * When the location found
-     * @param {Object} addressData Data of the found location
-     * @param {Object} placeResultData PlaceResult object
-     * @param {String} id Input container ID
-     */
     ...mapActions([
       "getListProductCategory",
       "filterProduct",
@@ -519,11 +521,12 @@ export default {
       "getListBanner"
     ]),
     async callApivoucher() {
-      const headers = { Authorization: 'Bearer ' + localStorage.getItem('ACCESS_TOKEN') };
       await axiosInstance.get('/api/voucher').then(r =>
         this.voucher = r.data.data.data
       )
-
+    },
+    copyText(val) {
+      navigator.clipboard.writeText(val)
     },
     setProduct(category_id) {
       this.cateIndex = category_id;

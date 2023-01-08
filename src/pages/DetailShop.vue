@@ -15,10 +15,8 @@
     </div>
     <div class="product-view">
       <div class="container"></div>
-      <div
-        id="product-2266"
-        class="post-2266 product type-product status-publish has-post-thumbnail product_cat-health-beauty first instock shipping-taxable purchasable product-type-simple"
-      >
+      <div id="product-2266"
+        class="post-2266 product type-product status-publish has-post-thumbnail product_cat-health-beauty first instock shipping-taxable purchasable product-type-simple">
         <div class="container">
           <div class="row">
             <div class="col-xs-12 col-md-4">
@@ -26,10 +24,7 @@
                 <img :src="getPathFile(product.detail.image)" alt="image" />
               </div>
               <div class="col-md-12" id="thumb_container">
-                <img
-                  v-for="item in product.images" :key="item"
-                  :src="getPathFile(item.image)"
-                />
+                <img v-for="item, i in product.images" :key="i" :src="getPathFile(item.image)" />
               </div>
             </div>
             <div class="col-xs-12 col-md-5">
@@ -37,21 +32,14 @@
                 <h1 class="product_title entry-title">
                   {{ product.detail.name }}
                 </h1>
-                <div
-                  class="price-box"
-                  itemprop="offers"
-                  itemscope
-                  itemtype="http://schema.org/Offer"
-                >
+                <div class="price-box" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
                   <p class="price">
                     <template v-if="parseInt(product.detail.price_sale) > 0">
                       <span class="woocommerce-Price-amount amount">
                         {{ parseInt(product.detail.price_sale) }}đ
                       </span>
-                      <span
-                        class="woocommerce-Price-amount amount"
-                        style="color:#ababab;text-decoration: line-through;font-size: 16px;padding-left: 20px;"
-                      >
+                      <span class="woocommerce-Price-amount amount"
+                        style="color:#ababab;text-decoration: line-through;font-size: 16px;padding-left: 20px;">
                         {{ product.detail.price }}đ
                       </span>
                     </template>
@@ -65,10 +53,7 @@
 
                   <meta itemprop="price" content="80" />
                   <meta itemprop="priceCurrency" content="GBP" />
-                  <link
-                    itemprop="availability"
-                    href="http://schema.org/InStock"
-                  />
+                  <link itemprop="availability" href="http://schema.org/InStock" />
                 </div>
 
                 <div class="short-description" itemprop="description">
@@ -78,59 +63,26 @@
                 </div>
                 <br />
                 <template v-if="product.detail.qty > 0">
-                  <form
-                    class="cart"
-                    method="post"
-                    enctype="multipart/form-data"
-                  >
+                  <form class="cart" method="post" enctype="multipart/form-data">
                     <div class="quantity">
-                      <input
-                        v-model="qty"
-                        type="number"
-                        class="input-text qty text"
-                        step="1"
-                        min="1"
-                        max=""
-                        name="quantity"
-                        title="Qty"
-                        size="4"
-                        pattern="[0-9]*"
-                        inputmode="numeric"
-                      />
+                      <input v-model="qty" type="number" class="input-text qty text" step="1" min="1" max=""
+                        name="quantity" title="Qty" size="4" pattern="[0-9]*" inputmode="numeric" />
                     </div>
 
-                    <button
-                      @click="addToCart()"
-                      type="button"
-                      name="add-to-cart"
-                      value="2266"
-                      class="single_add_to_cart_button button alt"
-                    >
+                    <button @click="addToCart()" type="button" name="add-to-cart" value="2266"
+                      class="single_add_to_cart_button button alt">
                       Thêm vào giỏ
                     </button>
                   </form>
                   <h5 style="font-weight: bold">Size</h5>
-                  <div
-                    class="yith-wcwl-add-to-wishlist add-to-wishlist-2266"
-                    style="display:flex;"
-                  >
-                    <div
-                      v-for="(size, i) in product.sizes"
-                      class="yith-wcwl-add-button show"
-                      :key="i"
-                      style="display:block;margin-right: 10px"
-                    >
-                      <a
-                        @click="setSize(size.size)"
-                        :class="
-                          parseInt(size.size) == parseInt(sizeSet)
-                            ? 'active'
-                            : ''
-                        "
-                        href="javascript:void(0)"
-                        rel="nofollow"
-                        >{{ size.size }}</a
-                      >
+                  <div class="yith-wcwl-add-to-wishlist add-to-wishlist-2266" style="display:flex;">
+                    <div v-for="(size, i) in product.sizes" class="yith-wcwl-add-button show" :key="i"
+                      style="display:block;margin-right: 10px">
+                      <a @click="setSize(size.size)" :class="
+                        parseInt(size.size) == parseInt(sizeSet)
+                          ? 'active'
+                          : ''
+                      " href="javascript:void(0)" rel="nofollow">{{ size.size }}</a>
                     </div>
 
                     <div style="clear:both"></div>
@@ -138,23 +90,11 @@
                   </div>
                   <div style="clear:both"></div>
                   <h5 style="font-weight: bold">Màu</h5>
-                  <div
-                    class="yith-wcwl-add-to-wishlist add-to-wishlist-2266"
-                    style="display:flex;"
-                  >
-                    <div
-                      v-for="(color, i) in product.colors"
-                      class="yith-wcwl-add-button show"
-                      :key="i"
-                      style="display:block;margin-right: 10px"
-                    >
-                      <a
-                        :class="color.color === colorSet ? 'active' : ''"
-                        @click="setColor(color.color)"
-                        href="javascript:void(0)"
-                        rel="nofollow"
-                        >{{ color.color }}</a
-                      >
+                  <div class="yith-wcwl-add-to-wishlist add-to-wishlist-2266" style="display:flex;">
+                    <div v-for="(color, i) in product.colors" class="yith-wcwl-add-button show" :key="i"
+                      style="display:block;margin-right: 10px">
+                      <a :class="color.color === colorSet ? 'active' : ''" @click="setColor(color.color)"
+                        href="javascript:void(0)" rel="nofollow">{{ color.color }}</a>
                     </div>
 
                     <div style="clear:both"></div>
@@ -165,10 +105,7 @@
                 <template v-if="product.detail.qty === 0">
                   <div style="color: red"><b>Sản phẩm đã hết hàng</b></div>
                 </template>
-                <div
-                  class="product-hotline"
-                  style="text-align:center;margin-top: 10px;"
-                >
+                <div class="product-hotline" style="text-align:center;margin-top: 10px;">
                   Gọi
                   <a href="tel:0901250190" title="0901250190">0901 250 190</a>
                   để tư vấn mua hàng
@@ -181,8 +118,7 @@
                 <div class="promotion-item">
                   <img
                     src="//bizweb.dktcdn.net/100/431/707/themes/836413/assets/product_main_policy_1_img.jpg?1670428170364"
-                    alt="Traveller Set Masculine 3x10ml"
-                  />
+                    alt="Traveller Set Masculine 3x10ml" />
                   <div class="text">
                     <strong>Cam kết hàng chính hãng 100%</strong> Hoàn tiền 200%
                     nếu phát hiện hàng giả
@@ -191,8 +127,7 @@
                 <div class="promotion-item">
                   <img
                     src="//bizweb.dktcdn.net/100/431/707/themes/836413/assets/product_main_policy_2_img.jpg?1670428170364"
-                    alt="Traveller Set Masculine 3x10ml"
-                  />
+                    alt="Traveller Set Masculine 3x10ml" />
                   <div class="text">
                     <strong>Bảo hành đến giọt cuối cùng</strong> Đổi trả trong
                     30 ngày
@@ -201,8 +136,7 @@
                 <div class="promotion-item">
                   <img
                     src="//bizweb.dktcdn.net/100/431/707/themes/836413/assets/product_main_policy_3_img.jpg?1670428170364"
-                    alt="Traveller Set Masculine 3x10ml"
-                  />
+                    alt="Traveller Set Masculine 3x10ml" />
                   <div class="text">
                     <strong>Giao hàng siêu tốc 3h</strong> trong nội thành HCM
                   </div>
@@ -210,19 +144,15 @@
                 <div class="promotion-item">
                   <img
                     src="//bizweb.dktcdn.net/100/431/707/themes/836413/assets/product_main_policy_4_img.jpg?1670428170364"
-                    alt="Traveller Set Masculine 3x10ml"
-                  />
+                    alt="Traveller Set Masculine 3x10ml" />
                   <div class="text">
-                    <strong
-                      >Miễn phí vận chuyển nội và ngoại thành TP HCM</strong
-                    >
+                    <strong>Miễn phí vận chuyển nội và ngoại thành TP HCM</strong>
                   </div>
                 </div>
                 <div class="promotion-item">
                   <img
                     src="//bizweb.dktcdn.net/100/431/707/themes/836413/assets/product_main_policy_5_img.jpg?1670428170364"
-                    alt="Traveller Set Masculine 3x10ml"
-                  />
+                    alt="Traveller Set Masculine 3x10ml" />
                   <div class="text">
                     <strong>Gói quà cho khách hàng</strong> nhân dịp đặc biệt
                   </div>
@@ -235,69 +165,38 @@
         <div class="container">
           <div class="woocommerce-tabs wc-tabs-wrapper">
             <ul class="tabs wc-tabs" role="tablist">
-              <li
-                class="description_tab"
-                :class="tab == 1 ? 'active' : ''"
-                id="tab-title-description"
-                role="tab"
-                aria-controls="tab-description"
-              >
+              <li class="description_tab" :class="tab == 1 ? 'active' : ''" id="tab-title-description" role="tab"
+                aria-controls="tab-description">
                 <a @click="showTab(1)">Thông tin chi tiết</a>
               </li>
-              <li
-                class="reviews_tab"
-                :class="tab == 2 ? 'active' : ''"
-                id="tab-title-reviews"
-                role="tab"
-                aria-controls="tab-reviews"
-              >
+              <li class="reviews_tab" :class="tab == 2 ? 'active' : ''" id="tab-title-reviews" role="tab"
+                aria-controls="tab-reviews">
                 <a @click="showTab(2)">Đánh giá sản phẩm</a>
               </li>
             </ul>
-            <div
-              v-if="tab == 1"
+            <div v-if="tab == 1"
               class="woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab"
-              id="tab-description"
-              role="tabpanel"
-              aria-labelledby="tab-title-description"
-            >
+              id="tab-description" role="tabpanel" aria-labelledby="tab-title-description">
               <p v-html="product.detail.body"></p>
             </div>
-            <div
-              v-if="tab == 2"
-              class="woocommerce-Tabs-panel woocommerce-Tabs-panel--reviews panel entry-content wc-tab"
-              id="tab-reviews"
-              role="tabpanel"
-              aria-labelledby="tab-title-reviews"
-            >
+            <div v-if="tab == 2"
+              class="woocommerce-Tabs-panel woocommerce-Tabs-panel--reviews panel entry-content wc-tab" id="tab-reviews"
+              role="tabpanel" aria-labelledby="tab-title-reviews">
               <div id="reviews">
                 <div id="comments">
                   <ul class="commentlist">
-                    <li
-                      v-for="(cmt, i) in listComment"
-                      :key="i"
-                      style="margin-bottom: 10px"
+                    <li v-for="(cmt, i) in listComment" :key="i" style="margin-bottom: 10px"
                       class="comment byuser comment-author-admin bypostauthor even thread-even depth-1"
-                      id="li-comment-40"
-                    >
+                      id="li-comment-40">
                       <div id="comment-40" class="comment_container">
-                        <div
-                          class="comment-text"
-                          style="padding: 10px;margin: auto;"
-                        >
+                        <div class="comment-text" style="padding: 10px;margin: auto;">
                           <div class="star-rating">
-                            <span
-                              v-for="(star, i) in cmt.rate"
-                              class="fa fa-star checked"
-                              :key="i"
-                            ></span>
+                            <span v-for="(star, i) in cmt.rate" class="fa fa-star checked" :key="i"></span>
                           </div>
                           <p class="meta" style="padding-top: 10px">
-                            <strong
-                              class="woocommerce-review__author"
-                              itemprop="author"
-                              >{{ cmt.guest_info.name }}</strong
-                            >
+                            <strong class="woocommerce-review__author" itemprop="author">{{
+                              cmt.guest_info.name
+                            }}</strong>
                             <span class="woocommerce-review__dash">–</span>
                             <!--                            <time class="woocommerce-review__published-date" itemprop="datePublished" datetime="2015-03-23T04:45:38+00:00">{{ cmt.created_at }}</time>-->
                           </p>
@@ -312,77 +211,37 @@
                   </ul>
                 </div>
 
-                <div
-                  v-if="isShowRating && getStatusLogin"
-                  id="review_form_wrapper"
-                >
+                <div v-if="isShowRating && getStatusLogin" id="review_form_wrapper">
                   <div id="review_form">
                     <div id="respond" class="comment-respond">
                       <h3 id="reply-title" class="comment-reply-title">
-                        Đánh giá của bạn<small
-                          ><a
-                            rel="nofollow"
-                            id="cancel-comment-reply-link"
-                            href="/james/shop/footwear/aenean-sagittis/#respond"
-                            style="display:none;"
-                            >Cancel reply</a
-                          ></small
-                        >
+                        Đánh giá của bạn<small><a rel="nofollow" id="cancel-comment-reply-link"
+                            href="/james/shop/footwear/aenean-sagittis/#respond" style="display:none;">Cancel
+                            reply</a></small>
                       </h3>
-                      <form
-                        action="https://demo.roadthemes.com/james/wp-comments-post.php"
-                        method="post"
-                        id="commentform"
-                        class="comment-form"
-                      >
+                      <form action="https://demo.roadthemes.com/james/wp-comments-post.php" method="post"
+                        id="commentform" class="comment-form">
                         <p class="comment-form-rating"></p>
                         <div class="star-rating" style="margin-bottom: 10px">
-                          <span
-                            class="fa fa-star star-rate"
-                            :class="rate >= 1 ? 'checked' : ''"
-                            @click="rateStar(1)"
-                          ></span>
-                          <span
-                            class="fa fa-star star-rate"
-                            :class="rate >= 2 ? 'checked' : ''"
-                            @click="rateStar(2)"
-                          ></span>
-                          <span
-                            class="fa fa-star star-rate"
-                            :class="rate >= 3 ? 'checked' : ''"
-                            @click="rateStar(3)"
-                          ></span>
-                          <span
-                            class="fa fa-star star-rate"
-                            :class="rate >= 4 ? 'checked' : ''"
-                            @click="rateStar(4)"
-                          ></span>
-                          <span
-                            class="fa fa-star star-rate"
-                            :class="rate >= 5 ? 'checked' : ''"
-                            @click="rateStar(5)"
-                          ></span>
+                          <span class="fa fa-star star-rate" :class="rate >= 1 ? 'checked' : ''"
+                            @click="rateStar(1)"></span>
+                          <span class="fa fa-star star-rate" :class="rate >= 2 ? 'checked' : ''"
+                            @click="rateStar(2)"></span>
+                          <span class="fa fa-star star-rate" :class="rate >= 3 ? 'checked' : ''"
+                            @click="rateStar(3)"></span>
+                          <span class="fa fa-star star-rate" :class="rate >= 4 ? 'checked' : ''"
+                            @click="rateStar(4)"></span>
+                          <span class="fa fa-star star-rate" :class="rate >= 5 ? 'checked' : ''"
+                            @click="rateStar(5)"></span>
                         </div>
 
                         <p class="comment-form-comment">
-                          <textarea
-                            id="comment"
-                            v-model="comment"
-                            name="comment"
-                            cols="45"
-                            rows="8"
-                            aria-required="true"
-                          ></textarea>
+                          <textarea id="comment" v-model="comment" name="comment" cols="45" rows="8"
+                            aria-required="true"></textarea>
                         </p>
                         <p class="form-submit">
-                          <input
-                            name="submit"
-                            type="button"
-                            @click="ratingAPI"
-                            id="submit"
-                            class="submit"
-                            value="Đánh giá"
-                          />
+                          <input name="submit" type="button" @click="ratingAPI" id="submit" class="submit"
+                            value="Đánh giá" />
                         </p>
                       </form>
                     </div>
@@ -391,9 +250,7 @@
                 </div>
                 <div v-if="!getStatusLogin">
                   <button class="btn btn-primary">
-                    <router-link style="color: white" to="/login"
-                      >Đăng nhập để đánh giá</router-link
-                    >
+                    <router-link style="color: white" to="/login">Đăng nhập để đánh giá</router-link>
                   </button>
                 </div>
 
@@ -486,13 +343,16 @@ export default {
         return false;
       }
       let carts = this.getterListItemInCart;
+      console.log(12,this.$store);
+      const idUser = JSON.parse(this.$store.getters.getInfoUser).id;
       let obj = {
         product: this.product.detail,
         attribute: {
           size: this.sizeSet,
           color: this.colorSet
         },
-        qty: parseInt(this.qty)
+        qty: parseInt(this.qty),
+        idUser:idUser
       };
       // check sp ton tai
       let flag = carts.findIndex(
@@ -660,47 +520,25 @@ export default {
   width: 100%;
 }
 
-.main-container
-  .product-view
-  .summary.single-product-info
-  .yith-wcwl-add-to-wishlist
-  a:before {
+.main-container .product-view .summary.single-product-info .yith-wcwl-add-to-wishlist a:before {
   display: none !important;
 }
 
-.main-container
-  .product-view
-  .summary.single-product-info
-  .yith-wcwl-add-to-wishlist
-  a {
+.main-container .product-view .summary.single-product-info .yith-wcwl-add-to-wishlist a {
   border-radius: 10px;
 }
 
-.main-container
-  .product-view
-  .summary.single-product-info
-  .yith-wcwl-add-to-wishlist
-  a.active {
+.main-container .product-view .summary.single-product-info .yith-wcwl-add-to-wishlist a.active {
   background-color: #f25862;
   color: #fff;
   border-color: #f25862;
 }
 
-.main-container
-  .product-view
-  .summary.single-product-info
-  .cart
-  .quantity
-  .input-text {
+.main-container .product-view .summary.single-product-info .cart .quantity .input-text {
   padding-left: 10px;
 }
 
-.main-container
-  .product-view
-  .summary.single-product-info
-  .cart
-  .quantity
-  .input-text:focus {
+.main-container .product-view .summary.single-product-info .cart .quantity .input-text:focus {
   outline: none;
 }
 

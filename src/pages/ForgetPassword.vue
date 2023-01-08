@@ -28,7 +28,7 @@
         </div>
     </div>
 </template>
-  
+
 <script>
 import { mapActions } from "vuex";
 
@@ -41,30 +41,42 @@ export default {
     },
     methods: {
         ...mapActions(['forget']),
+        validateEmail(email) {
+            var re = /\S+@\S+\.\S+/;
+            return re.test(email);
+        },
         submitForm() {
             if (this.email === '') {
                 alert('Vui lòng nhập đầy đủ thông tin !')
                 return false;
             }
+            if (!this.validateEmail(this.email)) {
+                alert("nhập đúng định dạng email")
+            }
             let data = {
                 email: this.email,
 
             }
-            this.forget(data).then(res => {
-                if (res) {
-                    alert(res.data.message)
-                    this.$router.push('/login').catch(()=>{})
-                }
-            }).catch(e => {
-                console.log(e)
-            })
+            if (this.email !== '' && this.validateEmail(this.email)) {
+                this.forget(data).then(res => {
+                    if (res.success == true) {
+                        alert(res.data.message)
+                        this.$router.push('/login').catch(() => { })
+                    }
+                    else {
+                        alert("không tìm thấy tài khoản")
+                    }
+                }).catch(e => {
+                    alert(e)
+                    console.log(e)
+                })
+            }
         },
     },
 
 }
 </script>
-  
+
 <style scoped>
 
 </style>
-  

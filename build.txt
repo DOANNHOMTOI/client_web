@@ -1,2 +1,0 @@
-lcp --proxyUrl https://client-monmi.myepis.cloud
-lcp --proxyUrl https://monmi-gateway.myepis.cloud

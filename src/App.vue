@@ -6,6 +6,7 @@
     <div class="wrapper ">
       <div class="page-wrapper">
         <Header />
+        <Loading v-bind:class="{ show: this.isLoading }"/>
         <div class="main-container front-page">
           <div class="page-content">
             <router-view></router-view>

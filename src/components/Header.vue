@@ -118,14 +118,13 @@
               >
                 <input
                   v-model="search"
-                  @keyup="searchProductInput()"
+                  @keyup.enter="searchProductInput()"
                   @focus="setShowRS(true)"
                   type="text"
                   class="form-control"
                   placeholder="Tên sản phẩm, mô tả, ..."
                   id="email"
                 />
-                <!--                <button type="button" class="btn btn-primary mb-2">Tìm kiếm</button>-->
               </div>
               <ul v-if="showSearchResult" class="list-group listSearch">
                 <li

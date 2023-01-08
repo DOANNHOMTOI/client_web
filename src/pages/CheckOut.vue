@@ -259,8 +259,8 @@ export default {
       }
       return this.convertCurrency(totalPrice);
     },
-    createOrder() {
-
+    async createOrder() {
+      await this.$store.commit("SHOW_LOADING", true)
       if (this.checkValidate() == false) {
         return;
       }
@@ -270,6 +270,10 @@ export default {
           id: this.getterListItemInCart[i].product.id,
           qty: this.getterListItemInCart[i].qty
         })
+      }
+      if (this.phone.length > 11 || this.phone.length < 10) {
+        alert('nhập k đúng định dạng số')
+        return false
       }
       let obj = {
         name: this.name,
@@ -331,8 +335,10 @@ export default {
               "Tạo đơn hàng thành công , chúng tôi sẽ liên hệ lại với bạn trong thời gian sớm nhât !"
             );
             this.isCheckSubmit = false;
-          });
+          })
       }
+      this.$store.commit("SHOW_LOADING", false)
+
     },
     applyCode() {
       if (this.voucher === "") return false;
