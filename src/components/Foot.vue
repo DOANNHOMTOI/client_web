@@ -27,7 +27,7 @@
             <p><strong>Ngày hoạt động: </strong>26/07/2021</p>
             <p><strong>Giấy phép kinh doanh: </strong>41W8060917</p>
 
-            <p><strong>Địa chỉ: </strong>TP Hồ Chí Minh
+            <p><strong>Địa chỉ: </strong>VN
             </p>
 
             <p>
@@ -46,15 +46,15 @@
             <h4 class="footer-title">Chính sách</h4>
             <div class="footer-menu">
 
-              <a href="/quy-che-hoat-dong" title="Quy chế hoạt động" rel="nofollow">Quy chế hoạt động</a>
+              <a href="#" title="Quy chế hoạt động" rel="nofollow">Quy chế hoạt động</a>
 
-              <a href="/dieu-khoan-su-dung" title="Điều khoản sử dụng" rel="nofollow">Điều khoản sử dụng</a>
+              <a href="#" title="Điều khoản sử dụng" rel="nofollow">Điều khoản sử dụng</a>
 
-              <a href="/cau-hoi-thuong-gap" title="Câu hỏi thường gặp" rel="nofollow">Câu hỏi thường gặp</a>
+              <a href="#" title="Câu hỏi thường gặp" rel="nofollow">Câu hỏi thường gặp</a>
 
-              <a href="/thong-tin-thanh-toan" title="Thông tin thanh toán" rel="nofollow">Thông tin thanh toán</a>
+              <a href="#" title="Thông tin thanh toán" rel="nofollow">Thông tin thanh toán</a>
 
-              <a href="/chinh-sach-giao-nhan" title="Chính sách giao nhận" rel="nofollow">Chính sách giao nhận</a>
+              <a href="#" title="Chính sách giao nhận" rel="nofollow">Chính sách giao nhận</a>
 
             </div>
           </div>

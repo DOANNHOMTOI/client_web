@@ -113,14 +113,14 @@
                                     {{ item.product.name }}
                                   </a>
                                   <span class="quantity"><span class="woocommerce-Price-amount amount">{{
-    item.attribute.size
-}} /
+                                    item.attribute.size
+                                  }} /
                                       {{ item.attribute.color }} /
                                       {{
-    item.product.price_sale > 0
-      ? parseInt(item.product.price_sale)
-      : item.product.price
-}}
+                                        item.product.price_sale > 0
+                                          ? parseInt(item.product.price_sale)
+                                          : item.product.price
+                                      }}
                                       đ</span></span>
                                 </div>
                               </li>
@@ -169,7 +169,7 @@
                             </div>
                             <div>
                               <button @click="createOrder()" class="btn btn-primary" type="button"
-                                style="width: 100%;margin-top: 30px">
+                                style="width: 100%;margin-top: 30px" :disabled="isCheckSubmit">
                                 Xác nhận đặt hàng
                               </button>
                             </div>
@@ -188,6 +188,12 @@
             </div>
           </article>
         </div>
+      </div>
+    </div>
+    <div v-if="isCheckSubmit">
+      <div class="loading">
+        <img src="https://i.gifer.com/origin/d3/d3f472b06590a25cb4372ff289d81711_w200.gif" />
+        <div class="bg-loading"></div>
       </div>
     </div>
   </div>
@@ -219,7 +225,8 @@ export default {
       note: "",
       voucher: "",
       percent: "",
-      selected: 1
+      selected: 1,
+      isCheckSubmit: false
     };
   },
   components: { Cart, Slide, SideBar2, TopBar },
@@ -247,16 +254,15 @@ export default {
 
       totalPrice = (totalPrice) * percent + 30000;
 
-      if(this.percent){
+      if (this.percent) {
 
       }
       return this.convertCurrency(totalPrice);
     },
     createOrder() {
 
-      if (this.name === "" || this.phone === "" || this.address === "") {
-        alert("Vui lòng điền đầy đủ thông tin để đặt hàng !");
-        return false;
+      if (this.checkValidate() == false) {
+        return;
       }
       const products = [];
       for (let i = 0; i < this.getterListItemInCart.length; i++) {
@@ -292,8 +298,10 @@ export default {
               localStorage.removeItem("carts");
               this.$store.commit("SET_LIST_ITEM_IN_CART", []);
               window.location.href = "/";
+              this.isCheckSubmit = false;
             } else {
               alert("Có lỗi xảy ra, vui lòng thử lại !");
+              this.isCheckSubmit = false;
               return false;
             }
           })
@@ -301,6 +309,7 @@ export default {
             alert(
               "Tạo đơn hàng thành công , chúng tôi sẽ liên hệ lại với bạn trong thời gian sớm nhât !"
             );
+            this.isCheckSubmit = false;
           });
       }
       if (this.selected == "3") {
@@ -310,8 +319,10 @@ export default {
               localStorage.removeItem("carts");
               this.$store.commit("SET_LIST_ITEM_IN_CART", []);
               window.location.href = r.data.data.payUrl;
+              this.isCheckSubmit = false;
             } else {
               alert("Có lỗi xảy ra, vui lòng thử lại !");
+              this.isCheckSubmit = false;
               return false;
             }
           })
@@ -319,6 +330,7 @@ export default {
             alert(
               "Tạo đơn hàng thành công , chúng tôi sẽ liên hệ lại với bạn trong thời gian sớm nhât !"
             );
+            this.isCheckSubmit = false;
           });
       }
     },
@@ -337,6 +349,21 @@ export default {
         .catch(e => {
           console.log(e);
         });
+    },
+    checkValidate() {
+      if (this.name == '') {
+        alert('Bạn không được để trống tên')
+        return false;
+      }
+      if (this.phone == '') {
+        alert('Bạn không được để trống phone')
+        return false;
+      }
+      if (this.phone.match(/\d/g).length !== 10) {
+        alert('Bạn chỉ được nhập 10 số');
+        return false
+      }
+      return true;
     }
   },
   computed: {
@@ -346,6 +373,23 @@ export default {
 </script>
 
 <style scoped>
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 99999;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+
 [type="radio"]:checked,
 [type="radio"]:not(:checked) {
   position: absolute;

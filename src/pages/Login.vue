@@ -20,7 +20,7 @@
 
                   <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                     <label for="username">Số điện thoại<span class="required">*</span></label><br />
-                    <input v-model="phone" type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username"
+                    <input v-model="phone" type="number" maxlength=10 class="woocommerce-Input woocommerce-Input--text input-text" name="username"
                            id="username" value="">
                   </p>
                   <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
