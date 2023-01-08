@@ -81,7 +81,7 @@
           </aside>
           <aside id="text-10" class="widget widget_text">
             <div class="textwidget"><a href="#"><img
-                  src="http://demo.roadthemes.com/james/wp-content/uploads/2015/12/banner_left.jpg" alt=""></a></div>
+                  src="https://babi.vn/images/promo/76/Banner-Web-B%C3%A9-Xinh-Nh%E1%BB%9D-M%E1%BA%B9-600-x-500.jpg" alt=""></a></div>
           </aside>
         </div>
         <div id="archive-product" class="col-xs-12 col-md-9">
