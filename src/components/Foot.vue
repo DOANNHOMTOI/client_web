@@ -23,7 +23,7 @@
               <strong>HỘ KINH DOANH đồ trẻ em </strong>
             </p>
             <p><strong>Mã số thuế: </strong>41W8060917</p>
-            <p><strong>Người DDPL: </strong>Nguyễn Lan Chinh</p>
+            <p><strong>Người DDPL: </strong>Phạm Văn Long </p>
             <p><strong>Ngày hoạt động: </strong>26/07/2021</p>
             <p><strong>Giấy phép kinh doanh: </strong>41W8060917</p>
 
@@ -38,7 +38,7 @@
             <p>
 
               <strong>Email: </strong><a href="mailto:niperfume.com@gmail.com"
-                title="niperfume.com@gmail.com">niperfume.com@gmail.com</a>
+                title="niperfume.com@gmail.com">admin@gmail.com</a>
 
             </p>
           </div>
