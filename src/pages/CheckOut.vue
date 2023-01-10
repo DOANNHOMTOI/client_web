@@ -261,9 +261,6 @@ export default {
     },
     async createOrder() {
       await this.$store.commit("SHOW_LOADING", true)
-      if (this.checkValidate() == false) {
-        return;
-      }
       const products = [];
       for (let i = 0; i < this.getterListItemInCart.length; i++) {
         products.push({
@@ -274,6 +271,11 @@ export default {
       if (this.phone.length > 11 || this.phone.length < 10) {
         alert('nhập k đúng định dạng số')
         return false
+      }
+      if(this.address ==''){
+        alert("phải nhập địa chỉ")
+        return false
+
       }
       let obj = {
         name: this.name,

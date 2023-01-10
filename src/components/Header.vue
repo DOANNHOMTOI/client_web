@@ -10,10 +10,8 @@
             <div class="col-xs-2 col-md-2">
               <div class="logo">
                 <router-link to="/">
-                  <img
-                    src="https://bizweb.dktcdn.net/100/302/397/themes/754809/assets/slider_2.jpg?1614149879141"
-                    class="logo-img"
-                  />
+                  <img src="https://bizweb.dktcdn.net/100/302/397/themes/754809/assets/slider_2.jpg?1614149879141"
+                    class="logo-img" />
                 </router-link>
               </div>
             </div>
@@ -21,10 +19,8 @@
               <div class="visible-lg visible-md">
                 <div class="horizontal-menu">
                   <!-- begin "mega_main_menu" -->
-                  <div
-                    id="mega_main_menu_first"
-                    class="primary primary_style-flat icons-left first-lvl-align-left first-lvl-separator-smooth direction-horizontal fullwidth-disable pushing_content-disable mobile_minimized-disable dropdowns_trigger-hover dropdowns_animation-anim_5 no-logo no-search no-woo_cart no-buddypress responsive-enable coercive_styles-disable indefinite_location_mode-disable language_direction-ltr version-2-1-2 mega_main mega_main_menu"
-                  >
+                  <div id="mega_main_menu_first"
+                    class="primary primary_style-flat icons-left first-lvl-align-left first-lvl-separator-smooth direction-horizontal fullwidth-disable pushing_content-disable mobile_minimized-disable dropdowns_trigger-hover dropdowns_animation-anim_5 no-logo no-search no-woo_cart no-buddypress responsive-enable coercive_styles-disable indefinite_location_mode-disable language_direction-ltr version-2-1-2 mega_main mega_main_menu">
                     <div class="menu_holder">
                       <div class="mmm_fullwidth_container"></div>
                       <!-- class="fullwidth_container" -->
@@ -34,50 +30,11 @@
                             <span class="mobile_button">
                               Menu &nbsp;
                               <span class="symbol_menu">&equiv;</span>
-                              <span class="symbol_cross">&#x2573;</span> </span
-                            ><!-- class="mobile_button" -->
-                          </a> </span
-                        ><!-- /class="nav_logo" -->
-                        <ul
-                          id="mega_main_menu_ul_first"
-                          class="mega_main_menu_ul"
-                        >
-                          <li
-                            id="menu-item-4017"
-                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4017 multicolumn_dropdown default_style drop_to_right submenu_full_width columns3"
-                          >
-                            <router-link
-                              to="/shop"
-                              tabindex="4"
-                              class="item_link  disable_icon"
-                            >
-                              <i class=""></i>
-                              <span class="link_content">
-                                <span class="link_text">
-                                  Cửa hàng
-                                </span>
-                              </span>
-                            </router-link>
-                          </li>
-                          <li
-                            v-for="(cate, i) in listCate"
-                            :key="i"
-                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4017 multicolumn_dropdown default_style drop_to_right submenu_full_width columns3"
-                          >
-                            <router-link
-                              :to="{
-                                name: 'Shop',
-                                params: { category_id: cate.id }
-                              }"
-                              class="item_link  disable_icon"
-                            >
-                              <i class=""></i>
-                              <span class="link_content">
-                                <span class="link_text">
-                                  {{ cate.name }}
-                                </span>
-                              </span>
-                            </router-link>
+                              <span class="symbol_cross">&#x2573;</span> </span><!-- class="mobile_button" -->
+                          </a> </span><!-- /class="nav_logo" -->
+                        <ul id="mega_main_menu_ul_first" class="mega_main_menu_ul">
+                          <li id="menu-item-4017"
+                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4017 multicolumn_dropdown default_style drop_to_right submenu_full_width columns3">
                           </li>
                         </ul>
                       </div>
@@ -92,9 +49,7 @@
             </div>
             <div class="col-xs-8 col-md-2">
               <div class="evo-main-hotline">
-                <a href="tel:0901250190" title="Gọi mua hàng:"
-                  ><span>Gọi mua hàng:</span>0901 250 190</a
-                >
+                <a href="tel:0901250190" title="Gọi mua hàng:"><span>Gọi mua hàng:</span>0901 250 190</a>
               </div>
             </div>
           </div>
@@ -107,31 +62,14 @@
           <div class="col-md-3 text-animas">
             <div class="typewriter">Black friday up sale 60%</div>
           </div>
-          <div
-            class=" col-md-9 d-flex login-box"
-            style="display: flex;align-items: center;"
-          >
+          <div class=" col-md-9 d-flex login-box" style="display: flex;align-items: center;">
             <div style="width: 85%;position: relative">
-              <div
-                class="form-group mx-sm-3 mb-2"
-                style="display: flex;margin-bottom: 0;"
-              >
-                <input
-                  v-model="search"
-                  @keyup.enter="searchProductInput()"
-                  @focus="setShowRS(true)"
-                  type="text"
-                  class="form-control"
-                  placeholder="Tên sản phẩm, mô tả, ..."
-                  id="email"
-                />
+              <div class="form-group mx-sm-3 mb-2" style="display: flex;margin-bottom: 0;">
+                <input v-model="search" @keyup.enter="searchProductInput()" @focus="setShowRS(true)" type="text"
+                  class="form-control" placeholder="Tên sản phẩm, mô tả, ..." id="email" />
               </div>
               <ul v-if="showSearchResult" class="list-group listSearch">
-                <li
-                  v-for="(item, index) in listSearch"
-                  class="list-group-item"
-                  :key="index"
-                >
+                <li v-for="(item, index) in listSearch" class="list-group-item" :key="index">
                   <a @click="toDetailProduct(item)" href="#">{{ item.name }}</a>
                 </li>
               </ul>
@@ -148,39 +86,29 @@
                   <div class="mini_cart_inner">
                     <template v-if="getterListItemInCart.length > 0">
                       <div class="mini_cart_arrow"></div>
-                      <ul class="cart_list product_list_widget ">
-                        <li
-                          id="mcitem-40b5f25a228570053bc64a043c3f1833"
-                          v-for="(item, i) in getterListItemInCart"
-                          :key="i"
-                        >
+                      <ul v-if="getterListItemInCart.length > 0" class="cart_list product_list_widget ">
+                        <li id="mcitem-40b5f25a228570053bc64a043c3f1833" v-for="(item, i) in getterListItemInCart"
+                          :key="i">
                           <a class="product-image" href="#">
-                            <img
-                              width="200"
-                              height="200"
-                              :src="getPathFile(item.product.image)"
-                              class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
-                              alt="7"
-                              sizes="(max-width: 200px) 100vw, 200px"
-                            />
-                            <span class="quantity">{{ item.qty }}</span>
+                            <!-- <img width="200" height="200" :src="getPathFile(item.product.image)"
+                              class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="7"
+                              sizes="(max-width: 200px) 100vw, 200px" /> -->
+                            <!-- <span class="quantity">{{ item.qty }}</span> -->
                           </a>
                           <div class="product-details">
-                            <a class="product-name">
+                            <!-- <a class="product-name">
                               {{ item.product.name }}
-                            </a>
-                            <span class="quantity"
-                              ><span class="woocommerce-Price-amount amount"
-                                >{{ item.attribute.size }} /
+                            </a> -->
+                            <!-- <span class="quantity"><span class="woocommerce-Price-amount amount">{{
+                              item.attribute.size
+                            }} /
                                 {{ item.attribute.color }} /
                                 {{
                                   item.product.price_sale > 0
                                     ? parseInt(item.product.price_sale)
                                     : item.product.price
                                 }}
-                                đ</span
-                              ></span
-                            >
+                                đ</span></span> -->
                           </div>
                         </li>
                       </ul>
@@ -188,17 +116,13 @@
                       <p class="total">
                         Tổng tiền:
                         <span class="woocommerce-Price-amount amount">
-                          {{ totalPriceCart() }}</span
-                        >
+                          {{ totalPriceCart() }}</span>
                       </p>
                       <p class="buttons">
                         <router-link to="/cart" class="button wc-forward">
                           Xem giỏ
                         </router-link>
-                        <router-link
-                          to="/checkout"
-                          class="button checkout wc-forward"
-                        >
+                        <router-link to="/checkout" class="button checkout wc-forward">
                           Đặt hàng
                         </router-link>
                       </p>
@@ -213,58 +137,35 @@
                 </div>
               </div>
             </div>
-            <router-link
-              v-if="!getStatusLogin"
-              to="/login"
-              tag="button"
-              class="btn btn-primary btn-login mb-2"
-            >
+            <router-link v-if="!getStatusLogin" to="/login" tag="button" class="btn btn-primary btn-login mb-2">
               <span> </span>
               <span> </span>
               <span> </span>
               <span> </span>
-              Đăng nhập</router-link
-            >
-            <div
-              v-if="getStatusLogin"
-              class="top-menu"
-              style="display:flex;align-items: center"
-            >
-              <img
-                style="width: 25px;padding-top: 0;padding-right: 5px;margin-left: 10px"
-                src="/static/images/user.png"
-                alt=""
-              />
+              Đăng nhập</router-link>
+            <div v-if="getStatusLogin" class="top-menu" style="display:flex;align-items: center">
+              <img style="width: 25px;padding-top: 0;padding-right: 5px;margin-left: 10px" src="/static/images/user.png"
+                alt="" />
               <span style="display:block;width: 100px;overflow:hidden;">{{
                 JSON.parse(getInfoUser).name
               }}</span>
               <div class="top-menu-container">
                 <ul id="menu-top-menu" class="nav-menu">
-                  <li
-                    class="menu-item menu-item-type-post_type menu-item-object-page last menu-item-4009"
-                  >
+                  <li class="menu-item menu-item-type-post_type menu-item-object-page last menu-item-4009">
                     <router-link to="/shop">Cửa hàng</router-link>
                   </li>
-                  <li
-                    id="menu-item-4009"
-                    class="menu-item menu-item-type-post_type menu-item-object-page last menu-item-4009"
-                  >
+                  <li id="menu-item-4009"
+                    class="menu-item menu-item-type-post_type menu-item-object-page last menu-item-4009">
                     <router-link to="/cart">Giỏ hàng</router-link>
                   </li>
-                  <li
-                    class="menu-item menu-item-type-post_type menu-item-object-page last menu-item-4009"
-                  >
+                  <li class="menu-item menu-item-type-post_type menu-item-object-page last menu-item-4009">
                     <router-link to="/checkout">Đặt hàng</router-link>
                   </li>
-                  <li
-                    class="menu-item menu-item-type-post_type menu-item-object-page last menu-item-4009"
-                  >
+                  <li class="menu-item menu-item-type-post_type menu-item-object-page last menu-item-4009">
                     <router-link to="/info">thông tin người dùng</router-link>
                   </li>
-                  <li
-                    @click="logoutWeb()"
-                    class="menu-item menu-item-type-post_type menu-item-object-page last menu-item-4009"
-                  >
+                  <li @click="logoutWeb()"
+                    class="menu-item menu-item-type-post_type menu-item-object-page last menu-item-4009">
                     <a href="#">Đăng Xuất</a>
                   </li>
                 </ul>
@@ -284,8 +185,7 @@
           <div class="mobile-menu-container">
             <ul id="menu-horizontal-menu" class="nav-menu">
               <li
-                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4017"
-              >
+                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4017">
                 <a href="http://demo.roadthemes.com/james/shop/">Shop</a>
               </li>
             </ul>
@@ -313,7 +213,7 @@ export default {
       // carts: localStorage.getItem('carts') != null ? JSON.parse(localStorage.getItem('carts')) : []
     };
   },
-  mounted() {},
+  mounted() { },
   methods: {
     ...mapActions(["getListProductCategory", "filterProduct"]),
     getPathFile(path) {
@@ -324,13 +224,14 @@ export default {
     },
     totalPriceCart() {
       let totalPrice = 0;
-      this.getterListItemInCart.forEach(function(item) {
+      this.getterListItemInCart.forEach(function (item) {
         let price =
           item.product.price_sale > 0
             ? parseInt(item.product.price_sale)
             : item.product.price;
         totalPrice += price * item.qty;
       });
+      totalPrice = totalPrice ? totalPrice : 0
       return this.convertCurrency(totalPrice);
     },
     logoutWeb() {
@@ -388,6 +289,9 @@ export default {
       .catch(e => {
         console.log(e);
       });
+  },
+  mounted(){
+    console.log("this.getterListItemInCart",this.getterListItemInCart);
   }
 };
 </script>
@@ -399,7 +303,7 @@ export default {
   object-fit: cover;
 }
 
-.banner-top  {
+.banner-top {
   background-size: contain;
   height: 200px;
 
@@ -421,6 +325,7 @@ export default {
     flex-wrap: wrap;
     margin-bottom: 20px;
   }
+
   .btn-login {
     margin-left: 0 !important;
   }
@@ -457,6 +362,7 @@ export default {
 }
 
 @keyframes cursor {
+
   0%,
   100% {
     border-color: #212121;
@@ -473,13 +379,7 @@ export default {
   }
 }
 
-.horizontal-menu
-  #mega_main_menu_first
-  > .menu_holder
-  .menu_inner
-  > ul
-  > li
-  > a.item_link {
+.horizontal-menu #mega_main_menu_first>.menu_holder .menu_inner>ul>li>a.item_link {
   padding: 0 15px !important;
   min-height: unset !important;
   line-height: 1.5 !important;
@@ -506,14 +406,7 @@ export default {
   text-align: left;
 }
 
-.horizontal-menu
-  #mega_main_menu_first
-  > .menu_holder
-  .menu_inner
-  > ul
-  > li
-  > a.item_link
-  .link_text {
+.horizontal-menu #mega_main_menu_first>.menu_holder .menu_inner>ul>li>a.item_link .link_text {
   line-height: 60px !important;
   min-height: 60px !important;
 }

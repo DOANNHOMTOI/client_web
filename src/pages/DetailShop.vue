@@ -23,7 +23,7 @@
               <div class="col-md-12" id="main_image">
                 <img :src="getPathFile(product.detail.image)" alt="image" />
               </div>
-              <div class="col-md-12" id="thumb_container">
+              <div v-if="product.images" class="col-md-12" id="thumb_container">
                 <img v-for="item, i in product.images" :key="i" :src="getPathFile(item.image)" />
               </div>
             </div>
@@ -69,7 +69,7 @@
                         name="quantity" title="Qty" size="4" pattern="[0-9]*" inputmode="numeric" />
                     </div>
 
-                    <button @click="addToCart()" type="button" name="add-to-cart" value="2266"
+                    <button  @click="addToCart()" type="button" name="add-to-cart" value="2266"
                       class="single_add_to_cart_button button alt">
                       Thêm vào giỏ
                     </button>
@@ -266,11 +266,7 @@
 </template>
 
 <script>
-import HeaderShop from "../components/Header-Shop";
-import CartSideBar from "../components/CartSideBar";
 import { mapActions, mapGetters } from "vuex";
-import { isEmptyObject } from "../helpers";
-import CartBottom from "../components/CartBottom";
 import { config } from "../constants/config";
 
 export default {
@@ -343,7 +339,6 @@ export default {
         return false;
       }
       let carts = this.getterListItemInCart;
-      console.log(12,this.$store);
       const idUser = JSON.parse(this.$store.getters.getInfoUser).id;
       let obj = {
         product: this.product.detail,

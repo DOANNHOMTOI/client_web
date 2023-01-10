@@ -26,8 +26,8 @@
             <ul class="product-categories">
               <li class="cat-item cat-item-44" v-for="(cate, i) in listCategory" :key="i">
                 <a :class="$route.params.category_id === cate.id ? 'active' : ''" @click="filCate(cate.id)" href="#">{{
-    cate.name
-}}</a>
+                  cate.name
+                }}</a>
                 <span class="count" style="font-weight: bold">({{ cate.numProduct }})</span>
               </li>
             </ul>
@@ -81,7 +81,8 @@
           </aside>
           <aside id="text-10" class="widget widget_text">
             <div class="textwidget"><a href="#"><img
-                  src="https://babi.vn/images/promo/76/Banner-Web-B%C3%A9-Xinh-Nh%E1%BB%9D-M%E1%BA%B9-600-x-500.jpg" alt=""></a></div>
+                  src="https://babi.vn/images/promo/76/Banner-Web-B%C3%A9-Xinh-Nh%E1%BB%9D-M%E1%BA%B9-600-x-500.jpg"
+                  alt=""></a></div>
           </aside>
         </div>
         <div id="archive-product" class="col-xs-12 col-md-9">
@@ -100,101 +101,21 @@
                         class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
                         <img width="500" height="500" :src="getPathFile(item.image)" class="primary_image wp-post-image"
                           alt="15" />
-                        <img width="500" height="500" :src="getPathFile(item.image)" class="secondary_image" alt="17"
-                          :srcset="getPathFile(item.image)" sizes="(max-width: 500px) 100vw, 500px" />
                       </router-link>
                     </div>
                   </div>
                   <div class="list-col8 ">
                     <div class="gridview">
                       <h2 class="product-name">
-                        <router-link :to="'/product/' + item.id">{{ item.name
-}}</router-link>
+                        <router-link :to="'/product/' + item.id">{{
+                          item.name
+                        }}</router-link>
                       </h2>
-
-                      <div class="price-box">
-                        <span class="woocommerce-Price-amount amount">{{ item.price }} đ</span>
-                        <span class="price-sale">12.000 đ</span>
-                      </div>
                     </div>
                     <div class="listview">
                       <h2 class="product-name">
-                        <router-link :to="'/product/' + item.id">Aenean
-                          eu tristique</router-link>
+                        <router-link :to="'/product/' + item.id">xem chi tiết</router-link>
                       </h2>
-                      <div class="price-box"><span class="woocommerce-Price-amount amount"><span
-                            class="woocommerce-Price-currencySymbol">&pound;</span>80.00</span></div>
-                      <div class="ratings">
-                        <div class="star-rating"><span style="width:100%">Rated <strong class="rating">5.00</strong> out
-                            of 5</span></div>
-                      </div>
-                      <div class="product-desc">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-                          fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi
-                          ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu,
-                          suscipit id nulla.</p>
-                      </div>
-
-                      <div class="actions">
-                        <ul class="add-to-links clearfix">
-                          <li>
-                            <p class="product woocommerce add_to_cart_inline "
-                              style="border:4px solid #ccc; padding: 12px;">
-
-                              <span class="woocommerce-Price-amount amount"><span
-                                  class="woocommerce-Price-currencySymbol">&pound;</span>80.00</span>
-                              <a rel="nofollow" href="/james/shop/?add-to-cart=2266" data-quantity="1"
-                                data-product_id="2266" data-product_sku=""
-                                class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add to
-                                cart</a>
-                            </p>
-                          </li>
-
-                          <li class="quickviewbtn">
-                            <a class="detail-link quickview" data-quick-id="2266"
-                              href="http://demo.roadthemes.com/james/shop/health-beauty/aenean-eu-tristique/"
-                              title="Aenean eu tristique">Quick View</a>
-                          </li>
-
-                          <li>
-
-                            <div class="yith-wcwl-add-to-wishlist add-to-wishlist-2266">
-                              <div class="yith-wcwl-add-button show" style="display:block">
-
-
-                                <a href="/james/shop/?add_to_wishlist=2266" rel="nofollow" data-product-id="2266"
-                                  data-product-type="simple" class="add_to_wishlist">
-                                  Add to Wishlist</a>
-
-                              </div>
-
-                              <div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
-                                <span class="feedback">Product added!</span>
-                                <a href="http://demo.roadthemes.com/james/wishlist/?wishlist-action" rel="nofollow">
-                                  Browse Wishlist </a>
-                              </div>
-
-                              <div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
-                                <span class="feedback">The product is already in the wishlist!</span>
-                                <a href="http://demo.roadthemes.com/james/wishlist/?wishlist-action" rel="nofollow">
-                                  Browse Wishlist </a>
-                              </div>
-
-                              <div style="clear:both"></div>
-                              <div class="yith-wcwl-wishlistaddresponse"></div>
-
-                            </div>
-
-                            <div class="clear"></div>
-                          </li>
-                          <li>
-                            <div class="woocommerce product compare-button"><a
-                                href="http://demo.roadthemes.com/james?action=yith-woocompare-add-product&id=2266&lang=en"
-                                class="compare button" data-product_id="2266" rel="nofollow">Compare</a></div>
-                          </li>
-                        </ul>
-
-                      </div>
                     </div>
                   </div>
                   <div class="clearfix"></div>
@@ -375,5 +296,10 @@ export default {
 
 .cat-item a.active {
   color: #f25862;
+}
+.product_list_widget {
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
 }
 </style>

@@ -470,6 +470,7 @@ export default {
   },
   created() {
     this.callApivoucher();
+    this.checkLogin()
     this.getListProductCategory(-1)
       .then(r => {
         this.listCate = r.data.data.data;
@@ -508,9 +509,6 @@ export default {
         });
     }
   },
-  mounted() {
-    console.log(JSON.parse(this.$store.getters.getInfoUser).id);
-  },
 
   methods: {
     ...mapActions([
@@ -518,7 +516,8 @@ export default {
       "filterProduct",
       "getListProductNew",
       "getListProductCare",
-      "getListBanner"
+      "getListBanner",
+      "checkLogin"
     ]),
     async callApivoucher() {
       await axiosInstance.get('/api/voucher').then(r =>
@@ -537,6 +536,10 @@ export default {
     getPathFile(path) {
       return config.url_api_back_end_real + path;
     }
+  },
+  mounted() {
+    this.checkLogin()
+
   }
 };
 </script>

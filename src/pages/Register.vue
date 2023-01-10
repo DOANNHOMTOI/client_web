@@ -151,11 +151,11 @@ export default {
             alert("Tạo tài khoản thành công !");
             this.$router.push("/login");
           } else {
-            alert("Số điện thoại này đã đăng ký tài khoản trước đó !");
+            alert("Số điện thoại hoặc gmail này đã đăng ký tài khoản trước đó !");
           }
         })
         .catch(e => {
-          alert("Số điện thoại này đã đăng ký tài khoản trước đó !");
+          alert("Số điện thoại hoặc gmail này đã đăng ký tài khoản trước đó !");
           console.log(e);
         });
     }
