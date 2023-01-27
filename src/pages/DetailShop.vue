@@ -340,6 +340,9 @@ export default {
       }
       let carts = this.getterListItemInCart;
       const idUser = JSON.parse(this.$store.getters.getInfoUser).id;
+      if(!idUser){
+        alert("đăng nhập để mua hàng")
+      }
       let obj = {
         product: this.product.detail,
         attribute: {

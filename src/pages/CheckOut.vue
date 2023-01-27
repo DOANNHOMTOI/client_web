@@ -280,7 +280,7 @@ export default {
       let obj = {
         name: this.name,
         phone: this.phone,
-        address: this.address,
+            address: this.address,
         email: this.email,
         products: JSON.stringify(this.getterListItemInCart),
         total_price: parseInt(

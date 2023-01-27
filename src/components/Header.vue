@@ -290,8 +290,12 @@ export default {
         console.log(e);
       });
   },
-  mounted(){
-    console.log("this.getterListItemInCart",this.getterListItemInCart);
+  watch:{
+    getterListItemInCart:{
+      handler(newVal,oldVal){
+      },
+      deep:true
+    }
   }
 };
 </script>
